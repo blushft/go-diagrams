@@ -26,12 +26,12 @@ func main() {
 			gcp.Compute.ComputeEngine(diagram.NodeLabel("Server 2")),
 			gcp.Compute.ComputeEngine(diagram.NodeLabel("Server 3")),
 		).
-		ConnectAllFrom(dns.ID(), diagram.Forward()).
+		ConnectAllFrom(lb.ID(), diagram.Forward()).
 		ConnectAllTo(cache.ID(), diagram.Forward())
 
 	dc.NewGroup("data").Label("Data Layer").Add(cache, db).Connect(cache, db)
 
-	d.Connect(lb, dns, diagram.Forward()).Group(dc)
+	d.Connect(dns, lb, diagram.Forward()).Group(dc)
 
 	if err := d.Render(); err != nil {
 		log.Fatal(err)
