@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	nodePkg = "github.com/blushft/go-diagrams/node"
+	diaPkg = "github.com/blushft/go-diagrams/diagram"
 )
 
 type provider struct {
@@ -99,7 +99,7 @@ func main() {
 	}
 
 	for _, p := range providers {
-		if err := genProvider("node", p); err != nil {
+		if err := genProvider("nodes", p); err != nil {
 			log.Fatalf("generate %s: %v", p.name, err)
 		}
 	}
@@ -128,16 +128,16 @@ func genContainer(root, pName, pPath, name string, imgs map[string]string) error
 	croot := filepath.Join(root, name)
 	imgpath := filepath.Join(pPath, name)
 
-	f.ImportName(nodePkg, "node")
+	f.ImportName(diaPkg, "diagram")
 
-	f.Type().Id(cname).Struct(jen.Id("path").String(), jen.Id("opts").Index().Qual(nodePkg, "Option"))
+	f.Type().Id(cname).Struct(jen.Id("path").String(), jen.Id("opts").Index().Qual(diaPkg, "NodeOption"))
 
 	f.Var().Id(expCName).Op("=").Op("&").Id(cname).Values(
 		jen.Dict{
 			jen.Id("path"): jen.Lit(imgpath),
-			jen.Id("opts"): jen.Qual(nodePkg, "OptionSet").Values(
-				jen.Qual(nodePkg, "Provider").Call(jen.Lit(pName)),
-				jen.Qual(nodePkg, "Shape").Call(jen.Lit("none")),
+			jen.Id("opts"): jen.Qual(diaPkg, "OptionSet").Values(
+				jen.Qual(diaPkg, "Provider").Call(jen.Lit(pName)),
+				jen.Qual(diaPkg, "NodeShape").Call(jen.Lit("none")),
 			),
 		},
 	)
@@ -147,18 +147,18 @@ func genContainer(root, pName, pPath, name string, imgs map[string]string) error
 		f.Func().Params(jen.Id("c").Op("*").Id(cname)).
 			Id(method).
 			Params(
-				jen.Id("opts").Op("...").Qual(nodePkg, "Option"),
+				jen.Id("opts").Op("...").Qual(diaPkg, "NodeOption"),
 			).
-			Op("*").Qual(nodePkg, "Node").
+			Op("*").Qual(diaPkg, "Node").
 			Block(
-				jen.Id("nopts").Op(":=").Qual(nodePkg, "MergeOptionSets").Call(
-					jen.Qual(nodePkg, "OptionSet").Values(
-						jen.Qual(nodePkg, "Icon").Call(jen.Lit(imgPath)),
+				jen.Id("nopts").Op(":=").Qual(diaPkg, "MergeOptionSets").Call(
+					jen.Qual(diaPkg, "OptionSet").Values(
+						jen.Qual(diaPkg, "Icon").Call(jen.Lit(imgPath)),
 					),
 					jen.Id("c").Dot("opts"),
 					jen.Id("opts"),
 				),
-				jen.Return(jen.Qual(nodePkg, "New").Call(
+				jen.Return(jen.Qual(diaPkg, "NewNode").Call(
 					jen.Id("nopts").Op("..."),
 				)),
 			).Line()

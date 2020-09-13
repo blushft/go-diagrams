@@ -4,8 +4,7 @@ import (
 	"log"
 
 	"github.com/blushft/go-diagrams/diagram"
-	"github.com/blushft/go-diagrams/node"
-	"github.com/blushft/go-diagrams/node/k8s"
+	"github.com/blushft/go-diagrams/nodes/k8s"
 )
 
 func main() {
@@ -19,12 +18,14 @@ func main() {
 		log.Fatal(err)
 	}
 
-	ingress := k8s.Network.Ing(node.Label("nginx"))
-	svc := k8s.Network.Svc(node.Label("http"))
+	ingress := k8s.Network.Ing(diagram.NodeLabel("nginx"))
+	svc := k8s.Network.Svc(diagram.NodeLabel("http"))
 
 	d.Connect(ingress, svc)
 
-	d.Group("pods", diagram.Label("app")).Connect(svc, k8s.Compute.Pod(node.Label("web server")))
+	g := diagram.NewGroup("pods").Label("Deployment").Connect(svc, k8s.Compute.Pod(diagram.NodeLabel("web server")))
+
+	d.Group(g)
 
 	if err := d.Render(); err != nil {
 		log.Fatal(err)

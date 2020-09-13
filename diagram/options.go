@@ -68,26 +68,6 @@ func DefaultOptions(opts ...Option) Options {
 	return options
 }
 
-func groupOptions(name string, idx int, options Options, opts ...Option) Options {
-	nopts := options
-	opts = append(opts,
-		PenColor("#AEB6BE"),
-		Shape("box"),
-		Style("rounded"),
-		LabelJustify("l"),
-		bgFromIndex(idx),
-	)
-
-	nopts.Font.Size = 12
-	nopts.Name = name
-
-	for _, o := range opts {
-		o(&nopts)
-	}
-
-	return nopts
-}
-
 func Filename(f string) Option {
 	return func(o *Options) {
 		o.FileName = f
@@ -142,20 +122,4 @@ func LabelJustify(j string) Option {
 	return func(o *Options) {
 		o.Attributes["labeljust"] = j
 	}
-}
-
-func BackgroundColor(c string) Option {
-	return func(o *Options) {
-		o.Attributes["bgcolor"] = c
-	}
-}
-
-func bgFromIndex(idx int) Option {
-	bgcs := []string{"#E5F5FD", "#EBF3E7", "#ECE8F6", "#FDF7E3"}
-	if idx-1 > len(bgcs) {
-		idx = 0
-	}
-
-	return BackgroundColor(bgcs[idx])
-
 }

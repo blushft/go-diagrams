@@ -9,7 +9,7 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/cmd/gen/main.go",
+            "program": "${workspaceFolder}/_examples/app/main.go",
             "cwd": "${workspaceFolder}",
             "env": {},
             "args": []

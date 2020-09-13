@@ -6,115 +6,76 @@ import (
 	"os"
 
 	graphviz "github.com/awalterschulze/gographviz"
-	"github.com/blushft/go-diagrams/node"
+	"github.com/davecgh/go-spew/spew"
 )
 
+type Connector interface {
+	Connect(start, end *Node, opts ...EdgeOption) Connector
+	ConnectByID(start, end string, opts ...EdgeOption) Connector
+}
+
 type Diagram struct {
-	idx     int
 	options Options
-	parent  *Diagram
-	child   *Diagram
 
 	g *graphviz.Escape
 
-	nodes map[string]*node.Node
-	edges map[string]*node.Edge
+	root *Group
 }
 
 func New(opts ...Option) (*Diagram, error) {
 	options := DefaultOptions(opts...)
 	g := graphviz.NewEscape()
-	g.SetName(options.Name)
+	g.SetName("root")
 	g.SetDir(true)
 
 	for k, v := range options.attrs() {
-		if err := g.AddAttr(options.Name, k, v); err != nil {
+		if err := g.AddAttr("root", k, v); err != nil {
 			return nil, err
 		}
 	}
 
-	return new(0, g, options, nil), nil
+	return new(g, options), nil
 }
 
-func new(idx int, g *graphviz.Escape, options Options, parent *Diagram) *Diagram {
+func new(g *graphviz.Escape, options Options) *Diagram {
 	return &Diagram{
-		idx:     idx,
 		g:       g,
 		options: options,
-		nodes:   make(map[string]*node.Node),
-		edges:   make(map[string]*node.Edge),
+		root:    newGroup("root", 0, nil),
 	}
 }
 
-func (d *Diagram) Nodes() []*node.Node {
-	ns := make([]*node.Node, 0, len(d.nodes))
-	for _, n := range d.nodes {
-		ns = append(ns, n)
-	}
-
-	return ns
+func (d *Diagram) Nodes() []*Node {
+	return d.root.Nodes()
 }
 
-func (d *Diagram) Edges() []*node.Edge {
-	es := make([]*node.Edge, 0, len(d.edges))
-	for _, e := range d.edges {
-		es = append(es, e)
-	}
-
-	return es
+func (d *Diagram) Edges() []*Edge {
+	return d.root.Edges()
 }
 
-func (d *Diagram) Root() *Diagram {
-	if d.parent != nil {
-		return d.parent.Root()
-	}
+func (d *Diagram) Groups() []*Group {
+	return d.root.Children()
+}
 
+func (d *Diagram) Add(ns ...*Node) *Diagram {
+	d.root.Add(ns...)
 	return d
 }
 
-func (d *Diagram) Next() *Diagram {
-	return d.child
-}
-
-func (d *Diagram) Previous() *Diagram {
-	return d.parent
-}
-
-func (d *Diagram) AddNode(n *node.Node) *Diagram {
-	d.nodes[n.ID()] = n
-
-	return d
-}
-
-func (d *Diagram) AddNodes(ns ...*node.Node) *Diagram {
-	for _, n := range ns {
-		d.nodes[n.ID()] = n
-	}
-
-	return d
-}
-
-func (d *Diagram) Connect(start, end *node.Node, opts ...node.EdgeOption) *Diagram {
-	d.AddNodes(start, end)
+func (d *Diagram) Connect(start, end *Node, opts ...EdgeOption) *Diagram {
+	d.Add(start, end)
 	return d.ConnectByID(start.ID(), end.ID(), opts...)
 }
 
-func (d *Diagram) ConnectByID(start, end string, opts ...node.EdgeOption) *Diagram {
-	e := node.NewEdge(start, end, opts...)
-	d.edges[e.ID()] = e
+func (d *Diagram) ConnectByID(start, end string, opts ...EdgeOption) *Diagram {
+	d.root.ConnectByID(start, end, opts...)
 
 	return d
 }
 
-func (d *Diagram) Group(name string, opts ...Option) *Diagram {
-	idx := d.idx + 1
-	options := groupOptions("cluster_"+name, idx, d.options, opts...)
-
-	gr := new(idx, d.g, options, d)
-	gr.parent = d
-	d.child = gr
-
-	return gr
+func (d *Diagram) Group(g *Group) *Diagram {
+	d.root.Group(g)
+	return d
 }
 
 func (d *Diagram) Close() error {
@@ -122,32 +83,28 @@ func (d *Diagram) Close() error {
 }
 
 func (d *Diagram) Render() error {
-	return render(d)
+	return d.render()
 }
 
 func (d *Diagram) render() error {
-	if d.parent != nil {
-		if err := d.g.AddSubGraph(d.parent.options.Name, d.options.Name, d.options.attrs()); err != nil {
-			return err
-		}
-	}
-
-	for _, n := range d.nodes {
-		err := n.Graph(d.options.Name, d.g)
+	for _, n := range d.root.nodes {
+		err := n.render("root", d.g)
 		if err != nil {
 			return err
 		}
 	}
 
-	for _, e := range d.edges {
-		err := e.Graph(d.g, e.Start(), e.End())
+	for _, e := range d.root.edges {
+		err := e.render(e.Start(), e.End(), d.g)
 		if err != nil {
 			return err
 		}
 	}
 
-	if d.parent != nil {
-		return d.parent.render()
+	for _, g := range d.root.children {
+		if err := g.render(d.g); err != nil {
+			return err
+		}
 	}
 
 	return d.renderOutput()
@@ -164,14 +121,6 @@ func (d *Diagram) renderOutput() error {
 
 func (d *Diagram) saveDot() error {
 	fname := d.options.FileName + ".dot"
+	spew.Dump(d.g.Relations)
 	return ioutil.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
-}
-
-func render(d *Diagram) error {
-	lastChild := d
-	for lastChild.Next() != nil {
-		lastChild = lastChild.Next()
-	}
-
-	return lastChild.render()
 }
