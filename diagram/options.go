@@ -2,8 +2,6 @@ package diagram
 
 import (
 	"strconv"
-
-	"github.com/blushft/go-diagrams/font"
 )
 
 type Options struct {
@@ -18,7 +16,7 @@ type Options struct {
 	Splines    string
 	NodeSep    float64
 	RankSep    float64
-	Font       font.Options
+	Font       Font
 	Attributes map[string]string
 }
 
@@ -57,7 +55,7 @@ func DefaultOptions(opts ...Option) Options {
 		Splines:    "ortho",
 		NodeSep:    0.60,
 		RankSep:    0.75,
-		Font:       font.DefaultOptions(),
+		Font:       defaultFont(),
 		Attributes: make(map[string]string),
 	}
 
