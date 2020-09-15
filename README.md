@@ -4,7 +4,12 @@
 
 Go-Diagrams is a loose port of [diagrams](https://github.com/mingrammer/diagrams).
 
-### Features
+## Contents
+
+- [Features](#features)
+- [Usage](#usage)
+
+## Features
 
 Turn this:
 
@@ -42,3 +47,39 @@ if err := d.Render(); err != nil {
 Into this:
 
 ![app-diagram](images/app-diagram.png)
+
+## Usage
+
+```sh
+go get github.com/blushft/go-diagrams
+```
+
+Create a diagram:
+
+```golang
+d, err := diagram.New(diagram.Name("my-diagram"), diagram.Filename("diagram")))
+if err != nil {
+    log.Fatal(err)
+}
+
+fw := generic.Network.Firewall().Label("fw")
+sw := generic.Network.Switch().Label("sw")
+
+d.Connect(fw, sw)
+```
+
+Render the output:
+
+```golang
+if err := e.Render(); err != nil {
+    log.Fatal(err)
+}
+```
+
+Go-Diagrams will create a folder in the current working directory with the graphviz DOT file and any image assets.
+
+Create an ouput image with any graphviz compatible renderer:
+
+```sh
+dot -Tpng diagram.dot > diagram.png
+```
