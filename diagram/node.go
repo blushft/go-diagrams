@@ -8,7 +8,7 @@ import (
 	"strings"
 
 	graphviz "github.com/awalterschulze/gographviz"
-	"github.com/blushft/go-diagrams/assets"
+	"github.com/blushft/go-diagrams/nodes/assets"
 	"github.com/blushft/go-diagrams/pkg/rand"
 )
 

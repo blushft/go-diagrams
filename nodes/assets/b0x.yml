@@ -1,0 +1,12 @@
+pkg: assets
+dest: ./
+fmt: true
+compression:
+  compress: true
+clean: true
+noprefix: true
+spread: true
+custom:
+  - files:
+      - ../../assets/**/*.png
+    base: ../../
