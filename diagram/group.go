@@ -150,13 +150,13 @@ func (g *Group) BackgroundColor(c string) *Group {
 	return g
 }
 
-func (g *Group) render(graph *graphviz.Escape) error {
+func (g *Group) render(outdir string, graph *graphviz.Escape) error {
 	if err := graph.AddSubGraph(g.parent.id, g.id, g.attrs()); err != nil {
 		return err
 	}
 
 	for _, n := range g.nodes {
-		if err := n.render(g.id, graph); err != nil {
+		if err := n.render(g.id, outdir, graph); err != nil {
 			return err
 		}
 	}
@@ -168,7 +168,7 @@ func (g *Group) render(graph *graphviz.Escape) error {
 	}
 
 	for _, child := range g.children {
-		if err := child.render(graph); err != nil {
+		if err := child.render(outdir, graph); err != nil {
 			return err
 		}
 	}

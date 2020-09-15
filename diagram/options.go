@@ -47,7 +47,7 @@ func DefaultOptions(opts ...Option) Options {
 		Name:       "go-diagrams",
 		FileName:   "go-diagram",
 		OutFormat:  "dot",
-		Label:      "go-diagrams",
+		Label:      "",
 		Direction:  string(LeftToRight),
 		CurveStyle: "ortho",
 		Show:       true,

@@ -1,10 +1,14 @@
 package diagram
 
 import (
+	"io/ioutil"
+	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 
 	graphviz "github.com/awalterschulze/gographviz"
+	"github.com/blushft/go-diagrams/assets"
 	"github.com/blushft/go-diagrams/pkg/rand"
 )
 
@@ -37,8 +41,25 @@ func (n *Node) setConnector(c Connector) {
 	n.conn = c
 }
 
-func (n *Node) render(name string, graph *graphviz.Escape) error {
-	return graph.AddNode(name, n.id, n.attrs())
+func (n *Node) render(parent string, path string, graph *graphviz.Escape) error {
+	if n.Options.Image != "" {
+		img, err := assets.ReadFile(n.Options.Image)
+		if err != nil {
+			return err
+		}
+
+		outDir := filepath.Join(path, filepath.Dir(n.Options.Image))
+		if err := os.MkdirAll(outDir, os.ModePerm); err != nil {
+			return err
+		}
+
+		outFile := filepath.Join(outDir, filepath.Base(n.Options.Image))
+		if err := ioutil.WriteFile(outFile, img, os.ModePerm); err != nil {
+			return err
+		}
+	}
+
+	return graph.AddNode(parent, n.id, n.attrs())
 }
 
 func (n *Node) attrs() map[string]string {
@@ -71,9 +92,9 @@ func (n *Node) attrs() map[string]string {
 	return trimAttrs(attrs)
 }
 
-func renderNodes(name string, graph *graphviz.Escape, nodes ...*Node) error {
+func renderNodes(name, out string, graph *graphviz.Escape, nodes ...*Node) error {
 	for _, n := range nodes {
-		err := n.render(name, graph)
+		err := n.render(name, out, graph)
 		if err != nil {
 			return err
 		}

@@ -4,9 +4,9 @@ import (
 	"errors"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 
 	graphviz "github.com/awalterschulze/gographviz"
-	"github.com/davecgh/go-spew/spew"
 )
 
 type Connector interface {
@@ -87,8 +87,13 @@ func (d *Diagram) Render() error {
 }
 
 func (d *Diagram) render() error {
+	outdir := d.options.Name
+	if err := os.Mkdir(outdir, os.ModePerm); err != nil {
+		return err
+	}
+
 	for _, n := range d.root.nodes {
-		err := n.render("root", d.g)
+		err := n.render("root", outdir, d.g)
 		if err != nil {
 			return err
 		}
@@ -102,7 +107,7 @@ func (d *Diagram) render() error {
 	}
 
 	for _, g := range d.root.children {
-		if err := g.render(d.g); err != nil {
+		if err := g.render(outdir, d.g); err != nil {
 			return err
 		}
 	}
@@ -120,7 +125,7 @@ func (d *Diagram) renderOutput() error {
 }
 
 func (d *Diagram) saveDot() error {
-	fname := d.options.FileName + ".dot"
-	spew.Dump(d.g.Relations)
+	fname := filepath.Join(d.options.Name, d.options.FileName+".dot")
+
 	return ioutil.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
 }
