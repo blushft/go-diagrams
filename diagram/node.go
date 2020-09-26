@@ -137,7 +137,7 @@ func DefaultNodeOptions(opts ...NodeOption) NodeOptions {
 		Font: Font{
 			Name:  "Sans-Serif",
 			Size:  13,
-			Color: "#@D3436",
+			Color: "#2D3436",
 		},
 		Attributes: make(map[string]string),
 	}
