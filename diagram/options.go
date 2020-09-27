@@ -1,12 +1,14 @@
 package diagram
 
 import (
+	"os"
 	"strconv"
 )
 
 type Options struct {
 	Name       string
 	FileName   string
+	InputFile  *os.File
 	OutFormat  string
 	Direction  string
 	CurveStyle string
@@ -69,6 +71,12 @@ func DefaultOptions(opts ...Option) Options {
 func Filename(f string) Option {
 	return func(o *Options) {
 		o.FileName = f
+	}
+}
+
+func DirName(d string) Option {
+	return func(o *Options) {
+		o.Name = d
 	}
 }
 
