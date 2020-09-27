@@ -28,7 +28,8 @@ nodes:
     - name: cache
       label: "Cache"
       type: gcp.Database.Memorystore
-      connectTo: db
+      connectTo:
+      - db
 
     - name: db
       label: "Database"
