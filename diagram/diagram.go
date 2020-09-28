@@ -24,9 +24,7 @@ type Diagram struct {
 
 func New(opts ...Option) (*Diagram, error) {
 	options := DefaultOptions(opts...)
-	g := graphviz.NewEscape()
-	g.SetName("root")
-	g.SetDir(true)
+	g := newGraphviz()
 
 	for k, v := range options.attrs() {
 		if err := g.AddAttr("root", k, v); err != nil {
@@ -34,15 +32,27 @@ func New(opts ...Option) (*Diagram, error) {
 		}
 	}
 
-	return new(g, options), nil
+	return newDiagram(g, options), nil
 }
 
-func new(g *graphviz.Escape, options Options) *Diagram {
+func NewDiagram(options Options) (*Diagram, error) {
+	return newDiagram(newGraphviz(), options), nil
+}
+
+func newDiagram(g *graphviz.Escape, options Options) *Diagram {
 	return &Diagram{
 		g:       g,
 		options: options,
 		root:    newGroup("root", 0, nil),
 	}
+}
+
+func newGraphviz() *graphviz.Escape {
+	g := graphviz.NewEscape()
+	g.SetName("root")
+	g.SetDir(true)
+
+	return g
 }
 
 func (d *Diagram) Nodes() []*Node {
