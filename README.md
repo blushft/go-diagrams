@@ -57,7 +57,7 @@ go get github.com/blushft/go-diagrams
 Create a diagram:
 
 ```golang
-d, err := diagram.New(diagram.Name("my-diagram"), diagram.Filename("diagram")))
+d, err := diagram.New(diagram.Label("my-diagram"), diagram.Filename("diagram"))
 if err != nil {
     log.Fatal(err)
 }
@@ -71,7 +71,7 @@ d.Connect(fw, sw)
 Render the output:
 
 ```golang
-if err := e.Render(); err != nil {
+if err := d.Render(); err != nil {
     log.Fatal(err)
 }
 ```
