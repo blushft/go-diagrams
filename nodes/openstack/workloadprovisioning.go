@@ -1,28 +1,25 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type workloadprovisioningContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Workloadprovisioning = &workloadprovisioningContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/workloadprovisioning",
+var Workloadprovisioning = &workloadprovisioningContainer{path: "assets/openstack/workloadprovisioning"}
+
+func (c *workloadprovisioningContainer) Sahara(opts ...attr.Attribute) *node.Node {
+	return node.New("sahara", attr.AssetImage("assets/openstack/workloadprovisioning/sahara.png"), attr.Shape(attr.None))
 }
 
-func (c *workloadprovisioningContainer) Magnum(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/workloadprovisioning/magnum.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *workloadprovisioningContainer) Trove(opts ...attr.Attribute) *node.Node {
+	return node.New("trove", attr.AssetImage("assets/openstack/workloadprovisioning/trove.png"), attr.Shape(attr.None))
 }
 
-func (c *workloadprovisioningContainer) Sahara(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/workloadprovisioning/sahara.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *workloadprovisioningContainer) Trove(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/workloadprovisioning/trove.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *workloadprovisioningContainer) Magnum(opts ...attr.Attribute) *node.Node {
+	return node.New("magnum", attr.AssetImage("assets/openstack/workloadprovisioning/magnum.png"), attr.Shape(attr.None))
 }

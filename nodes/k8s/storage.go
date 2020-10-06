@@ -1,33 +1,29 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type storageContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Storage = &storageContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/storage",
+var Storage = &storageContainer{path: "assets/k8s/storage"}
+
+func (c *storageContainer) Pv(opts ...attr.Attribute) *node.Node {
+	return node.New("pv", attr.AssetImage("assets/k8s/storage/pv.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Vol(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/storage/vol.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Pvc(opts ...attr.Attribute) *node.Node {
+	return node.New("pvc", attr.AssetImage("assets/k8s/storage/pvc.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Pv(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/storage/pv.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Sc(opts ...attr.Attribute) *node.Node {
+	return node.New("sc", attr.AssetImage("assets/k8s/storage/sc.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Pvc(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/storage/pvc.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *storageContainer) Sc(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/storage/sc.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Vol(opts ...attr.Attribute) *node.Node {
+	return node.New("vol", attr.AssetImage("assets/k8s/storage/vol.png"), attr.Shape(attr.None))
 }

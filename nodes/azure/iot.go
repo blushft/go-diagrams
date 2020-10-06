@@ -1,63 +1,53 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type iotContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Iot = &iotContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/iot",
+var Iot = &iotContainer{path: "assets/azure/iot"}
+
+func (c *iotContainer) Sphere(opts ...attr.Attribute) *node.Node {
+	return node.New("sphere", attr.AssetImage("assets/azure/iot/sphere.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) Windows10IotCoreServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/windows-10-iot-core-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) TimeSeriesInsightsEnvironments(opts ...attr.Attribute) *node.Node {
+	return node.New("time-series-insights-environments", attr.AssetImage("assets/azure/iot/time-series-insights-environments.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) IotHub(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/iot-hub.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) TimeSeriesInsightsEventsSources(opts ...attr.Attribute) *node.Node {
+	return node.New("time-series-insights-events-sources", attr.AssetImage("assets/azure/iot/time-series-insights-events-sources.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) Maps(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/maps.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) DeviceProvisioningServices(opts ...attr.Attribute) *node.Node {
+	return node.New("device-provisioning-services", attr.AssetImage("assets/azure/iot/device-provisioning-services.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) TimeSeriesInsightsEnvironments(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/time-series-insights-environments.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) DigitalTwins(opts ...attr.Attribute) *node.Node {
+	return node.New("digital-twins", attr.AssetImage("assets/azure/iot/digital-twins.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) TimeSeriesInsightsEventsSources(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/time-series-insights-events-sources.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) IotCentralApplications(opts ...attr.Attribute) *node.Node {
+	return node.New("iot-central-applications", attr.AssetImage("assets/azure/iot/iot-central-applications.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) Sphere(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/sphere.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) IotHubSecurity(opts ...attr.Attribute) *node.Node {
+	return node.New("iot-hub-security", attr.AssetImage("assets/azure/iot/iot-hub-security.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) DeviceProvisioningServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/device-provisioning-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) IotHub(opts ...attr.Attribute) *node.Node {
+	return node.New("iot-hub", attr.AssetImage("assets/azure/iot/iot-hub.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) DigitalTwins(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/digital-twins.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) Maps(opts ...attr.Attribute) *node.Node {
+	return node.New("maps", attr.AssetImage("assets/azure/iot/maps.png"), attr.Shape(attr.None))
 }
 
-func (c *iotContainer) IotCentralApplications(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/iot-central-applications.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *iotContainer) IotHubSecurity(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/iot/iot-hub-security.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iotContainer) Windows10IotCoreServices(opts ...attr.Attribute) *node.Node {
+	return node.New("windows-10-iot-core-services", attr.AssetImage("assets/azure/iot/windows-10-iot-core-services.png"), attr.Shape(attr.None))
 }

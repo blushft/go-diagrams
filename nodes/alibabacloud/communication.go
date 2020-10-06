@@ -1,23 +1,21 @@
 package alibabacloud
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type communicationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Communication = &communicationContainer{
-	opts: diagram.OptionSet{diagram.Provider("alibabacloud"), diagram.NodeShape("none")},
-	path: "assets/alibabacloud/communication",
+var Communication = &communicationContainer{path: "assets/alibabacloud/communication"}
+
+func (c *communicationContainer) MobilePush(opts ...attr.Attribute) *node.Node {
+	return node.New("mobile-push", attr.AssetImage("assets/alibabacloud/communication/mobile-push.png"), attr.Shape(attr.None))
 }
 
-func (c *communicationContainer) DirectMail(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/communication/direct-mail.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *communicationContainer) MobilePush(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/communication/mobile-push.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *communicationContainer) DirectMail(opts ...attr.Attribute) *node.Node {
+	return node.New("direct-mail", attr.AssetImage("assets/alibabacloud/communication/direct-mail.png"), attr.Shape(attr.None))
 }

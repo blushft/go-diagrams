@@ -1,38 +1,33 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type orchestrationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Orchestration = &orchestrationContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/orchestration",
+var Orchestration = &orchestrationContainer{path: "assets/openstack/orchestration"}
+
+func (c *orchestrationContainer) Blazar(opts ...attr.Attribute) *node.Node {
+	return node.New("blazar", attr.AssetImage("assets/openstack/orchestration/blazar.png"), attr.Shape(attr.None))
 }
 
-func (c *orchestrationContainer) Zaqar(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/orchestration/zaqar.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *orchestrationContainer) Heat(opts ...attr.Attribute) *node.Node {
+	return node.New("heat", attr.AssetImage("assets/openstack/orchestration/heat.png"), attr.Shape(attr.None))
 }
 
-func (c *orchestrationContainer) Blazar(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/orchestration/blazar.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *orchestrationContainer) Mistral(opts ...attr.Attribute) *node.Node {
+	return node.New("mistral", attr.AssetImage("assets/openstack/orchestration/mistral.png"), attr.Shape(attr.None))
 }
 
-func (c *orchestrationContainer) Heat(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/orchestration/heat.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *orchestrationContainer) Senlin(opts ...attr.Attribute) *node.Node {
+	return node.New("senlin", attr.AssetImage("assets/openstack/orchestration/senlin.png"), attr.Shape(attr.None))
 }
 
-func (c *orchestrationContainer) Mistral(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/orchestration/mistral.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *orchestrationContainer) Senlin(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/orchestration/senlin.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *orchestrationContainer) Zaqar(opts ...attr.Attribute) *node.Node {
+	return node.New("zaqar", attr.AssetImage("assets/openstack/orchestration/zaqar.png"), attr.Shape(attr.None))
 }

@@ -46,7 +46,7 @@ if err := d.Render(); err != nil {
 
 Into this:
 
-![app-diagram](images/app-diagram.png)
+![app-diagram](docs/images/app-diagram.png)
 
 ## Usage
 

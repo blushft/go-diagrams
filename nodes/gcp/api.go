@@ -1,18 +1,17 @@
 package gcp
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type apiContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Api = &apiContainer{
-	opts: diagram.OptionSet{diagram.Provider("gcp"), diagram.NodeShape("none")},
-	path: "assets/gcp/api",
-}
+var Api = &apiContainer{path: "assets/gcp/api"}
 
-func (c *apiContainer) Endpoints(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/api/endpoints.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *apiContainer) Endpoints(opts ...attr.Attribute) *node.Node {
+	return node.New("endpoints", attr.AssetImage("assets/gcp/api/endpoints.png"), attr.Shape(attr.None))
 }

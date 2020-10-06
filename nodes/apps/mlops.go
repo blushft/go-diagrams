@@ -1,18 +1,17 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type mlopsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Mlops = &mlopsContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/mlops",
-}
+var Mlops = &mlopsContainer{path: "assets/apps/mlops"}
 
-func (c *mlopsContainer) Polyaxon(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/mlops/polyaxon.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlopsContainer) Polyaxon(opts ...attr.Attribute) *node.Node {
+	return node.New("polyaxon", attr.AssetImage("assets/apps/mlops/polyaxon.png"), attr.Shape(attr.None))
 }

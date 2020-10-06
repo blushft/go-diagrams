@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type billingContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Billing = &billingContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/billing",
-}
+var Billing = &billingContainer{path: "assets/openstack/billing"}
 
-func (c *billingContainer) Cloudkitty(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/operations/billing/cloudkitty.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *billingContainer) Cloudkitty(opts ...attr.Attribute) *node.Node {
+	return node.New("cloudkitty", attr.AssetImage("assets/openstack/billing/cloudkitty.png"), attr.Shape(attr.None))
 }

@@ -1,33 +1,29 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type applicationlifecycleContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Applicationlifecycle = &applicationlifecycleContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/applicationlifecycle",
+var Applicationlifecycle = &applicationlifecycleContainer{path: "assets/openstack/applicationlifecycle"}
+
+func (c *applicationlifecycleContainer) Murano(opts ...attr.Attribute) *node.Node {
+	return node.New("murano", attr.AssetImage("assets/openstack/applicationlifecycle/murano.png"), attr.Shape(attr.None))
 }
 
-func (c *applicationlifecycleContainer) Murano(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/applicationlifecycle/murano.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *applicationlifecycleContainer) Solum(opts ...attr.Attribute) *node.Node {
+	return node.New("solum", attr.AssetImage("assets/openstack/applicationlifecycle/solum.png"), attr.Shape(attr.None))
 }
 
-func (c *applicationlifecycleContainer) Solum(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/applicationlifecycle/solum.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *applicationlifecycleContainer) Freezer(opts ...attr.Attribute) *node.Node {
+	return node.New("freezer", attr.AssetImage("assets/openstack/applicationlifecycle/freezer.png"), attr.Shape(attr.None))
 }
 
-func (c *applicationlifecycleContainer) Freezer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/applicationlifecycle/freezer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *applicationlifecycleContainer) Masakari(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/applicationlifecycle/masakari.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *applicationlifecycleContainer) Masakari(opts ...attr.Attribute) *node.Node {
+	return node.New("masakari", attr.AssetImage("assets/openstack/applicationlifecycle/masakari.png"), attr.Shape(attr.None))
 }

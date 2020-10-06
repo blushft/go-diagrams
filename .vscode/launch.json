@@ -9,10 +9,12 @@
             "type": "go",
             "request": "launch",
             "mode": "auto",
-            "program": "${workspaceFolder}/_examples/app/main.go",
+            "program": "${workspaceFolder}/cmd/gen/.",
             "cwd": "${workspaceFolder}",
             "env": {},
-            "args": []
+            "args": [
+                "assets"
+            ]
         }
     ]
 }

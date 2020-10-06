@@ -1,23 +1,21 @@
 package outscale
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type computeContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Compute = &computeContainer{
-	opts: diagram.OptionSet{diagram.Provider("outscale"), diagram.NodeShape("none")},
-	path: "assets/outscale/compute",
+var Compute = &computeContainer{path: "assets/outscale/compute"}
+
+func (c *computeContainer) Compute(opts ...attr.Attribute) *node.Node {
+	return node.New("compute", attr.AssetImage("assets/outscale/compute/compute.png"), attr.Shape(attr.None))
 }
 
-func (c *computeContainer) Compute(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/compute/compute.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) DirectConnect(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/compute/direct-connect.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *computeContainer) DirectConnect(opts ...attr.Attribute) *node.Node {
+	return node.New("direct-connect", attr.AssetImage("assets/outscale/compute/direct-connect.png"), attr.Shape(attr.None))
 }

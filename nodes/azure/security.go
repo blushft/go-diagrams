@@ -1,28 +1,25 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type securityContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/security",
+var Security = &securityContainer{path: "assets/azure/security"}
+
+func (c *securityContainer) KeyVaults(opts ...attr.Attribute) *node.Node {
+	return node.New("key-vaults", attr.AssetImage("assets/azure/security/key-vaults.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) KeyVaults(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/security/key-vaults.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *securityContainer) SecurityCenter(opts ...attr.Attribute) *node.Node {
+	return node.New("security-center", attr.AssetImage("assets/azure/security/security-center.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) SecurityCenter(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/security/security-center.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *securityContainer) Sentinel(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/security/sentinel.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *securityContainer) Sentinel(opts ...attr.Attribute) *node.Node {
+	return node.New("sentinel", attr.AssetImage("assets/azure/security/sentinel.png"), attr.Shape(attr.None))
 }

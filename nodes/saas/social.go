@@ -1,23 +1,21 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type socialContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Social = &socialContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/social",
+var Social = &socialContainer{path: "assets/saas/social"}
+
+func (c *socialContainer) Facebook(opts ...attr.Attribute) *node.Node {
+	return node.New("facebook", attr.AssetImage("assets/saas/social/facebook.png"), attr.Shape(attr.None))
 }
 
-func (c *socialContainer) Facebook(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/social/facebook.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *socialContainer) Twitter(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/social/twitter.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *socialContainer) Twitter(opts ...attr.Attribute) *node.Node {
+	return node.New("twitter", attr.AssetImage("assets/saas/social/twitter.png"), attr.Shape(attr.None))
 }

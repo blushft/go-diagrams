@@ -1,43 +1,37 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type loggingContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Logging = &loggingContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/logging",
+var Logging = &loggingContainer{path: "assets/apps/logging"}
+
+func (c *loggingContainer) Loki(opts ...attr.Attribute) *node.Node {
+	return node.New("loki", attr.AssetImage("assets/apps/logging/loki.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Graylog(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/graylog.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) Rsyslog(opts ...attr.Attribute) *node.Node {
+	return node.New("rsyslog", attr.AssetImage("assets/apps/logging/rsyslog.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Loki(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/loki.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) SyslogNg(opts ...attr.Attribute) *node.Node {
+	return node.New("syslog-ng", attr.AssetImage("assets/apps/logging/syslog-ng.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Rsyslog(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/rsyslog.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) Fluentbit(opts ...attr.Attribute) *node.Node {
+	return node.New("fluentbit", attr.AssetImage("assets/apps/logging/fluentbit.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) SyslogNg(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/syslog-ng.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) Fluentd(opts ...attr.Attribute) *node.Node {
+	return node.New("fluentd", attr.AssetImage("assets/apps/logging/fluentd.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Fluentbit(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/fluentbit.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *loggingContainer) Fluentd(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/fluentd.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) Graylog(opts ...attr.Attribute) *node.Node {
+	return node.New("graylog", attr.AssetImage("assets/apps/logging/graylog.png"), attr.Shape(attr.None))
 }

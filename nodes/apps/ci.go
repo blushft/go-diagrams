@@ -1,53 +1,45 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type ciContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Ci = &ciContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/ci",
+var Ci = &ciContainer{path: "assets/apps/ci"}
+
+func (c *ciContainer) Travisci(opts ...attr.Attribute) *node.Node {
+	return node.New("travisci", attr.AssetImage("assets/apps/ci/travisci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Teamcity(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/teamcity.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Zuulci(opts ...attr.Attribute) *node.Node {
+	return node.New("zuulci", attr.AssetImage("assets/apps/ci/zuulci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Travisci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/travisci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Circleci(opts ...attr.Attribute) *node.Node {
+	return node.New("circleci", attr.AssetImage("assets/apps/ci/circleci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Zuulci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/zuulci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Concourseci(opts ...attr.Attribute) *node.Node {
+	return node.New("concourseci", attr.AssetImage("assets/apps/ci/concourseci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Circleci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/circleci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Droneci(opts ...attr.Attribute) *node.Node {
+	return node.New("droneci", attr.AssetImage("assets/apps/ci/droneci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Concourseci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/concourseci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Gitlabci(opts ...attr.Attribute) *node.Node {
+	return node.New("gitlabci", attr.AssetImage("assets/apps/ci/gitlabci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Droneci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/droneci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Jenkins(opts ...attr.Attribute) *node.Node {
+	return node.New("jenkins", attr.AssetImage("assets/apps/ci/jenkins.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Gitlabci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/gitlabci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *ciContainer) Jenkins(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/jenkins.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ciContainer) Teamcity(opts ...attr.Attribute) *node.Node {
+	return node.New("teamcity", attr.AssetImage("assets/apps/ci/teamcity.png"), attr.Shape(attr.None))
 }

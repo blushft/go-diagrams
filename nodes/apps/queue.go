@@ -1,38 +1,33 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type queueContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Queue = &queueContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/queue",
+var Queue = &queueContainer{path: "assets/apps/queue"}
+
+func (c *queueContainer) Activemq(opts ...attr.Attribute) *node.Node {
+	return node.New("activemq", attr.AssetImage("assets/apps/queue/activemq.png"), attr.Shape(attr.None))
 }
 
-func (c *queueContainer) Activemq(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/queue/activemq.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *queueContainer) Celery(opts ...attr.Attribute) *node.Node {
+	return node.New("celery", attr.AssetImage("assets/apps/queue/celery.png"), attr.Shape(attr.None))
 }
 
-func (c *queueContainer) Celery(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/queue/celery.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *queueContainer) Kafka(opts ...attr.Attribute) *node.Node {
+	return node.New("kafka", attr.AssetImage("assets/apps/queue/kafka.png"), attr.Shape(attr.None))
 }
 
-func (c *queueContainer) Kafka(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/queue/kafka.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *queueContainer) Rabbitmq(opts ...attr.Attribute) *node.Node {
+	return node.New("rabbitmq", attr.AssetImage("assets/apps/queue/rabbitmq.png"), attr.Shape(attr.None))
 }
 
-func (c *queueContainer) Rabbitmq(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/queue/rabbitmq.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *queueContainer) Zeromq(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/queue/zeromq.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *queueContainer) Zeromq(opts ...attr.Attribute) *node.Node {
+	return node.New("zeromq", attr.AssetImage("assets/apps/queue/zeromq.png"), attr.Shape(attr.None))
 }

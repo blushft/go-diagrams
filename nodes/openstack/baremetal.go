@@ -1,23 +1,21 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type baremetalContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Baremetal = &baremetalContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/baremetal",
+var Baremetal = &baremetalContainer{path: "assets/openstack/baremetal"}
+
+func (c *baremetalContainer) Cyborg(opts ...attr.Attribute) *node.Node {
+	return node.New("cyborg", attr.AssetImage("assets/openstack/baremetal/cyborg.png"), attr.Shape(attr.None))
 }
 
-func (c *baremetalContainer) Cyborg(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/baremetal/cyborg.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *baremetalContainer) Ironic(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/baremetal/ironic.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *baremetalContainer) Ironic(opts ...attr.Attribute) *node.Node {
+	return node.New("ironic", attr.AssetImage("assets/openstack/baremetal/ironic.png"), attr.Shape(attr.None))
 }

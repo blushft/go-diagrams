@@ -1,33 +1,29 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type workflowContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Workflow = &workflowContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/workflow",
+var Workflow = &workflowContainer{path: "assets/apps/workflow"}
+
+func (c *workflowContainer) Airflow(opts ...attr.Attribute) *node.Node {
+	return node.New("airflow", attr.AssetImage("assets/apps/workflow/airflow.png"), attr.Shape(attr.None))
 }
 
-func (c *workflowContainer) Digdag(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/workflow/digdag.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *workflowContainer) Digdag(opts ...attr.Attribute) *node.Node {
+	return node.New("digdag", attr.AssetImage("assets/apps/workflow/digdag.png"), attr.Shape(attr.None))
 }
 
-func (c *workflowContainer) Kubeflow(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/workflow/kubeflow.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *workflowContainer) Kubeflow(opts ...attr.Attribute) *node.Node {
+	return node.New("kubeflow", attr.AssetImage("assets/apps/workflow/kubeflow.png"), attr.Shape(attr.None))
 }
 
-func (c *workflowContainer) Nifi(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/workflow/nifi.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *workflowContainer) Airflow(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/workflow/airflow.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *workflowContainer) Nifi(opts ...attr.Attribute) *node.Node {
+	return node.New("nifi", attr.AssetImage("assets/apps/workflow/nifi.png"), attr.Shape(attr.None))
 }

@@ -1,18 +1,17 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type cdnContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Cdn = &cdnContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/cdn",
-}
+var Cdn = &cdnContainer{path: "assets/saas/cdn"}
 
-func (c *cdnContainer) Cloudflare(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/cdn/cloudflare.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *cdnContainer) Cloudflare(opts ...attr.Attribute) *node.Node {
+	return node.New("cloudflare", attr.AssetImage("assets/saas/cdn/cloudflare.png"), attr.Shape(attr.None))
 }

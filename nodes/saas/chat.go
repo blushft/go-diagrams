@@ -1,23 +1,21 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type chatContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Chat = &chatContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/chat",
+var Chat = &chatContainer{path: "assets/saas/chat"}
+
+func (c *chatContainer) Slack(opts ...attr.Attribute) *node.Node {
+	return node.New("slack", attr.AssetImage("assets/saas/chat/slack.png"), attr.Shape(attr.None))
 }
 
-func (c *chatContainer) Slack(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/chat/slack.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *chatContainer) Telegram(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/chat/telegram.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *chatContainer) Telegram(opts ...attr.Attribute) *node.Node {
+	return node.New("telegram", attr.AssetImage("assets/saas/chat/telegram.png"), attr.Shape(attr.None))
 }

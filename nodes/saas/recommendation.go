@@ -1,18 +1,17 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type recommendationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Recommendation = &recommendationContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/recommendation",
-}
+var Recommendation = &recommendationContainer{path: "assets/saas/recommendation"}
 
-func (c *recommendationContainer) Recombee(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/recommendation/recombee.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *recommendationContainer) Recombee(opts ...attr.Attribute) *node.Node {
+	return node.New("recombee", attr.AssetImage("assets/saas/recommendation/recombee.png"), attr.Shape(attr.None))
 }

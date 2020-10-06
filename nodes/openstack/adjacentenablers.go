@@ -1,13 +1,10 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import attr "github.com/blushft/go-diagrams/attr"
 
 type adjacentenablersContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Adjacentenablers = &adjacentenablersContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/adjacentenablers",
-}
+var Adjacentenablers = &adjacentenablersContainer{path: "assets/openstack/adjacentenablers"}

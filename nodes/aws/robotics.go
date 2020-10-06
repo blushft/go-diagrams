@@ -1,28 +1,25 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type roboticsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Robotics = &roboticsContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/robotics",
+var Robotics = &roboticsContainer{path: "assets/aws/robotics"}
+
+func (c *roboticsContainer) RobomakerSimulator(opts ...attr.Attribute) *node.Node {
+	return node.New("robomaker-simulator", attr.AssetImage("assets/aws/robotics/robomaker-simulator.png"), attr.Shape(attr.None))
 }
 
-func (c *roboticsContainer) RobomakerSimulator(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/robotics/robomaker-simulator.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *roboticsContainer) Robomaker(opts ...attr.Attribute) *node.Node {
+	return node.New("robomaker", attr.AssetImage("assets/aws/robotics/robomaker.png"), attr.Shape(attr.None))
 }
 
-func (c *roboticsContainer) Robomaker(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/robotics/robomaker.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *roboticsContainer) Robotics(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/robotics/robotics.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *roboticsContainer) Robotics(opts ...attr.Attribute) *node.Node {
+	return node.New("robotics", attr.AssetImage("assets/aws/robotics/robotics.png"), attr.Shape(attr.None))
 }

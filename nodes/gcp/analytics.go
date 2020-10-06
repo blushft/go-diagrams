@@ -1,63 +1,53 @@
 package gcp
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type analyticsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Analytics = &analyticsContainer{
-	opts: diagram.OptionSet{diagram.Provider("gcp"), diagram.NodeShape("none")},
-	path: "assets/gcp/analytics",
+var Analytics = &analyticsContainer{path: "assets/gcp/analytics"}
+
+func (c *analyticsContainer) Datalab(opts ...attr.Attribute) *node.Node {
+	return node.New("datalab", attr.AssetImage("assets/gcp/analytics/datalab.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Composer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/composer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Genomics(opts ...attr.Attribute) *node.Node {
+	return node.New("genomics", attr.AssetImage("assets/gcp/analytics/genomics.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) DataFusion(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/data-fusion.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) DataFusion(opts ...attr.Attribute) *node.Node {
+	return node.New("data-fusion", attr.AssetImage("assets/gcp/analytics/data-fusion.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Datalab(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/datalab.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Dataflow(opts ...attr.Attribute) *node.Node {
+	return node.New("dataflow", attr.AssetImage("assets/gcp/analytics/dataflow.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Dataproc(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/dataproc.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Dataprep(opts ...attr.Attribute) *node.Node {
+	return node.New("dataprep", attr.AssetImage("assets/gcp/analytics/dataprep.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Bigquery(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/bigquery.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Dataproc(opts ...attr.Attribute) *node.Node {
+	return node.New("dataproc", attr.AssetImage("assets/gcp/analytics/dataproc.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) DataCatalog(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/data-catalog.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Pubsub(opts ...attr.Attribute) *node.Node {
+	return node.New("pubsub", attr.AssetImage("assets/gcp/analytics/pubsub.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Dataflow(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/dataflow.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Bigquery(opts ...attr.Attribute) *node.Node {
+	return node.New("bigquery", attr.AssetImage("assets/gcp/analytics/bigquery.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Dataprep(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/dataprep.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) Composer(opts ...attr.Attribute) *node.Node {
+	return node.New("composer", attr.AssetImage("assets/gcp/analytics/composer.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) Genomics(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/genomics.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *analyticsContainer) Pubsub(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/analytics/pubsub.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) DataCatalog(opts ...attr.Attribute) *node.Node {
+	return node.New("data-catalog", attr.AssetImage("assets/gcp/analytics/data-catalog.png"), attr.Shape(attr.None))
 }

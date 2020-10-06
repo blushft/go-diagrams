@@ -1,13 +1,10 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import attr "github.com/blushft/go-diagrams/attr"
 
 type lifecyclemanagementContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Lifecyclemanagement = &lifecyclemanagementContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/lifecyclemanagement",
-}
+var Lifecyclemanagement = &lifecyclemanagementContainer{path: "assets/openstack/lifecyclemanagement"}

@@ -1,23 +1,21 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type computeContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Compute = &computeContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/compute",
+var Compute = &computeContainer{path: "assets/apps/compute"}
+
+func (c *computeContainer) Nomad(opts ...attr.Attribute) *node.Node {
+	return node.New("nomad", attr.AssetImage("assets/apps/compute/nomad.png"), attr.Shape(attr.None))
 }
 
-func (c *computeContainer) Nomad(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/nomad.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) Server(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/server.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *computeContainer) Server(opts ...attr.Attribute) *node.Node {
+	return node.New("server", attr.AssetImage("assets/apps/compute/server.png"), attr.Shape(attr.None))
 }

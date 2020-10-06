@@ -1,23 +1,21 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type alertingContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Alerting = &alertingContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/alerting",
+var Alerting = &alertingContainer{path: "assets/saas/alerting"}
+
+func (c *alertingContainer) Opsgenie(opts ...attr.Attribute) *node.Node {
+	return node.New("opsgenie", attr.AssetImage("assets/saas/alerting/opsgenie.png"), attr.Shape(attr.None))
 }
 
-func (c *alertingContainer) Opsgenie(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/alerting/opsgenie.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *alertingContainer) Pushover(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/alerting/pushover.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *alertingContainer) Pushover(opts ...attr.Attribute) *node.Node {
+	return node.New("pushover", attr.AssetImage("assets/saas/alerting/pushover.png"), attr.Shape(attr.None))
 }

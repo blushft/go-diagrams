@@ -1,103 +1,85 @@
 package oci
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type storageContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Storage = &storageContainer{
-	opts: diagram.OptionSet{diagram.Provider("oci"), diagram.NodeShape("none")},
-	path: "assets/oci/storage",
+var Storage = &storageContainer{path: "assets/oci/storage"}
+
+func (c *storageContainer) FileStorageWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("file-storage-white", attr.AssetImage("assets/oci/storage/file-storage-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BlockStorageCloneWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/block-storage-clone-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) FileStorage(opts ...attr.Attribute) *node.Node {
+	return node.New("file-storage", attr.AssetImage("assets/oci/storage/file-storage.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BlockStorageWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/block-storage-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) ObjectStorage(opts ...attr.Attribute) *node.Node {
+	return node.New("object-storage", attr.AssetImage("assets/oci/storage/object-storage.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BucketsWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/buckets-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) StorageGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("storage-gateway", attr.AssetImage("assets/oci/storage/storage-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ObjectStorageWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/object-storage-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BlockStorageCloneWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("block-storage-clone-white", attr.AssetImage("assets/oci/storage/block-storage-clone-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ObjectStorage(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/object-storage.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BlockStorageClone(opts ...attr.Attribute) *node.Node {
+	return node.New("block-storage-clone", attr.AssetImage("assets/oci/storage/block-storage-clone.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) StorageGatewayWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/storage-gateway-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BlockStorage(opts ...attr.Attribute) *node.Node {
+	return node.New("block-storage", attr.AssetImage("assets/oci/storage/block-storage.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BackupRestore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/backup-restore.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) ElasticPerformanceWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("elastic-performance-white", attr.AssetImage("assets/oci/storage/elastic-performance-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) DataTransferWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/data-transfer-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) ElasticPerformance(opts ...attr.Attribute) *node.Node {
+	return node.New("elastic-performance", attr.AssetImage("assets/oci/storage/elastic-performance.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) FileStorageWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/file-storage-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BackupRestore(opts ...attr.Attribute) *node.Node {
+	return node.New("backup-restore", attr.AssetImage("assets/oci/storage/backup-restore.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) FileStorage(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/file-storage.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BlockStorageWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("block-storage-white", attr.AssetImage("assets/oci/storage/block-storage-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) StorageGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/storage-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BucketsWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("buckets-white", attr.AssetImage("assets/oci/storage/buckets-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BackupRestoreWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/backup-restore-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Buckets(opts ...attr.Attribute) *node.Node {
+	return node.New("buckets", attr.AssetImage("assets/oci/storage/buckets.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BlockStorageClone(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/block-storage-clone.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) StorageGatewayWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("storage-gateway-white", attr.AssetImage("assets/oci/storage/storage-gateway-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) DataTransfer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/data-transfer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) BackupRestoreWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("backup-restore-white", attr.AssetImage("assets/oci/storage/backup-restore-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ElasticPerformanceWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/elastic-performance-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) DataTransferWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("data-transfer-white", attr.AssetImage("assets/oci/storage/data-transfer-white.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ElasticPerformance(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/elastic-performance.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) DataTransfer(opts ...attr.Attribute) *node.Node {
+	return node.New("data-transfer", attr.AssetImage("assets/oci/storage/data-transfer.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) BlockStorage(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/block-storage.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *storageContainer) Buckets(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/storage/buckets.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) ObjectStorageWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("object-storage-white", attr.AssetImage("assets/oci/storage/object-storage-white.png"), attr.Shape(attr.None))
 }

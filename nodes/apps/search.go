@@ -1,18 +1,17 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type searchContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Search = &searchContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/search",
-}
+var Search = &searchContainer{path: "assets/apps/search"}
 
-func (c *searchContainer) Solr(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/search/solr.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *searchContainer) Solr(opts ...attr.Attribute) *node.Node {
+	return node.New("solr", attr.AssetImage("assets/apps/search/solr.png"), attr.Shape(attr.None))
 }

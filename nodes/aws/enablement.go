@@ -1,33 +1,29 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type enablementContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Enablement = &enablementContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/enablement",
+var Enablement = &enablementContainer{path: "assets/aws/enablement"}
+
+func (c *enablementContainer) Iq(opts ...attr.Attribute) *node.Node {
+	return node.New("iq", attr.AssetImage("assets/aws/enablement/iq.png"), attr.Shape(attr.None))
 }
 
-func (c *enablementContainer) ProfessionalServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/enablement/professional-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enablementContainer) ManagedServices(opts ...attr.Attribute) *node.Node {
+	return node.New("managed-services", attr.AssetImage("assets/aws/enablement/managed-services.png"), attr.Shape(attr.None))
 }
 
-func (c *enablementContainer) Support(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/enablement/support.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enablementContainer) ProfessionalServices(opts ...attr.Attribute) *node.Node {
+	return node.New("professional-services", attr.AssetImage("assets/aws/enablement/professional-services.png"), attr.Shape(attr.None))
 }
 
-func (c *enablementContainer) Iq(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/enablement/iq.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *enablementContainer) ManagedServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/enablement/managed-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enablementContainer) Support(opts ...attr.Attribute) *node.Node {
+	return node.New("support", attr.AssetImage("assets/aws/enablement/support.png"), attr.Shape(attr.None))
 }

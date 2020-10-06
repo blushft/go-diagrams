@@ -1,23 +1,21 @@
 package elastic
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type saasContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Saas = &saasContainer{
-	opts: diagram.OptionSet{diagram.Provider("elastic"), diagram.NodeShape("none")},
-	path: "assets/elastic/saas",
+var Saas = &saasContainer{path: "assets/elastic/saas"}
+
+func (c *saasContainer) Cloud(opts ...attr.Attribute) *node.Node {
+	return node.New("cloud", attr.AssetImage("assets/elastic/saas/cloud.png"), attr.Shape(attr.None))
 }
 
-func (c *saasContainer) Cloud(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/saas/cloud.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *saasContainer) Elastic(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/saas/elastic.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *saasContainer) Elastic(opts ...attr.Attribute) *node.Node {
+	return node.New("elastic", attr.AssetImage("assets/elastic/saas/elastic.png"), attr.Shape(attr.None))
 }

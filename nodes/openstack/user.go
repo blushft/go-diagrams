@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type userContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var User = &userContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/user",
-}
+var User = &userContainer{path: "assets/openstack/user"}
 
-func (c *userContainer) Openstackclient(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/user/openstackclient.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *userContainer) Openstackclient(opts ...attr.Attribute) *node.Node {
+	return node.New("openstackclient", attr.AssetImage("assets/openstack/user/openstackclient.png"), attr.Shape(attr.None))
 }

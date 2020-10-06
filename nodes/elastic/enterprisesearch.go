@@ -1,33 +1,29 @@
 package elastic
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type enterprisesearchContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Enterprisesearch = &enterprisesearchContainer{
-	opts: diagram.OptionSet{diagram.Provider("elastic"), diagram.NodeShape("none")},
-	path: "assets/elastic/enterprisesearch",
+var Enterprisesearch = &enterprisesearchContainer{path: "assets/elastic/enterprisesearch"}
+
+func (c *enterprisesearchContainer) AppSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("app-search", attr.AssetImage("assets/elastic/enterprisesearch/app-search.png"), attr.Shape(attr.None))
 }
 
-func (c *enterprisesearchContainer) AppSearch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/enterprisesearch/app-search.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enterprisesearchContainer) EnterpriseSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("enterprise-search", attr.AssetImage("assets/elastic/enterprisesearch/enterprise-search.png"), attr.Shape(attr.None))
 }
 
-func (c *enterprisesearchContainer) EnterpriseSearch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/enterprisesearch/enterprise-search.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enterprisesearchContainer) SiteSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("site-search", attr.AssetImage("assets/elastic/enterprisesearch/site-search.png"), attr.Shape(attr.None))
 }
 
-func (c *enterprisesearchContainer) SiteSearch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/enterprisesearch/site-search.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *enterprisesearchContainer) WorkplaceSearch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/elastic/enterprisesearch/workplace-search.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *enterprisesearchContainer) WorkplaceSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("workplace-search", attr.AssetImage("assets/elastic/enterprisesearch/workplace-search.png"), attr.Shape(attr.None))
 }

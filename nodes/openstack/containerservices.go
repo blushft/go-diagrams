@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type containerservicesContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Containerservices = &containerservicesContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/containerservices",
-}
+var Containerservices = &containerservicesContainer{path: "assets/openstack/containerservices"}
 
-func (c *containerservicesContainer) Kuryr(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/adjacentenablers/containerservices/kuryr.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *containerservicesContainer) Kuryr(opts ...attr.Attribute) *node.Node {
+	return node.New("kuryr", attr.AssetImage("assets/openstack/containerservices/kuryr.png"), attr.Shape(attr.None))
 }

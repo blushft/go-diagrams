@@ -1,103 +1,85 @@
 package oci
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type databaseContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Database = &databaseContainer{
-	opts: diagram.OptionSet{diagram.Provider("oci"), diagram.NodeShape("none")},
-	path: "assets/oci/database",
+var Database = &databaseContainer{path: "assets/oci/database"}
+
+func (c *databaseContainer) Dcat(opts ...attr.Attribute) *node.Node {
+	return node.New("dcat", attr.AssetImage("assets/oci/database/dcat.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DcatWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dcat-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Autonomous(opts ...attr.Attribute) *node.Node {
+	return node.New("autonomous", attr.AssetImage("assets/oci/database/autonomous.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DisWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dis-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) BigdataServiceWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("bigdata-service-white", attr.AssetImage("assets/oci/database/bigdata-service-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Dms(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dms.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) BigdataService(opts ...attr.Attribute) *node.Node {
+	return node.New("bigdata-service", attr.AssetImage("assets/oci/database/bigdata-service.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) ScienceWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/science-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Dis(opts ...attr.Attribute) *node.Node {
+	return node.New("dis", attr.AssetImage("assets/oci/database/dis.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) StreamWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/stream-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DmsWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("dms-white", attr.AssetImage("assets/oci/database/dms-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) BigdataServiceWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/bigdata-service-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Dms(opts ...attr.Attribute) *node.Node {
+	return node.New("dms", attr.AssetImage("assets/oci/database/dms.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Science(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/science.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) ScienceWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("science-white", attr.AssetImage("assets/oci/database/science-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Stream(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/stream.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) AutonomousWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("autonomous-white", attr.AssetImage("assets/oci/database/autonomous-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) AutonomousWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/autonomous-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DatabaseServiceWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("database-service-white", attr.AssetImage("assets/oci/database/database-service-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Autonomous(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/autonomous.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DatabaseService(opts ...attr.Attribute) *node.Node {
+	return node.New("database-service", attr.AssetImage("assets/oci/database/database-service.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DatabaseService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/database-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DataflowApache(opts ...attr.Attribute) *node.Node {
+	return node.New("dataflow-apache", attr.AssetImage("assets/oci/database/dataflow-apache.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DataflowApacheWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dataflow-apache-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DisWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("dis-white", attr.AssetImage("assets/oci/database/dis-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Dis(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dis.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) StreamWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("stream-white", attr.AssetImage("assets/oci/database/stream-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DmsWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dms-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DataflowApacheWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("dataflow-apache-white", attr.AssetImage("assets/oci/database/dataflow-apache-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) BigdataService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/bigdata-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DcatWhite(opts ...attr.Attribute) *node.Node {
+	return node.New("dcat-white", attr.AssetImage("assets/oci/database/dcat-white.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DatabaseServiceWhite(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/database-service-white.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Science(opts ...attr.Attribute) *node.Node {
+	return node.New("science", attr.AssetImage("assets/oci/database/science.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DataflowApache(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dataflow-apache.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *databaseContainer) Dcat(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/oci/database/dcat.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Stream(opts ...attr.Attribute) *node.Node {
+	return node.New("stream", attr.AssetImage("assets/oci/database/stream.png"), attr.Shape(attr.None))
 }

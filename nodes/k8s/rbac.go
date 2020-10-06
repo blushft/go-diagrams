@@ -1,48 +1,41 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type rbacContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Rbac = &rbacContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/rbac",
+var Rbac = &rbacContainer{path: "assets/k8s/rbac"}
+
+func (c *rbacContainer) Role(opts ...attr.Attribute) *node.Node {
+	return node.New("role", attr.AssetImage("assets/k8s/rbac/role.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) Role(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/role.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) Sa(opts ...attr.Attribute) *node.Node {
+	return node.New("sa", attr.AssetImage("assets/k8s/rbac/sa.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) Sa(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/sa.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) User(opts ...attr.Attribute) *node.Node {
+	return node.New("user", attr.AssetImage("assets/k8s/rbac/user.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) User(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/user.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) CRole(opts ...attr.Attribute) *node.Node {
+	return node.New("c-role", attr.AssetImage("assets/k8s/rbac/c-role.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) CRole(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/c-role.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) Crb(opts ...attr.Attribute) *node.Node {
+	return node.New("crb", attr.AssetImage("assets/k8s/rbac/crb.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) Crb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/crb.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) Group(opts ...attr.Attribute) *node.Node {
+	return node.New("group", attr.AssetImage("assets/k8s/rbac/group.png"), attr.Shape(attr.None))
 }
 
-func (c *rbacContainer) Group(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/group.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *rbacContainer) Rb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/rbac/rb.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *rbacContainer) Rb(opts ...attr.Attribute) *node.Node {
+	return node.New("rb", attr.AssetImage("assets/k8s/rbac/rb.png"), attr.Shape(attr.None))
 }

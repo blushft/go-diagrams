@@ -1,28 +1,25 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type mobileContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Mobile = &mobileContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/mobile",
+var Mobile = &mobileContainer{path: "assets/azure/mobile"}
+
+func (c *mobileContainer) NotificationHubs(opts ...attr.Attribute) *node.Node {
+	return node.New("notification-hubs", attr.AssetImage("assets/azure/mobile/notification-hubs.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) AppServiceMobile(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/mobile/app-service---mobile.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) AppServiceMobile(opts ...attr.Attribute) *node.Node {
+	return node.New("app-service---mobile", attr.AssetImage("assets/azure/mobile/app-service---mobile.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) MobileEngagement(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/mobile/mobile-engagement.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mobileContainer) NotificationHubs(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/mobile/notification-hubs.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) MobileEngagement(opts ...attr.Attribute) *node.Node {
+	return node.New("mobile-engagement", attr.AssetImage("assets/azure/mobile/mobile-engagement.png"), attr.Shape(attr.None))
 }

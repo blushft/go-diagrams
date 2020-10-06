@@ -1,28 +1,25 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type migrationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Migration = &migrationContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/migration",
+var Migration = &migrationContainer{path: "assets/azure/migration"}
+
+func (c *migrationContainer) DatabaseMigrationServices(opts ...attr.Attribute) *node.Node {
+	return node.New("database-migration-services", attr.AssetImage("assets/azure/migration/database-migration-services.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) DatabaseMigrationServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/migration/database-migration-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) MigrationProjects(opts ...attr.Attribute) *node.Node {
+	return node.New("migration-projects", attr.AssetImage("assets/azure/migration/migration-projects.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) MigrationProjects(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/migration/migration-projects.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *migrationContainer) RecoveryServicesVaults(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/migration/recovery-services-vaults.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) RecoveryServicesVaults(opts ...attr.Attribute) *node.Node {
+	return node.New("recovery-services-vaults", attr.AssetImage("assets/azure/migration/recovery-services-vaults.png"), attr.Shape(attr.None))
 }

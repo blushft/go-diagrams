@@ -1,28 +1,25 @@
 package gcp
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type storageContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Storage = &storageContainer{
-	opts: diagram.OptionSet{diagram.Provider("gcp"), diagram.NodeShape("none")},
-	path: "assets/gcp/storage",
+var Storage = &storageContainer{path: "assets/gcp/storage"}
+
+func (c *storageContainer) Filestore(opts ...attr.Attribute) *node.Node {
+	return node.New("filestore", attr.AssetImage("assets/gcp/storage/filestore.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Filestore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/storage/filestore.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) PersistentDisk(opts ...attr.Attribute) *node.Node {
+	return node.New("persistent-disk", attr.AssetImage("assets/gcp/storage/persistent-disk.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) PersistentDisk(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/storage/persistent-disk.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *storageContainer) Storage(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/storage/storage.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Storage(opts ...attr.Attribute) *node.Node {
+	return node.New("storage", attr.AssetImage("assets/gcp/storage/storage.png"), attr.Shape(attr.None))
 }

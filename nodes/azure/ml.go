@@ -1,53 +1,45 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type mlContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Ml = &mlContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/ml",
+var Ml = &mlContainer{path: "assets/azure/ml"}
+
+func (c *mlContainer) CognitiveServices(opts ...attr.Attribute) *node.Node {
+	return node.New("cognitive-services", attr.AssetImage("assets/azure/ml/cognitive-services.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) MachineLearningStudioWorkspaces(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-workspaces.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) GenomicsAccounts(opts ...attr.Attribute) *node.Node {
+	return node.New("genomics-accounts", attr.AssetImage("assets/azure/ml/genomics-accounts.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) BatchAi(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/batch-ai.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) MachineLearningServiceWorkspaces(opts ...attr.Attribute) *node.Node {
+	return node.New("machine-learning-service-workspaces", attr.AssetImage("assets/azure/ml/machine-learning-service-workspaces.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) BotServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/bot-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) MachineLearningStudioWebServicePlans(opts ...attr.Attribute) *node.Node {
+	return node.New("machine-learning-studio-web-service-plans", attr.AssetImage("assets/azure/ml/machine-learning-studio-web-service-plans.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) CognitiveServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/cognitive-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) MachineLearningStudioWebServices(opts ...attr.Attribute) *node.Node {
+	return node.New("machine-learning-studio-web-services", attr.AssetImage("assets/azure/ml/machine-learning-studio-web-services.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) GenomicsAccounts(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/genomics-accounts.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) MachineLearningStudioWorkspaces(opts ...attr.Attribute) *node.Node {
+	return node.New("machine-learning-studio-workspaces", attr.AssetImage("assets/azure/ml/machine-learning-studio-workspaces.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) MachineLearningServiceWorkspaces(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-service-workspaces.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) BatchAi(opts ...attr.Attribute) *node.Node {
+	return node.New("batch-ai", attr.AssetImage("assets/azure/ml/batch-ai.png"), attr.Shape(attr.None))
 }
 
-func (c *mlContainer) MachineLearningStudioWebServicePlans(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-service-plans.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mlContainer) MachineLearningStudioWebServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-services.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mlContainer) BotServices(opts ...attr.Attribute) *node.Node {
+	return node.New("bot-services", attr.AssetImage("assets/azure/ml/bot-services.png"), attr.Shape(attr.None))
 }

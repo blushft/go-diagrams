@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type multiregionContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Multiregion = &multiregionContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/multiregion",
-}
+var Multiregion = &multiregionContainer{path: "assets/openstack/multiregion"}
 
-func (c *multiregionContainer) Tricircle(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/operations/multiregion/tricircle.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *multiregionContainer) Tricircle(opts ...attr.Attribute) *node.Node {
+	return node.New("tricircle", attr.AssetImage("assets/openstack/multiregion/tricircle.png"), attr.Shape(attr.None))
 }

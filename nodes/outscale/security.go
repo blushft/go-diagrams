@@ -1,23 +1,21 @@
 package outscale
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type securityContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{
-	opts: diagram.OptionSet{diagram.Provider("outscale"), diagram.NodeShape("none")},
-	path: "assets/outscale/security",
+var Security = &securityContainer{path: "assets/outscale/security"}
+
+func (c *securityContainer) Firewall(opts ...attr.Attribute) *node.Node {
+	return node.New("firewall", attr.AssetImage("assets/outscale/security/firewall.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) Firewall(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/security/firewall.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *securityContainer) IdentityAndAccessManagement(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/security/identity-and-access-management.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *securityContainer) IdentityAndAccessManagement(opts ...attr.Attribute) *node.Node {
+	return node.New("identity-and-access-management", attr.AssetImage("assets/outscale/security/identity-and-access-management.png"), attr.Shape(attr.None))
 }

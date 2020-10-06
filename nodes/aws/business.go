@@ -1,28 +1,25 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type businessContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Business = &businessContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/business",
+var Business = &businessContainer{path: "assets/aws/business"}
+
+func (c *businessContainer) AlexaForBusiness(opts ...attr.Attribute) *node.Node {
+	return node.New("alexa-for-business", attr.AssetImage("assets/aws/business/alexa-for-business.png"), attr.Shape(attr.None))
 }
 
-func (c *businessContainer) AlexaForBusiness(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/business/alexa-for-business.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *businessContainer) Chime(opts ...attr.Attribute) *node.Node {
+	return node.New("chime", attr.AssetImage("assets/aws/business/chime.png"), attr.Shape(attr.None))
 }
 
-func (c *businessContainer) Chime(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/business/chime.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *businessContainer) Workmail(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/business/workmail.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *businessContainer) Workmail(opts ...attr.Attribute) *node.Node {
+	return node.New("workmail", attr.AssetImage("assets/aws/business/workmail.png"), attr.Shape(attr.None))
 }

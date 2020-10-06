@@ -1,18 +1,17 @@
 package firebase
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type extentionsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Extentions = &extentionsContainer{
-	opts: diagram.OptionSet{diagram.Provider("firebase"), diagram.NodeShape("none")},
-	path: "assets/firebase/extentions",
-}
+var Extentions = &extentionsContainer{path: "assets/firebase/extentions"}
 
-func (c *extentionsContainer) Extensions(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/firebase/extentions/extensions.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *extentionsContainer) Extensions(opts ...attr.Attribute) *node.Node {
+	return node.New("extensions", attr.AssetImage("assets/firebase/extentions/extensions.png"), attr.Shape(attr.None))
 }

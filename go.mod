@@ -11,6 +11,7 @@ require (
 	github.com/iancoleman/strcase v0.1.1
 	github.com/pkg/errors v0.9.1
 	github.com/stretchr/testify v1.6.1
+	github.com/urfave/cli/v2 v2.2.0
 	golang.org/x/exp v0.0.0-20200908183739-ae8ad444f925 // indirect
 	golang.org/x/net v0.0.0-20190620200207-3b0461eec859
 )

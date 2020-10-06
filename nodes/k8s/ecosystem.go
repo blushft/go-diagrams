@@ -1,28 +1,25 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type ecosystemContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Ecosystem = &ecosystemContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/ecosystem",
+var Ecosystem = &ecosystemContainer{path: "assets/k8s/ecosystem"}
+
+func (c *ecosystemContainer) Helm(opts ...attr.Attribute) *node.Node {
+	return node.New("helm", attr.AssetImage("assets/k8s/ecosystem/helm.png"), attr.Shape(attr.None))
 }
 
-func (c *ecosystemContainer) Helm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/ecosystem/helm.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ecosystemContainer) Krew(opts ...attr.Attribute) *node.Node {
+	return node.New("krew", attr.AssetImage("assets/k8s/ecosystem/krew.png"), attr.Shape(attr.None))
 }
 
-func (c *ecosystemContainer) Krew(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/ecosystem/krew.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *ecosystemContainer) Kustomize(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/ecosystem/kustomize.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *ecosystemContainer) Kustomize(opts ...attr.Attribute) *node.Node {
+	return node.New("kustomize", attr.AssetImage("assets/k8s/ecosystem/kustomize.png"), attr.Shape(attr.None))
 }

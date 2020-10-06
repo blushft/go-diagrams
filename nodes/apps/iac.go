@@ -1,33 +1,29 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type iacContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Iac = &iacContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/iac",
+var Iac = &iacContainer{path: "assets/apps/iac"}
+
+func (c *iacContainer) Ansible(opts ...attr.Attribute) *node.Node {
+	return node.New("ansible", attr.AssetImage("assets/apps/iac/ansible.png"), attr.Shape(attr.None))
 }
 
-func (c *iacContainer) Ansible(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/iac/ansible.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iacContainer) Atlantis(opts ...attr.Attribute) *node.Node {
+	return node.New("atlantis", attr.AssetImage("assets/apps/iac/atlantis.png"), attr.Shape(attr.None))
 }
 
-func (c *iacContainer) Atlantis(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/iac/atlantis.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iacContainer) Awx(opts ...attr.Attribute) *node.Node {
+	return node.New("awx", attr.AssetImage("assets/apps/iac/awx.png"), attr.Shape(attr.None))
 }
 
-func (c *iacContainer) Awx(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/iac/awx.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *iacContainer) Terraform(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/iac/terraform.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *iacContainer) Terraform(opts ...attr.Attribute) *node.Node {
+	return node.New("terraform", attr.AssetImage("assets/apps/iac/terraform.png"), attr.Shape(attr.None))
 }

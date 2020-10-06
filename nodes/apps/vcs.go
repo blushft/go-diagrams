@@ -1,28 +1,25 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type vcsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Vcs = &vcsContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/vcs",
+var Vcs = &vcsContainer{path: "assets/apps/vcs"}
+
+func (c *vcsContainer) Github(opts ...attr.Attribute) *node.Node {
+	return node.New("github", attr.AssetImage("assets/apps/vcs/github.png"), attr.Shape(attr.None))
 }
 
-func (c *vcsContainer) Git(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/vcs/git.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *vcsContainer) Gitlab(opts ...attr.Attribute) *node.Node {
+	return node.New("gitlab", attr.AssetImage("assets/apps/vcs/gitlab.png"), attr.Shape(attr.None))
 }
 
-func (c *vcsContainer) Github(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/vcs/github.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *vcsContainer) Gitlab(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/vcs/gitlab.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *vcsContainer) Git(opts ...attr.Attribute) *node.Node {
+	return node.New("git", attr.AssetImage("assets/apps/vcs/git.png"), attr.Shape(attr.None))
 }

@@ -1,88 +1,73 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type databaseContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Database = &databaseContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/database",
+var Database = &databaseContainer{path: "assets/aws/database"}
+
+func (c *databaseContainer) Aurora(opts ...attr.Attribute) *node.Node {
+	return node.New("aurora", attr.AssetImage("assets/aws/database/aurora.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Dynamodb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/dynamodb.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) QuantumLedgerDatabaseQldb(opts ...attr.Attribute) *node.Node {
+	return node.New("quantum-ledger-database-qldb", attr.AssetImage("assets/aws/database/quantum-ledger-database-qldb.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Neptune(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/neptune.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Timestream(opts ...attr.Attribute) *node.Node {
+	return node.New("timestream", attr.AssetImage("assets/aws/database/timestream.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Aurora(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/aurora.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DynamodbGlobalSecondaryIndex(opts ...attr.Attribute) *node.Node {
+	return node.New("dynamodb-global-secondary-index", attr.AssetImage("assets/aws/database/dynamodb-global-secondary-index.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DatabaseMigrationService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/database-migration-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DynamodbTable(opts ...attr.Attribute) *node.Node {
+	return node.New("dynamodb-table", attr.AssetImage("assets/aws/database/dynamodb-table.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Database(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/database.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) RdsOnVmware(opts ...attr.Attribute) *node.Node {
+	return node.New("rds-on-vmware", attr.AssetImage("assets/aws/database/rds-on-vmware.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DocumentdbMongodbCompatibility(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/documentdb-mongodb-compatibility.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DatabaseMigrationService(opts ...attr.Attribute) *node.Node {
+	return node.New("database-migration-service", attr.AssetImage("assets/aws/database/database-migration-service.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Elasticache(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/elasticache.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Database(opts ...attr.Attribute) *node.Node {
+	return node.New("database", attr.AssetImage("assets/aws/database/database.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) RdsOnVmware(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/rds-on-vmware.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DynamodbDax(opts ...attr.Attribute) *node.Node {
+	return node.New("dynamodb-dax", attr.AssetImage("assets/aws/database/dynamodb-dax.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Timestream(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/timestream.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Rds(opts ...attr.Attribute) *node.Node {
+	return node.New("rds", attr.AssetImage("assets/aws/database/rds.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DynamodbDax(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/dynamodb-dax.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Redshift(opts ...attr.Attribute) *node.Node {
+	return node.New("redshift", attr.AssetImage("assets/aws/database/redshift.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) QuantumLedgerDatabaseQldb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/quantum-ledger-database-qldb.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) DocumentdbMongodbCompatibility(opts ...attr.Attribute) *node.Node {
+	return node.New("documentdb-mongodb-compatibility", attr.AssetImage("assets/aws/database/documentdb-mongodb-compatibility.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Redshift(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/redshift.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Dynamodb(opts ...attr.Attribute) *node.Node {
+	return node.New("dynamodb", attr.AssetImage("assets/aws/database/dynamodb.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DynamodbGlobalSecondaryIndex(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/dynamodb-global-secondary-index.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Elasticache(opts ...attr.Attribute) *node.Node {
+	return node.New("elasticache", attr.AssetImage("assets/aws/database/elasticache.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) DynamodbTable(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/dynamodb-table.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *databaseContainer) Rds(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/database/rds.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Neptune(opts ...attr.Attribute) *node.Node {
+	return node.New("neptune", attr.AssetImage("assets/aws/database/neptune.png"), attr.Shape(attr.None))
 }

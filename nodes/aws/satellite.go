@@ -1,18 +1,17 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type satelliteContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Satellite = &satelliteContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/satellite",
-}
+var Satellite = &satelliteContainer{path: "assets/aws/satellite"}
 
-func (c *satelliteContainer) GroundStation(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/satellite/ground-station.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *satelliteContainer) GroundStation(opts ...attr.Attribute) *node.Node {
+	return node.New("ground-station", attr.AssetImage("assets/aws/satellite/ground-station.png"), attr.Shape(attr.None))
 }

@@ -1,23 +1,21 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type othersContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Others = &othersContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/others",
+var Others = &othersContainer{path: "assets/k8s/others"}
+
+func (c *othersContainer) Psp(opts ...attr.Attribute) *node.Node {
+	return node.New("psp", attr.AssetImage("assets/k8s/others/psp.png"), attr.Shape(attr.None))
 }
 
-func (c *othersContainer) Crd(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/others/crd.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *othersContainer) Psp(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/others/psp.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *othersContainer) Crd(opts ...attr.Attribute) *node.Node {
+	return node.New("crd", attr.AssetImage("assets/k8s/others/crd.png"), attr.Shape(attr.None))
 }

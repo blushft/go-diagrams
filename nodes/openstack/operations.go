@@ -1,13 +1,10 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import attr "github.com/blushft/go-diagrams/attr"
 
 type operationsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Operations = &operationsContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/operations",
-}
+var Operations = &operationsContainer{path: "assets/openstack/operations"}

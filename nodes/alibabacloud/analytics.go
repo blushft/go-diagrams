@@ -1,38 +1,33 @@
 package alibabacloud
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type analyticsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Analytics = &analyticsContainer{
-	opts: diagram.OptionSet{diagram.Provider("alibabacloud"), diagram.NodeShape("none")},
-	path: "assets/alibabacloud/analytics",
+var Analytics = &analyticsContainer{path: "assets/alibabacloud/analytics"}
+
+func (c *analyticsContainer) DataLakeAnalytics(opts ...attr.Attribute) *node.Node {
+	return node.New("data-lake-analytics", attr.AssetImage("assets/alibabacloud/analytics/data-lake-analytics.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) AnalyticDb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/analytics/analytic-db.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) ElaticMapReduce(opts ...attr.Attribute) *node.Node {
+	return node.New("elatic-map-reduce", attr.AssetImage("assets/alibabacloud/analytics/elatic-map-reduce.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) ClickHouse(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/analytics/click-house.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) OpenSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("open-search", attr.AssetImage("assets/alibabacloud/analytics/open-search.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) DataLakeAnalytics(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/analytics/data-lake-analytics.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) AnalyticDb(opts ...attr.Attribute) *node.Node {
+	return node.New("analytic-db", attr.AssetImage("assets/alibabacloud/analytics/analytic-db.png"), attr.Shape(attr.None))
 }
 
-func (c *analyticsContainer) ElaticMapReduce(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/analytics/elatic-map-reduce.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *analyticsContainer) OpenSearch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/analytics/open-search.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *analyticsContainer) ClickHouse(opts ...attr.Attribute) *node.Node {
+	return node.New("click-house", attr.AssetImage("assets/alibabacloud/analytics/click-house.png"), attr.Shape(attr.None))
 }

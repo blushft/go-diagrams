@@ -1,23 +1,21 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type loggingContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Logging = &loggingContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/logging",
+var Logging = &loggingContainer{path: "assets/saas/logging"}
+
+func (c *loggingContainer) Datadog(opts ...attr.Attribute) *node.Node {
+	return node.New("datadog", attr.AssetImage("assets/saas/logging/datadog.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Datadog(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/logging/datadog.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *loggingContainer) Papertrail(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/logging/papertrail.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *loggingContainer) Papertrail(opts ...attr.Attribute) *node.Node {
+	return node.New("papertrail", attr.AssetImage("assets/saas/logging/papertrail.png"), attr.Shape(attr.None))
 }

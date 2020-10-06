@@ -1,18 +1,17 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type quantumContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Quantum = &quantumContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/quantum",
-}
+var Quantum = &quantumContainer{path: "assets/aws/quantum"}
 
-func (c *quantumContainer) Braket(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/quantum/braket.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *quantumContainer) Braket(opts ...attr.Attribute) *node.Node {
+	return node.New("braket", attr.AssetImage("assets/aws/quantum/braket.png"), attr.Shape(attr.None))
 }

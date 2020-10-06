@@ -1,131 +1,111 @@
 package diagram
 
 import (
-	"errors"
-	"io/ioutil"
-	"os"
-	"path/filepath"
+	"strings"
 
-	graphviz "github.com/awalterschulze/gographviz"
+	"github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/edge"
+	"github.com/blushft/go-diagrams/node"
+	"github.com/google/uuid"
 )
 
-type Connector interface {
-	Connect(start, end *Node, opts ...EdgeOption) Connector
-	ConnectByID(start, end string, opts ...EdgeOption) Connector
+type GroupType string
+
+const (
+	RootGraph GroupType = "G"
+	Subgraph  GroupType = "S"
+	Cluster   GroupType = "C"
+)
+
+func New(id string, attrs ...attr.Attribute) *Group {
+	return new(id, RootGraph, defaultRootAttrs(attrs...))
 }
 
-type Diagram struct {
-	options Options
+type Group struct {
+	t        GroupType
+	id       string
+	attrs    attr.Attributes
+	parent   *Group
+	children map[string]*Group
 
-	g *graphviz.Escape
-
-	root *Group
+	nodes map[string]*node.Node
+	edges map[string]*edge.Edge
 }
 
-func New(opts ...Option) (*Diagram, error) {
-	options := DefaultOptions(opts...)
-	g := graphviz.NewEscape()
-	g.SetName("root")
-	g.SetDir(true)
-
-	for k, v := range options.attrs() {
-		if err := g.AddAttr("root", k, v); err != nil {
-			return nil, err
-		}
-	}
-
-	return new(g, options), nil
+func NewGroup(id string, attrs ...attr.Attribute) *Group {
+	return new(id, Subgraph, defaultGroupAttrs(attrs...))
 }
 
-func new(g *graphviz.Escape, options Options) *Diagram {
-	return &Diagram{
-		g:       g,
-		options: options,
-		root:    newGroup("root", 0, nil),
-	}
+func NewCluster(id string, attrs ...attr.Attribute) *Group {
+	return new("cluster"+id, Cluster, defaultClusterAttrs(attrs...))
 }
 
-func (d *Diagram) Nodes() []*Node {
-	return d.root.Nodes()
-}
-
-func (d *Diagram) Edges() []*Edge {
-	return d.root.Edges()
-}
-
-func (d *Diagram) Groups() []*Group {
-	return d.root.Children()
-}
-
-func (d *Diagram) Add(ns ...*Node) *Diagram {
-	d.root.Add(ns...)
-	return d
-}
-
-func (d *Diagram) Connect(start, end *Node, opts ...EdgeOption) *Diagram {
-	d.Add(start, end)
-	return d.ConnectByID(start.ID(), end.ID(), opts...)
-}
-
-func (d *Diagram) ConnectByID(start, end string, opts ...EdgeOption) *Diagram {
-	d.root.ConnectByID(start, end, opts...)
-
-	return d
-}
-
-func (d *Diagram) Group(g *Group) *Diagram {
-	d.root.Group(g)
-	return d
-}
-
-func (d *Diagram) Close() error {
-	return nil
-}
-
-func (d *Diagram) Render() error {
-	return d.render()
-}
-
-func (d *Diagram) render() error {
-	outdir := d.options.Name
-	if err := os.Mkdir(outdir, os.ModePerm); err != nil {
-		return err
-	}
-
-	for _, n := range d.root.nodes {
-		err := n.render("root", outdir, d.g)
-		if err != nil {
-			return err
-		}
-	}
-
-	for _, e := range d.root.edges {
-		err := e.render(e.Start(), e.End(), d.g)
-		if err != nil {
-			return err
-		}
-	}
-
-	for _, g := range d.root.children {
-		if err := g.render(outdir, d.g); err != nil {
-			return err
-		}
-	}
-
-	return d.renderOutput()
-}
-
-func (d *Diagram) renderOutput() error {
-	switch d.options.OutFormat {
-	case "dot":
-		return d.saveDot()
-	default:
-		return errors.New("invalid output format")
+func new(id string, t GroupType, attrs attr.Attributes) *Group {
+	return &Group{
+		t:        t,
+		id:       id,
+		attrs:    attrs,
+		children: make(map[string]*Group),
+		nodes:    make(map[string]*node.Node),
+		edges:    make(map[string]*edge.Edge),
 	}
 }
 
-func (d *Diagram) saveDot() error {
-	fname := filepath.Join(d.options.Name, d.options.FileName+".dot")
+func (g *Group) ID() string {
+	return g.id
+}
 
-	return ioutil.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
+func (g *Group) Attributes() (map[string]string, error) {
+	return g.attrs.Render()
+}
+
+func (g *Group) Nodes() []Node {
+	ns := make([]Node, 0, len(g.nodes))
+
+	for _, n := range g.nodes {
+		ns = append(ns, n)
+	}
+
+	return ns
+}
+
+func (g *Group) Edges() []Edge {
+	es := make([]Edge, 0, len(g.edges))
+
+	for _, e := range g.edges {
+		es = append(es, e)
+	}
+
+	return es
+}
+
+func (g *Group) Children() []Diagram {
+	cs := make([]Diagram, 0, len(g.children))
+
+	for _, c := range g.children {
+		cs = append(cs, c)
+	}
+
+	return cs
+}
+
+func (g *Group) AddNode(n *node.Node) *Group {
+	g.nodes[n.ID()] = n
+	return g
+}
+
+func (g *Group) AddNodes(ns ...*node.Node) *Group {
+	for _, n := range ns {
+		g.AddNode(n)
+	}
+
+	return g
+}
+
+func (g *Group) Connect(start, end *node.Node) *Group {
+	g.AddNodes(start, end)
+	eid := strings.SplitAfter(strings.Replace(uuid.New().String(), "-", "", 1), "-")[0]
+	g.edges[eid] = edge.New(eid, start, end)
+
+	return g
 }

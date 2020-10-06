@@ -1,53 +1,45 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type integrationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Integration = &integrationContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/integration",
+var Integration = &integrationContainer{path: "assets/aws/integration"}
+
+func (c *integrationContainer) ApplicationIntegration(opts ...attr.Attribute) *node.Node {
+	return node.New("application-integration", attr.AssetImage("assets/aws/integration/application-integration.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) Appsync(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/appsync.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) Appsync(opts ...attr.Attribute) *node.Node {
+	return node.New("appsync", attr.AssetImage("assets/aws/integration/appsync.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) ConsoleMobileApplication(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/console-mobile-application.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) ConsoleMobileApplication(opts ...attr.Attribute) *node.Node {
+	return node.New("console-mobile-application", attr.AssetImage("assets/aws/integration/console-mobile-application.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) Eventbridge(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/eventbridge.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) Eventbridge(opts ...attr.Attribute) *node.Node {
+	return node.New("eventbridge", attr.AssetImage("assets/aws/integration/eventbridge.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) Mq(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/mq.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) Mq(opts ...attr.Attribute) *node.Node {
+	return node.New("mq", attr.AssetImage("assets/aws/integration/mq.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) SimpleNotificationServiceSns(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/simple-notification-service-sns.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) SimpleNotificationServiceSns(opts ...attr.Attribute) *node.Node {
+	return node.New("simple-notification-service-sns", attr.AssetImage("assets/aws/integration/simple-notification-service-sns.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) SimpleQueueServiceSqs(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/simple-queue-service-sqs.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) SimpleQueueServiceSqs(opts ...attr.Attribute) *node.Node {
+	return node.New("simple-queue-service-sqs", attr.AssetImage("assets/aws/integration/simple-queue-service-sqs.png"), attr.Shape(attr.None))
 }
 
-func (c *integrationContainer) StepFunctions(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/step-functions.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *integrationContainer) ApplicationIntegration(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/application-integration.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *integrationContainer) StepFunctions(opts ...attr.Attribute) *node.Node {
+	return node.New("step-functions", attr.AssetImage("assets/aws/integration/step-functions.png"), attr.Shape(attr.None))
 }

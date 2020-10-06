@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type nfvContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Nfv = &nfvContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/nfv",
-}
+var Nfv = &nfvContainer{path: "assets/openstack/nfv"}
 
-func (c *nfvContainer) Tacker(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/adjacentenablers/nfv/tacker.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *nfvContainer) Tacker(opts ...attr.Attribute) *node.Node {
+	return node.New("tacker", attr.AssetImage("assets/openstack/nfv/tacker.png"), attr.Shape(attr.None))
 }

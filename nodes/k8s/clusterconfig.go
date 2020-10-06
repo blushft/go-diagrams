@@ -1,28 +1,25 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type clusterconfigContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Clusterconfig = &clusterconfigContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/clusterconfig",
+var Clusterconfig = &clusterconfigContainer{path: "assets/k8s/clusterconfig"}
+
+func (c *clusterconfigContainer) Hpa(opts ...attr.Attribute) *node.Node {
+	return node.New("hpa", attr.AssetImage("assets/k8s/clusterconfig/hpa.png"), attr.Shape(attr.None))
 }
 
-func (c *clusterconfigContainer) Hpa(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/hpa.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *clusterconfigContainer) Limits(opts ...attr.Attribute) *node.Node {
+	return node.New("limits", attr.AssetImage("assets/k8s/clusterconfig/limits.png"), attr.Shape(attr.None))
 }
 
-func (c *clusterconfigContainer) Limits(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/limits.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *clusterconfigContainer) Quota(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/quota.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *clusterconfigContainer) Quota(opts ...attr.Attribute) *node.Node {
+	return node.New("quota", attr.AssetImage("assets/k8s/clusterconfig/quota.png"), attr.Shape(attr.None))
 }

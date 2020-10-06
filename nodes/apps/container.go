@@ -1,23 +1,21 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type containerContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Container = &containerContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/container",
+var Container = &containerContainer{path: "assets/apps/container"}
+
+func (c *containerContainer) Docker(opts ...attr.Attribute) *node.Node {
+	return node.New("docker", attr.AssetImage("assets/apps/container/docker.png"), attr.Shape(attr.None))
 }
 
-func (c *containerContainer) Docker(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/container/docker.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *containerContainer) Rkt(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/container/rkt.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *containerContainer) Rkt(opts ...attr.Attribute) *node.Node {
+	return node.New("rkt", attr.AssetImage("assets/apps/container/rkt.png"), attr.Shape(attr.None))
 }

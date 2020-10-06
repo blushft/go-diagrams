@@ -1,23 +1,21 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type securityContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/security",
+var Security = &securityContainer{path: "assets/apps/security"}
+
+func (c *securityContainer) Trivy(opts ...attr.Attribute) *node.Node {
+	return node.New("trivy", attr.AssetImage("assets/apps/security/trivy.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) Trivy(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/security/trivy.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *securityContainer) Vault(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/security/vault.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *securityContainer) Vault(opts ...attr.Attribute) *node.Node {
+	return node.New("vault", attr.AssetImage("assets/apps/security/vault.png"), attr.Shape(attr.None))
 }

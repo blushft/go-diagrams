@@ -1,28 +1,25 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type packagingContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Packaging = &packagingContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/packaging",
+var Packaging = &packagingContainer{path: "assets/openstack/packaging"}
+
+func (c *packagingContainer) Loci(opts ...attr.Attribute) *node.Node {
+	return node.New("loci", attr.AssetImage("assets/openstack/packaging/loci.png"), attr.Shape(attr.None))
 }
 
-func (c *packagingContainer) Puppet(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/lifecyclemanagement/packaging/puppet.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *packagingContainer) Puppet(opts ...attr.Attribute) *node.Node {
+	return node.New("puppet", attr.AssetImage("assets/openstack/packaging/puppet.png"), attr.Shape(attr.None))
 }
 
-func (c *packagingContainer) Rpm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/lifecyclemanagement/packaging/rpm.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *packagingContainer) Loci(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/lifecyclemanagement/packaging/loci.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *packagingContainer) Rpm(opts ...attr.Attribute) *node.Node {
+	return node.New("rpm", attr.AssetImage("assets/openstack/packaging/rpm.png"), attr.Shape(attr.None))
 }

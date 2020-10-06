@@ -1,58 +1,49 @@
 package alibabacloud
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type networkContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Network = &networkContainer{
-	opts: diagram.OptionSet{diagram.Provider("alibabacloud"), diagram.NodeShape("none")},
-	path: "assets/alibabacloud/network",
+var Network = &networkContainer{path: "assets/alibabacloud/network"}
+
+func (c *networkContainer) ExpressConnect(opts ...attr.Attribute) *node.Node {
+	return node.New("express-connect", attr.AssetImage("assets/alibabacloud/network/express-connect.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) ElasticIpAddress(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/elastic-ip-address.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) NatGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("nat-gateway", attr.AssetImage("assets/alibabacloud/network/nat-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) ServerLoadBalancer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/server-load-balancer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) ServerLoadBalancer(opts ...attr.Attribute) *node.Node {
+	return node.New("server-load-balancer", attr.AssetImage("assets/alibabacloud/network/server-load-balancer.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) VirtualPrivateCloud(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/virtual-private-cloud.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) SmartAccessGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("smart-access-gateway", attr.AssetImage("assets/alibabacloud/network/smart-access-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) VpnGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/vpn-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) VirtualPrivateCloud(opts ...attr.Attribute) *node.Node {
+	return node.New("virtual-private-cloud", attr.AssetImage("assets/alibabacloud/network/virtual-private-cloud.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) SmartAccessGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/smart-access-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) VpnGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("vpn-gateway", attr.AssetImage("assets/alibabacloud/network/vpn-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) Cdn(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/cdn.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) Cdn(opts ...attr.Attribute) *node.Node {
+	return node.New("cdn", attr.AssetImage("assets/alibabacloud/network/cdn.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) CloudEnterpriseNetwork(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/cloud-enterprise-network.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) ElasticIpAddress(opts ...attr.Attribute) *node.Node {
+	return node.New("elastic-ip-address", attr.AssetImage("assets/alibabacloud/network/elastic-ip-address.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) ExpressConnect(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/express-connect.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *networkContainer) NatGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/network/nat-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) CloudEnterpriseNetwork(opts ...attr.Attribute) *node.Node {
+	return node.New("cloud-enterprise-network", attr.AssetImage("assets/alibabacloud/network/cloud-enterprise-network.png"), attr.Shape(attr.None))
 }

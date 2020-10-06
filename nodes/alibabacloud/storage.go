@@ -1,53 +1,45 @@
 package alibabacloud
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type storageContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Storage = &storageContainer{
-	opts: diagram.OptionSet{diagram.Provider("alibabacloud"), diagram.NodeShape("none")},
-	path: "assets/alibabacloud/storage",
+var Storage = &storageContainer{path: "assets/alibabacloud/storage"}
+
+func (c *storageContainer) ObjectStorageService(opts ...attr.Attribute) *node.Node {
+	return node.New("object-storage-service", attr.AssetImage("assets/alibabacloud/storage/object-storage-service.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) FileStorageNas(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/file-storage-nas.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) ObjectTableStore(opts ...attr.Attribute) *node.Node {
+	return node.New("object-table-store", attr.AssetImage("assets/alibabacloud/storage/object-table-store.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) HybridBackupRecovery(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/hybrid-backup-recovery.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) CloudStorageGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("cloud-storage-gateway", attr.AssetImage("assets/alibabacloud/storage/cloud-storage-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) HybridCloudDisasterRecovery(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/hybrid-cloud-disaster-recovery.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) FileStorageHdfs(opts ...attr.Attribute) *node.Node {
+	return node.New("file-storage-hdfs", attr.AssetImage("assets/alibabacloud/storage/file-storage-hdfs.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Imm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/imm.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) FileStorageNas(opts ...attr.Attribute) *node.Node {
+	return node.New("file-storage-nas", attr.AssetImage("assets/alibabacloud/storage/file-storage-nas.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ObjectStorageService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/object-storage-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) HybridBackupRecovery(opts ...attr.Attribute) *node.Node {
+	return node.New("hybrid-backup-recovery", attr.AssetImage("assets/alibabacloud/storage/hybrid-backup-recovery.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) ObjectTableStore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/object-table-store.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) HybridCloudDisasterRecovery(opts ...attr.Attribute) *node.Node {
+	return node.New("hybrid-cloud-disaster-recovery", attr.AssetImage("assets/alibabacloud/storage/hybrid-cloud-disaster-recovery.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) CloudStorageGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/cloud-storage-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *storageContainer) FileStorageHdfs(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/alibabacloud/storage/file-storage-hdfs.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *storageContainer) Imm(opts ...attr.Attribute) *node.Node {
+	return node.New("imm", attr.AssetImage("assets/alibabacloud/storage/imm.png"), attr.Shape(attr.None))
 }

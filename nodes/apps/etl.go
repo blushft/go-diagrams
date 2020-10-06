@@ -1,18 +1,17 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type etlContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Etl = &etlContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/etl",
-}
+var Etl = &etlContainer{path: "assets/apps/etl"}
 
-func (c *etlContainer) Embulk(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/etl/embulk.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *etlContainer) Embulk(opts ...attr.Attribute) *node.Node {
+	return node.New("embulk", attr.AssetImage("assets/apps/etl/embulk.png"), attr.Shape(attr.None))
 }

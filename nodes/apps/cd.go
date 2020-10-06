@@ -1,28 +1,25 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type cdContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Cd = &cdContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/cd",
+var Cd = &cdContainer{path: "assets/apps/cd"}
+
+func (c *cdContainer) Spinnaker(opts ...attr.Attribute) *node.Node {
+	return node.New("spinnaker", attr.AssetImage("assets/apps/cd/spinnaker.png"), attr.Shape(attr.None))
 }
 
-func (c *cdContainer) Spinnaker(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/cd/spinnaker.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *cdContainer) TektonCli(opts ...attr.Attribute) *node.Node {
+	return node.New("tekton-cli", attr.AssetImage("assets/apps/cd/tekton-cli.png"), attr.Shape(attr.None))
 }
 
-func (c *cdContainer) TektonCli(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/cd/tekton-cli.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *cdContainer) Tekton(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/cd/tekton.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *cdContainer) Tekton(opts ...attr.Attribute) *node.Node {
+	return node.New("tekton", attr.AssetImage("assets/apps/cd/tekton.png"), attr.Shape(attr.None))
 }

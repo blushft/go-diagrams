@@ -1,28 +1,25 @@
 package apps
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type gitopsContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Gitops = &gitopsContainer{
-	opts: diagram.OptionSet{diagram.Provider("apps"), diagram.NodeShape("none")},
-	path: "assets/apps/gitops",
+var Gitops = &gitopsContainer{path: "assets/apps/gitops"}
+
+func (c *gitopsContainer) Argocd(opts ...attr.Attribute) *node.Node {
+	return node.New("argocd", attr.AssetImage("assets/apps/gitops/argocd.png"), attr.Shape(attr.None))
 }
 
-func (c *gitopsContainer) Argocd(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/gitops/argocd.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *gitopsContainer) Flagger(opts ...attr.Attribute) *node.Node {
+	return node.New("flagger", attr.AssetImage("assets/apps/gitops/flagger.png"), attr.Shape(attr.None))
 }
 
-func (c *gitopsContainer) Flagger(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/gitops/flagger.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *gitopsContainer) Flux(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/gitops/flux.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *gitopsContainer) Flux(opts ...attr.Attribute) *node.Node {
+	return node.New("flux", attr.AssetImage("assets/apps/gitops/flux.png"), attr.Shape(attr.None))
 }

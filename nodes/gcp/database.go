@@ -1,43 +1,37 @@
 package gcp
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type databaseContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Database = &databaseContainer{
-	opts: diagram.OptionSet{diagram.Provider("gcp"), diagram.NodeShape("none")},
-	path: "assets/gcp/database",
+var Database = &databaseContainer{path: "assets/gcp/database"}
+
+func (c *databaseContainer) Bigtable(opts ...attr.Attribute) *node.Node {
+	return node.New("bigtable", attr.AssetImage("assets/gcp/database/bigtable.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Datastore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/datastore.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Datastore(opts ...attr.Attribute) *node.Node {
+	return node.New("datastore", attr.AssetImage("assets/gcp/database/datastore.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Firestore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/firestore.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Firestore(opts ...attr.Attribute) *node.Node {
+	return node.New("firestore", attr.AssetImage("assets/gcp/database/firestore.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Memorystore(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/memorystore.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Memorystore(opts ...attr.Attribute) *node.Node {
+	return node.New("memorystore", attr.AssetImage("assets/gcp/database/memorystore.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Spanner(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/spanner.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Spanner(opts ...attr.Attribute) *node.Node {
+	return node.New("spanner", attr.AssetImage("assets/gcp/database/spanner.png"), attr.Shape(attr.None))
 }
 
-func (c *databaseContainer) Sql(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/sql.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *databaseContainer) Bigtable(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/gcp/database/bigtable.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *databaseContainer) Sql(opts ...attr.Attribute) *node.Node {
+	return node.New("sql", attr.AssetImage("assets/gcp/database/sql.png"), attr.Shape(attr.None))
 }

@@ -1,38 +1,33 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type sharedservicesContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Sharedservices = &sharedservicesContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/sharedservices",
+var Sharedservices = &sharedservicesContainer{path: "assets/openstack/sharedservices"}
+
+func (c *sharedservicesContainer) Barbican(opts ...attr.Attribute) *node.Node {
+	return node.New("barbican", attr.AssetImage("assets/openstack/sharedservices/barbican.png"), attr.Shape(attr.None))
 }
 
-func (c *sharedservicesContainer) Barbican(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/barbican.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *sharedservicesContainer) Glance(opts ...attr.Attribute) *node.Node {
+	return node.New("glance", attr.AssetImage("assets/openstack/sharedservices/glance.png"), attr.Shape(attr.None))
 }
 
-func (c *sharedservicesContainer) Glance(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/glance.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *sharedservicesContainer) Karbor(opts ...attr.Attribute) *node.Node {
+	return node.New("karbor", attr.AssetImage("assets/openstack/sharedservices/karbor.png"), attr.Shape(attr.None))
 }
 
-func (c *sharedservicesContainer) Karbor(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/karbor.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *sharedservicesContainer) Keystone(opts ...attr.Attribute) *node.Node {
+	return node.New("keystone", attr.AssetImage("assets/openstack/sharedservices/keystone.png"), attr.Shape(attr.None))
 }
 
-func (c *sharedservicesContainer) Keystone(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/keystone.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *sharedservicesContainer) Searchlight(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/searchlight.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *sharedservicesContainer) Searchlight(opts ...attr.Attribute) *node.Node {
+	return node.New("searchlight", attr.AssetImage("assets/openstack/sharedservices/searchlight.png"), attr.Shape(attr.None))
 }

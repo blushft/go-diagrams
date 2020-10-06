@@ -1,68 +1,57 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type migrationContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Migration = &migrationContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/migration",
+var Migration = &migrationContainer{path: "assets/aws/migration"}
+
+func (c *migrationContainer) TransferForSftp(opts ...attr.Attribute) *node.Node {
+	return node.New("transfer-for-sftp", attr.AssetImage("assets/aws/migration/transfer-for-sftp.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) TransferForSftp(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/transfer-for-sftp.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) ApplicationDiscoveryService(opts ...attr.Attribute) *node.Node {
+	return node.New("application-discovery-service", attr.AssetImage("assets/aws/migration/application-discovery-service.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) Datasync(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/datasync.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) DatabaseMigrationService(opts ...attr.Attribute) *node.Node {
+	return node.New("database-migration-service", attr.AssetImage("assets/aws/migration/database-migration-service.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) MigrationAndTransfer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/migration-and-transfer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) MigrationHub(opts ...attr.Attribute) *node.Node {
+	return node.New("migration-hub", attr.AssetImage("assets/aws/migration/migration-hub.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) Snowball(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/snowball.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) SnowballEdge(opts ...attr.Attribute) *node.Node {
+	return node.New("snowball-edge", attr.AssetImage("assets/aws/migration/snowball-edge.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) MigrationHub(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/migration-hub.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) Snowball(opts ...attr.Attribute) *node.Node {
+	return node.New("snowball", attr.AssetImage("assets/aws/migration/snowball.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) ServerMigrationService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/server-migration-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) Snowmobile(opts ...attr.Attribute) *node.Node {
+	return node.New("snowmobile", attr.AssetImage("assets/aws/migration/snowmobile.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) SnowballEdge(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/snowball-edge.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) CloudendureMigration(opts ...attr.Attribute) *node.Node {
+	return node.New("cloudendure-migration", attr.AssetImage("assets/aws/migration/cloudendure-migration.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) Snowmobile(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/snowmobile.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) Datasync(opts ...attr.Attribute) *node.Node {
+	return node.New("datasync", attr.AssetImage("assets/aws/migration/datasync.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) ApplicationDiscoveryService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/application-discovery-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) MigrationAndTransfer(opts ...attr.Attribute) *node.Node {
+	return node.New("migration-and-transfer", attr.AssetImage("assets/aws/migration/migration-and-transfer.png"), attr.Shape(attr.None))
 }
 
-func (c *migrationContainer) CloudendureMigration(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/cloudendure-migration.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *migrationContainer) DatabaseMigrationService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/migration/database-migration-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *migrationContainer) ServerMigrationService(opts ...attr.Attribute) *node.Node {
+	return node.New("server-migration-service", attr.AssetImage("assets/aws/migration/server-migration-service.png"), attr.Shape(attr.None))
 }

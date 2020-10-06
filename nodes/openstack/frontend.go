@@ -1,18 +1,17 @@
 package openstack
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type frontendContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Frontend = &frontendContainer{
-	opts: diagram.OptionSet{diagram.Provider("openstack"), diagram.NodeShape("none")},
-	path: "assets/openstack/frontend",
-}
+var Frontend = &frontendContainer{path: "assets/openstack/frontend"}
 
-func (c *frontendContainer) Horizon(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/frontend/horizon.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *frontendContainer) Horizon(opts ...attr.Attribute) *node.Node {
+	return node.New("horizon", attr.AssetImage("assets/openstack/frontend/horizon.png"), attr.Shape(attr.None))
 }

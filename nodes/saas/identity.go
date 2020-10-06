@@ -1,23 +1,21 @@
 package saas
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type identityContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Identity = &identityContainer{
-	opts: diagram.OptionSet{diagram.Provider("saas"), diagram.NodeShape("none")},
-	path: "assets/saas/identity",
+var Identity = &identityContainer{path: "assets/saas/identity"}
+
+func (c *identityContainer) Auth0(opts ...attr.Attribute) *node.Node {
+	return node.New("auth0", attr.AssetImage("assets/saas/identity/auth0.png"), attr.Shape(attr.None))
 }
 
-func (c *identityContainer) Auth0(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/identity/auth0.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *identityContainer) Okta(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/saas/identity/okta.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *identityContainer) Okta(opts ...attr.Attribute) *node.Node {
+	return node.New("okta", attr.AssetImage("assets/saas/identity/okta.png"), attr.Shape(attr.None))
 }

@@ -1,18 +1,17 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type groupContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Group = &groupContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/group",
-}
+var Group = &groupContainer{path: "assets/k8s/group"}
 
-func (c *groupContainer) Ns(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/group/ns.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *groupContainer) Ns(opts ...attr.Attribute) *node.Node {
+	return node.New("ns", attr.AssetImage("assets/k8s/group/ns.png"), attr.Shape(attr.None))
 }

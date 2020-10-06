@@ -1,33 +1,29 @@
 package generic
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type networkContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Network = &networkContainer{
-	opts: diagram.OptionSet{diagram.Provider("generic"), diagram.NodeShape("none")},
-	path: "assets/generic/network",
+var Network = &networkContainer{path: "assets/generic/network"}
+
+func (c *networkContainer) Firewall(opts ...attr.Attribute) *node.Node {
+	return node.New("firewall", attr.AssetImage("assets/generic/network/firewall.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) Firewall(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/generic/network/firewall.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) Router(opts ...attr.Attribute) *node.Node {
+	return node.New("router", attr.AssetImage("assets/generic/network/router.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) Router(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/generic/network/router.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) Switch(opts ...attr.Attribute) *node.Node {
+	return node.New("switch", attr.AssetImage("assets/generic/network/switch.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) Switch(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/generic/network/switch.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *networkContainer) Vpn(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/generic/network/vpn.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) Vpn(opts ...attr.Attribute) *node.Node {
+	return node.New("vpn", attr.AssetImage("assets/generic/network/vpn.png"), attr.Shape(attr.None))
 }

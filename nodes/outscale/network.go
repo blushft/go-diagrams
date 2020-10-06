@@ -1,43 +1,37 @@
 package outscale
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type networkContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Network = &networkContainer{
-	opts: diagram.OptionSet{diagram.Provider("outscale"), diagram.NodeShape("none")},
-	path: "assets/outscale/network",
+var Network = &networkContainer{path: "assets/outscale/network"}
+
+func (c *networkContainer) LoadBalancer(opts ...attr.Attribute) *node.Node {
+	return node.New("load-balancer", attr.AssetImage("assets/outscale/network/load-balancer.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) InternetService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/internet-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) NatService(opts ...attr.Attribute) *node.Node {
+	return node.New("nat-service", attr.AssetImage("assets/outscale/network/nat-service.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) LoadBalancer(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/load-balancer.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) Net(opts ...attr.Attribute) *node.Node {
+	return node.New("net", attr.AssetImage("assets/outscale/network/net.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) NatService(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/nat-service.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) SiteToSiteVpng(opts ...attr.Attribute) *node.Node {
+	return node.New("site-to-site-vpng", attr.AssetImage("assets/outscale/network/site-to-site-vpng.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) Net(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/net.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) ClientVpn(opts ...attr.Attribute) *node.Node {
+	return node.New("client-vpn", attr.AssetImage("assets/outscale/network/client-vpn.png"), attr.Shape(attr.None))
 }
 
-func (c *networkContainer) SiteToSiteVpng(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/site-to-site-vpng.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *networkContainer) ClientVpn(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/outscale/network/client-vpn.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *networkContainer) InternetService(opts ...attr.Attribute) *node.Node {
+	return node.New("internet-service", attr.AssetImage("assets/outscale/network/internet-service.png"), attr.Shape(attr.None))
 }

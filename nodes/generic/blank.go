@@ -1,18 +1,17 @@
 package generic
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type blankContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Blank = &blankContainer{
-	opts: diagram.OptionSet{diagram.Provider("generic"), diagram.NodeShape("none")},
-	path: "assets/generic/blank",
-}
+var Blank = &blankContainer{path: "assets/generic/blank"}
 
-func (c *blankContainer) Blank(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/generic/blank/blank.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *blankContainer) Blank(opts ...attr.Attribute) *node.Node {
+	return node.New("blank", attr.AssetImage("assets/generic/blank/blank.png"), attr.Shape(attr.None))
 }

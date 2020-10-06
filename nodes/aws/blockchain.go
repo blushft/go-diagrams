@@ -1,23 +1,21 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type blockchainContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Blockchain = &blockchainContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/blockchain",
+var Blockchain = &blockchainContainer{path: "assets/aws/blockchain"}
+
+func (c *blockchainContainer) ManagedBlockchain(opts ...attr.Attribute) *node.Node {
+	return node.New("managed-blockchain", attr.AssetImage("assets/aws/blockchain/managed-blockchain.png"), attr.Shape(attr.None))
 }
 
-func (c *blockchainContainer) ManagedBlockchain(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/blockchain/managed-blockchain.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *blockchainContainer) QuantumLedgerDatabaseQldb(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/blockchain/quantum-ledger-database-qldb.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *blockchainContainer) QuantumLedgerDatabaseQldb(opts ...attr.Attribute) *node.Node {
+	return node.New("quantum-ledger-database-qldb", attr.AssetImage("assets/aws/blockchain/quantum-ledger-database-qldb.png"), attr.Shape(attr.None))
 }

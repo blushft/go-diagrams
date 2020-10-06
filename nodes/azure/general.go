@@ -1,143 +1,117 @@
 package azure
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type generalContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var General = &generalContainer{
-	opts: diagram.OptionSet{diagram.Provider("azure"), diagram.NodeShape("none")},
-	path: "assets/azure/general",
+var General = &generalContainer{path: "assets/azure/general"}
+
+func (c *generalContainer) Allresources(opts ...attr.Attribute) *node.Node {
+	return node.New("allresources", attr.AssetImage("assets/azure/general/allresources.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Userprivacy(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/userprivacy.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Shareddashboard(opts ...attr.Attribute) *node.Node {
+	return node.New("shareddashboard", attr.AssetImage("assets/azure/general/shareddashboard.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Allresources(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/allresources.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Support(opts ...attr.Attribute) *node.Node {
+	return node.New("support", attr.AssetImage("assets/azure/general/support.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Resource(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/resource.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Twousericon(opts ...attr.Attribute) *node.Node {
+	return node.New("twousericon", attr.AssetImage("assets/azure/general/twousericon.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Tags(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/tags.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Whatsnew(opts ...attr.Attribute) *node.Node {
+	return node.New("whatsnew", attr.AssetImage("assets/azure/general/whatsnew.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Twousericon(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/twousericon.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Helpsupport(opts ...attr.Attribute) *node.Node {
+	return node.New("helpsupport", attr.AssetImage("assets/azure/general/helpsupport.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Userhealthicon(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/userhealthicon.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Information(opts ...attr.Attribute) *node.Node {
+	return node.New("information", attr.AssetImage("assets/azure/general/information.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Supportrequests(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/supportrequests.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Quickstartcenter(opts ...attr.Attribute) *node.Node {
+	return node.New("quickstartcenter", attr.AssetImage("assets/azure/general/quickstartcenter.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Templates(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/templates.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Servicehealth(opts ...attr.Attribute) *node.Node {
+	return node.New("servicehealth", attr.AssetImage("assets/azure/general/servicehealth.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Usericon(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/usericon.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Templates(opts ...attr.Attribute) *node.Node {
+	return node.New("templates", attr.AssetImage("assets/azure/general/templates.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Managementgroups(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/managementgroups.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Userhealthicon(opts ...attr.Attribute) *node.Node {
+	return node.New("userhealthicon", attr.AssetImage("assets/azure/general/userhealthicon.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Servicehealth(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/servicehealth.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Usericon(opts ...attr.Attribute) *node.Node {
+	return node.New("usericon", attr.AssetImage("assets/azure/general/usericon.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Shareddashboard(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/shareddashboard.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Userprivacy(opts ...attr.Attribute) *node.Node {
+	return node.New("userprivacy", attr.AssetImage("assets/azure/general/userprivacy.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Subscriptions(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/subscriptions.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Developertools(opts ...attr.Attribute) *node.Node {
+	return node.New("developertools", attr.AssetImage("assets/azure/general/developertools.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Support(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/support.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Managementgroups(opts ...attr.Attribute) *node.Node {
+	return node.New("managementgroups", attr.AssetImage("assets/azure/general/managementgroups.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Userresource(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/userresource.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Marketplace(opts ...attr.Attribute) *node.Node {
+	return node.New("marketplace", attr.AssetImage("assets/azure/general/marketplace.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Recent(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/recent.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Recent(opts ...attr.Attribute) *node.Node {
+	return node.New("recent", attr.AssetImage("assets/azure/general/recent.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Reservations(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/reservations.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Subscriptions(opts ...attr.Attribute) *node.Node {
+	return node.New("subscriptions", attr.AssetImage("assets/azure/general/subscriptions.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Whatsnew(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/whatsnew.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Supportrequests(opts ...attr.Attribute) *node.Node {
+	return node.New("supportrequests", attr.AssetImage("assets/azure/general/supportrequests.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Azurehome(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/azurehome.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Tag(opts ...attr.Attribute) *node.Node {
+	return node.New("tag", attr.AssetImage("assets/azure/general/tag.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Helpsupport(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/helpsupport.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Tags(opts ...attr.Attribute) *node.Node {
+	return node.New("tags", attr.AssetImage("assets/azure/general/tags.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Information(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/information.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Azurehome(opts ...attr.Attribute) *node.Node {
+	return node.New("azurehome", attr.AssetImage("assets/azure/general/azurehome.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Marketplace(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/marketplace.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Reservations(opts ...attr.Attribute) *node.Node {
+	return node.New("reservations", attr.AssetImage("assets/azure/general/reservations.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Quickstartcenter(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/quickstartcenter.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Resource(opts ...attr.Attribute) *node.Node {
+	return node.New("resource", attr.AssetImage("assets/azure/general/resource.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Developertools(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/developertools.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Resourcegroups(opts ...attr.Attribute) *node.Node {
+	return node.New("resourcegroups", attr.AssetImage("assets/azure/general/resourcegroups.png"), attr.Shape(attr.None))
 }
 
-func (c *generalContainer) Resourcegroups(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/resourcegroups.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *generalContainer) Tag(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/general/tag.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *generalContainer) Userresource(opts ...attr.Attribute) *node.Node {
+	return node.New("userresource", attr.AssetImage("assets/azure/general/userresource.png"), attr.Shape(attr.None))
 }

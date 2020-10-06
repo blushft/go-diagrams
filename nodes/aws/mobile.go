@@ -1,43 +1,37 @@
 package aws
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type mobileContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Mobile = &mobileContainer{
-	opts: diagram.OptionSet{diagram.Provider("aws"), diagram.NodeShape("none")},
-	path: "assets/aws/mobile",
+var Mobile = &mobileContainer{path: "assets/aws/mobile"}
+
+func (c *mobileContainer) ApiGateway(opts ...attr.Attribute) *node.Node {
+	return node.New("api-gateway", attr.AssetImage("assets/aws/mobile/api-gateway.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) Amplify(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/amplify.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) Appsync(opts ...attr.Attribute) *node.Node {
+	return node.New("appsync", attr.AssetImage("assets/aws/mobile/appsync.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) ApiGatewayEndpoint(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/api-gateway-endpoint.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) DeviceFarm(opts ...attr.Attribute) *node.Node {
+	return node.New("device-farm", attr.AssetImage("assets/aws/mobile/device-farm.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) ApiGateway(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/api-gateway.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) Pinpoint(opts ...attr.Attribute) *node.Node {
+	return node.New("pinpoint", attr.AssetImage("assets/aws/mobile/pinpoint.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) Appsync(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/appsync.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) Amplify(opts ...attr.Attribute) *node.Node {
+	return node.New("amplify", attr.AssetImage("assets/aws/mobile/amplify.png"), attr.Shape(attr.None))
 }
 
-func (c *mobileContainer) DeviceFarm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/device-farm.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mobileContainer) Pinpoint(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/mobile/pinpoint.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *mobileContainer) ApiGatewayEndpoint(opts ...attr.Attribute) *node.Node {
+	return node.New("api-gateway-endpoint", attr.AssetImage("assets/aws/mobile/api-gateway-endpoint.png"), attr.Shape(attr.None))
 }

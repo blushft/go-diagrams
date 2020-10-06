@@ -1,23 +1,21 @@
 package k8s
 
-import "github.com/blushft/go-diagrams/diagram"
+import (
+	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/node"
+)
 
 type podconfigContainer struct {
-	path string
-	opts []diagram.NodeOption
+	path  string
+	attrs []attr.Attribute
 }
 
-var Podconfig = &podconfigContainer{
-	opts: diagram.OptionSet{diagram.Provider("k8s"), diagram.NodeShape("none")},
-	path: "assets/k8s/podconfig",
+var Podconfig = &podconfigContainer{path: "assets/k8s/podconfig"}
+
+func (c *podconfigContainer) Secret(opts ...attr.Attribute) *node.Node {
+	return node.New("secret", attr.AssetImage("assets/k8s/podconfig/secret.png"), attr.Shape(attr.None))
 }
 
-func (c *podconfigContainer) Secret(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/secret.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *podconfigContainer) Cm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/cm.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
+func (c *podconfigContainer) Cm(opts ...attr.Attribute) *node.Node {
+	return node.New("cm", attr.AssetImage("assets/k8s/podconfig/cm.png"), attr.Shape(attr.None))
 }
