@@ -126,7 +126,7 @@ type OptionSet []NodeOption
 func DefaultNodeOptions(opts ...NodeOption) NodeOptions {
 	nopts := NodeOptions{
 		Name:          "node",
-		Label:         "node",
+		Label:         "",
 		Shape:         "box",
 		Style:         "rounded",
 		FixedSize:     true,

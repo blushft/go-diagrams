@@ -37,7 +37,7 @@ func (o Options) attrs() map[string]string {
 		m[k] = v
 	}
 
-	return m
+	return trimAttrs(m)
 }
 
 type Option func(*Options)
