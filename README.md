@@ -57,7 +57,7 @@ go get github.com/blushft/go-diagrams
 Create a diagram:
 
 ```golang
-d, err := diagram.New(diagram.Label("my-diagram"), diagram.Filename("diagram"))
+d, err := diagram.New(diagram.Label("my-diagram"), diagram.Filename("my-diagram"))
 if err != nil {
     log.Fatal(err)
 }
@@ -78,8 +78,13 @@ if err := d.Render(); err != nil {
 
 Go-Diagrams will create a folder in the current working directory with the graphviz DOT file and any image assets.
 
+```sh
+go build -o diagram-example .
+./diagram-example
+```
+
 Create an ouput image with any graphviz compatible renderer:
 
 ```sh
-dot -Tpng diagram.dot > diagram.png
+dot -Tpng go-diagrams/my-diagram.dot > diagram-example.png
 ```
