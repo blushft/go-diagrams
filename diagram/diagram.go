@@ -88,7 +88,7 @@ func (d *Diagram) Render() error {
 
 func (d *Diagram) render() error {
 	outdir := d.options.Name
-	if err := os.Mkdir(outdir, os.ModePerm); err != nil {
+	if err := os.MkdirAll(outdir, os.ModePerm); err != nil {
 		return err
 	}
 
