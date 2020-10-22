@@ -2,6 +2,7 @@ package generic
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 
@@ -22,4 +23,11 @@ func (c *virtualizationContainer) Xen(opts ...attr.Attribute) *node.Node {
 
 func (c *virtualizationContainer) Virtualbox(opts ...attr.Attribute) *node.Node {
 	return node.New("virtualbox", attr.AssetImage("assets/generic/virtualization/virtualbox.png"), attr.Shape(attr.None))
+}
+
+func init() {
+	const namespace = "generic.virtualization"
+	diagram.Register(namespace, "Vmware", Virtualization.Vmware)
+	diagram.Register(namespace, "Xen", Virtualization.Xen)
+	diagram.Register(namespace, "Virtualbox", Virtualization.Virtualbox)
 }

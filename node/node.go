@@ -26,6 +26,10 @@ func (n *Node) ID() string {
 	return n.id
 }
 
+func (n *Node) SetID(id string){
+	n.id = id
+}
+
 func (n *Node) Attributes() (map[string]string, error) {
 	return n.attrs.Render()
 }

@@ -2,6 +2,7 @@ package generic
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 
@@ -26,4 +27,12 @@ func (c *networkContainer) Switch(opts ...attr.Attribute) *node.Node {
 
 func (c *networkContainer) Vpn(opts ...attr.Attribute) *node.Node {
 	return node.New("vpn", attr.AssetImage("assets/generic/network/vpn.png"), attr.Shape(attr.None))
+}
+
+func init() {
+	const namespace = "generic.network"
+	diagram.Register(namespace, "Firewall", Network.Firewall)
+	diagram.Register(namespace, "Router", Network.Router)
+	diagram.Register(namespace, "Switch", Network.Switch)
+	diagram.Register(namespace, "Vpn", Network.Vpn)
 }

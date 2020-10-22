@@ -2,6 +2,7 @@ package programming
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 
@@ -54,4 +55,19 @@ func (c *frameworkContainer) React(opts ...attr.Attribute) *node.Node {
 
 func (c *frameworkContainer) Vue(opts ...attr.Attribute) *node.Node {
 	return node.New("vue", attr.AssetImage("assets/programming/framework/vue.png"), attr.Shape(attr.None))
+}
+
+func init() {
+	const namespace = "programming.framework"
+	diagram.Register(namespace, "Rails", Framework.Rails)
+	diagram.Register(namespace, "Spring", Framework.Spring)
+	diagram.Register(namespace, "Angular", Framework.Angular)
+	diagram.Register(namespace, "Backbone", Framework.Backbone)
+	diagram.Register(namespace, "Ember", Framework.Ember)
+	diagram.Register(namespace, "Flask", Framework.Flask)
+	diagram.Register(namespace, "Laravel", Framework.Laravel)
+	diagram.Register(namespace, "Django", Framework.Django)
+	diagram.Register(namespace, "Flutter", Framework.Flutter)
+	diagram.Register(namespace, "React", Framework.React)
+	diagram.Register(namespace, "Vue", Framework.Vue)
 }

@@ -2,6 +2,7 @@ package generic
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 
@@ -18,4 +19,10 @@ func (c *deviceContainer) Tablet(opts ...attr.Attribute) *node.Node {
 
 func (c *deviceContainer) Mobile(opts ...attr.Attribute) *node.Node {
 	return node.New("mobile", attr.AssetImage("assets/generic/device/mobile.png"), attr.Shape(attr.None))
+}
+
+func init() {
+	const namespace = "generic.device"
+	diagram.Register(namespace, "Tablet", Device.Tablet)
+	diagram.Register(namespace, "Mobile", Device.Mobile)
 }

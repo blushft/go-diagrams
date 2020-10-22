@@ -2,6 +2,7 @@ package programming
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
+	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 
@@ -82,4 +83,26 @@ func (c *languageContainer) Cpp(opts ...attr.Attribute) *node.Node {
 
 func (c *languageContainer) Dart(opts ...attr.Attribute) *node.Node {
 	return node.New("dart", attr.AssetImage("assets/programming/language/dart.png"), attr.Shape(attr.None))
+}
+
+func init() {
+	const namespace = "programming.language"
+	diagram.Register(namespace, "Bash", Language.Bash)
+	diagram.Register(namespace, "Nodejs", Language.Nodejs)
+	diagram.Register(namespace, "Matlab", Language.Matlab)
+	diagram.Register(namespace, "Python", Language.Python)
+	diagram.Register(namespace, "Rust", Language.Rust)
+	diagram.Register(namespace, "Swift", Language.Swift)
+	diagram.Register(namespace, "Typescript", Language.Typescript)
+	diagram.Register(namespace, "Csharp", Language.Csharp)
+	diagram.Register(namespace, "Java", Language.Java)
+	diagram.Register(namespace, "Javascript", Language.Javascript)
+	diagram.Register(namespace, "Kotlin", Language.Kotlin)
+	diagram.Register(namespace, "C", Language.C)
+	diagram.Register(namespace, "Go", Language.Go)
+	diagram.Register(namespace, "Php", Language.Php)
+	diagram.Register(namespace, "R", Language.R)
+	diagram.Register(namespace, "Ruby", Language.Ruby)
+	diagram.Register(namespace, "Cpp", Language.Cpp)
+	diagram.Register(namespace, "Dart", Language.Dart)
 }

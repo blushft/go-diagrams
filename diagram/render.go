@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 
 	"github.com/blushft/go-diagrams/assets"
 
@@ -48,27 +49,28 @@ type Attributed interface {
 	Attributes() (map[string]string, error)
 }
 
-type Diagram interface {
+type IDiagram interface {
 	Identifiable
 	Attributed
-	Nodes() []Node
-	Edges() []Edge
-	Children() []Diagram
+	Nodes() []INode
+	Edges() []IEdge
+	Children() []IDiagram
 }
 
-type Node interface {
+type INode interface {
 	Identifiable
 	Attributed
+	ID() string
 }
 
-type Edge interface {
+type IEdge interface {
 	Identifiable
 	Attributed
 	Start() string
 	End() string
 }
 
-func Render(d Diagram, opts ...RenderOption) error {
+func Render(d IDiagram, opts ...RenderOption) error {
 	ro := defaultRenderOptions(opts...)
 	g := graphviz.NewEscape()
 
@@ -107,7 +109,7 @@ func Render(d Diagram, opts ...RenderOption) error {
 	return renderOutput(g, ro)
 }
 
-func renderGroups(g *graphviz.Escape, d Diagram) error {
+func renderGroups(g *graphviz.Escape, d IDiagram) error {
 	for _, n := range d.Nodes() {
 		attr, err := n.Attributes()
 		if err != nil {
@@ -159,7 +161,9 @@ func renderOutput(g *graphviz.Escape, ro RenderOptions) error {
 	}
 
 	for _, n := range g.Nodes.Nodes {
-		if img, ok := n.Attrs["image"]; ok {
+		if img, ok := n.Attrs[graphviz.Image]; ok {
+			// Strip quotes
+			img = strings.Replace(img, "\"", "", -1)
 			iData, err := assets.ReadFile(img)
 			if err != nil {
 				return err

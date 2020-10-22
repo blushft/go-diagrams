@@ -42,3 +42,13 @@ func defaultClusterAttrs(attrs ...attr.Attribute) attr.Attributes {
 		attr.WithAttributes(attrs...),
 	)
 }
+
+
+func defaultEdgeAttrs(attrs ...attr.Attribute) attr.Attributes {
+	return attr.NewAttributes(
+		attr.FontName("Sans Serif"),
+		attr.FontSize(13),
+		attr.Direction(attr.EdgeNone),
+		attr.WithAttributes(attrs...),
+	)
+}

@@ -1,6 +1,9 @@
 package attr
 
-import "github.com/blushft/go-diagrams/attr/color"
+import (
+	graphviz "github.com/awalterschulze/gographviz"
+	"github.com/blushft/go-diagrams/attr/color"
+)
 
 func WithAttributes(attrs ...Attribute) Attribute {
 	return newAttrSet(attrs...)
@@ -232,7 +235,7 @@ func Image(s string) Attribute {
 }
 
 func AssetImage(s string) Attribute {
-	return newAttr("assetimage", s, Nodes)
+	return newAttr(graphviz.Image, s, Nodes)
 }
 
 func ImagePath(s string) Attribute {
