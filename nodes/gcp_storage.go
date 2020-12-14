@@ -5,29 +5,29 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type storageContainer struct {
+type gcpStorageContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Storage = &storageContainer{path: "assets/gcp/storage"}
+var GCPStorage = &gcpStorageContainer{path: "assets/gcp/storage"}
 
-func (c *storageContainer) Filestore(opts ...attr.Attribute) *node.Node {
+func (c *gcpStorageContainer) Filestore(opts ...attr.Attribute) *node.Node {
 	return node.New("filestore", attr.AssetImage("assets/gcp/storage/filestore.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) PersistentDisk(opts ...attr.Attribute) *node.Node {
+func (c *gcpStorageContainer) PersistentDisk(opts ...attr.Attribute) *node.Node {
 	return node.New("persistent-disk", attr.AssetImage("assets/gcp/storage/persistent-disk.png"), attr.Shape(attr.None))
 }
 
-func (c *storageContainer) Storage(opts ...attr.Attribute) *node.Node {
+func (c *gcpStorageContainer) Storage(opts ...attr.Attribute) *node.Node {
 	return node.New("storage", attr.AssetImage("assets/gcp/storage/storage.png"), attr.Shape(attr.None))
 }
 
 
 func init() {
 	const namespace = "gcp.storage"
-	Register(namespace, "Filestore", Storage.Filestore)
-	Register(namespace, "PersistentDisk", Storage.PersistentDisk)
-	Register(namespace, "Storage", Storage.Storage)
+	Register(namespace, "Filestore", GCPStorage.Filestore)
+	Register(namespace, "PersistentDisk", GCPStorage.PersistentDisk)
+	Register(namespace, "Storage", GCPStorage.Storage)
 }

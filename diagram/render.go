@@ -58,6 +58,22 @@ type IDiagram interface {
 	Children() []IDiagram
 }
 
+type SortIDiagramByLabel []IDiagram
+
+func (b SortIDiagramByLabel) Len() int {
+	return len(b)
+}
+
+func (b SortIDiagramByLabel) Less(i, j int) bool {
+	return b[i].ID() < b[j].ID()
+}
+
+func (b SortIDiagramByLabel) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
+}
+
+var _ sort.Interface = SortIDiagramByLabel{}
+
 type INode interface {
 	Identifiable
 	Attributed
@@ -79,6 +95,22 @@ func (b SortINodeByLabel) Swap(i, j int) {
 }
 
 var _ sort.Interface = SortINodeByLabel{}
+
+type SortIEdgeByLabel []IEdge
+
+func (b SortIEdgeByLabel) Len() int {
+	return len(b)
+}
+
+func (b SortIEdgeByLabel) Less(i, j int) bool {
+	return b[i].ID() < b[j].ID()
+}
+
+func (b SortIEdgeByLabel) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
+}
+
+var _ sort.Interface = SortIEdgeByLabel{}
 
 type IEdge interface {
 	Identifiable
@@ -129,21 +161,25 @@ func Render(d IDiagram, opts ...RenderOption) error {
 }
 
 func renderGroups(g *graphviz.Escape, d IDiagram) error {
-	sort.Sort(SortINodeByLabel(d.Nodes()))
-	sort.Sort(SortINodeByLabel(d.Edges()))
+	nodes := d.Nodes()
+	edges := d.Edges()
+	children := d.Children()
 	
-	for _, n := range d.Nodes() {
+	sort.Sort(SortINodeByLabel(nodes))
+	sort.Sort(SortIEdgeByLabel(edges))
+	sort.Sort(SortIDiagramByLabel(children))
+
+	for _, n := range nodes {
 		attr, err := n.Attributes()
 		if err != nil {
 			return err
 		}
-
 		if err := g.AddNode(d.ID(), n.ID(), attr); err != nil {
 			return err
 		}
 	}
 
-	for _, e := range d.Edges() {
+	for _, e := range edges {
 		attr, err := e.Attributes()
 		if err != nil {
 			return err
@@ -154,7 +190,7 @@ func renderGroups(g *graphviz.Escape, d IDiagram) error {
 		}
 	}
 
-	for _, child := range d.Children() {
+	for _, child := range children {
 		attr, err := child.Attributes()
 		if err != nil {
 			return err
@@ -163,7 +199,6 @@ func renderGroups(g *graphviz.Escape, d IDiagram) error {
 		if err := g.AddSubGraph(d.ID(), child.ID(), attr); err != nil {
 			return err
 		}
-
 		if err := renderGroups(g, child); err != nil {
 			return err
 		}

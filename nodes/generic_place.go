@@ -2,7 +2,6 @@ package nodes
 
 import (
 	attr "github.com/blushft/go-diagrams/attr"
-	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/node"
 )
 

@@ -5,18 +5,18 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type securityContainer struct {
+type appsSecurityContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{path: "assets/apps/security"}
+var Security = &appsSecurityContainer{path: "assets/apps/security"}
 
-func (c *securityContainer) Trivy(opts ...attr.Attribute) *node.Node {
+func (c *appsSecurityContainer) Trivy(opts ...attr.Attribute) *node.Node {
 	return node.New("trivy", attr.AssetImage("assets/apps/security/trivy.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) Vault(opts ...attr.Attribute) *node.Node {
+func (c *appsSecurityContainer) Vault(opts ...attr.Attribute) *node.Node {
 	return node.New("vault", attr.AssetImage("assets/apps/security/vault.png"), attr.Shape(attr.None))
 }
 

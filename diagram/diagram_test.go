@@ -12,7 +12,8 @@ func TestDiagramParse(t *testing.T){
 	if err != nil {
 		t.Fatal(err)
 	}
-	d := diagram.New("diag", attr.Label("my-diagram"))
+	d := diagram.New("diag", attr.Label("my-diagram"),
+		attr.OutputOrder(attr.NodesFirst))
 
 	err = d.Parse(file)
 	if err != nil {
