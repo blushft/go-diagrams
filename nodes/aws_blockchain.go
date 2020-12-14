@@ -5,23 +5,23 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type blockchainContainer struct {
+type awsBlockchainContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Blockchain = &blockchainContainer{path: "assets/aws/blockchain"}
+var AWSBlockchain = &awsBlockchainContainer{path: "assets/aws/blockchain"}
 
-func (c *blockchainContainer) ManagedBlockchain(opts ...attr.Attribute) *node.Node {
+func (c *awsBlockchainContainer) ManagedBlockchain(opts ...attr.Attribute) *node.Node {
 	return node.New("managed-blockchain", attr.AssetImage("assets/aws/blockchain/managed-blockchain.png"), attr.Shape(attr.None))
 }
 
-func (c *blockchainContainer) QuantumLedgerDatabaseQldb(opts ...attr.Attribute) *node.Node {
+func (c *awsBlockchainContainer) QuantumLedgerDatabaseQldb(opts ...attr.Attribute) *node.Node {
 	return node.New("quantum-ledger-database-qldb", attr.AssetImage("assets/aws/blockchain/quantum-ledger-database-qldb.png"), attr.Shape(attr.None))
 }
 
 func init() {
   const namespace = "aws.blockchain"
-  Register(namespace, "ManagedBlockchain", Blockchain.ManagedBlockchain)
-  Register(namespace, "QuantumLedgerDatabaseQldb", Blockchain.QuantumLedgerDatabaseQldb)
+  Register(namespace, "ManagedBlockchain", AWSBlockchain.ManagedBlockchain)
+  Register(namespace, "QuantumLedgerDatabaseQldb", AWSBlockchain.QuantumLedgerDatabaseQldb)
 }

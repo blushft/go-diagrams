@@ -10,7 +10,7 @@ type applicationlifecycleContainer struct {
 	attrs []attr.Attribute
 }
 
-var Applicationlifecycle = &applicationlifecycleContainer{path: "assets/openstack/applicationlifecycle"}
+var OpenstackApplicationlifecycle =&applicationlifecycleContainer{path: "assets/openstack/applicationlifecycle"}
 
 func (c *applicationlifecycleContainer) Murano(opts ...attr.Attribute) *node.Node {
 	return node.New("murano", attr.AssetImage("assets/openstack/applicationlifecycle/murano.png"), attr.Shape(attr.None))
@@ -26,4 +26,12 @@ func (c *applicationlifecycleContainer) Freezer(opts ...attr.Attribute) *node.No
 
 func (c *applicationlifecycleContainer) Masakari(opts ...attr.Attribute) *node.Node {
 	return node.New("masakari", attr.AssetImage("assets/openstack/applicationlifecycle/masakari.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.applicationlifecycle"
+  Register(namespace, "Murano", OpenstackApplicationlifecycle.Murano)
+  Register(namespace, "Solum", OpenstackApplicationlifecycle.Solum)
+  Register(namespace, "Freezer", OpenstackApplicationlifecycle.Freezer)
+  Register(namespace, "Masakari", OpenstackApplicationlifecycle.Masakari)
 }

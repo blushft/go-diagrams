@@ -10,8 +10,13 @@ type userContainer struct {
 	attrs []attr.Attribute
 }
 
-var User = &userContainer{path: "assets/openstack/user"}
+var OpenstackUser =&userContainer{path: "assets/openstack/user"}
 
 func (c *userContainer) Openstackclient(opts ...attr.Attribute) *node.Node {
 	return node.New("openstackclient", attr.AssetImage("assets/openstack/user/openstackclient.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.user"
+  Register(namespace, "Openstackclient", OpenstackUser.Openstackclient)
 }

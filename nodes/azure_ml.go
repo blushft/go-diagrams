@@ -10,7 +10,7 @@ type azuremlContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureMl = &awsMlContainer{path: "assets/azure/ml"}
+var azureMl = &azuremlContainer{path: "assets/azure/ml"}
 
 func (c *azuremlContainer) CognitiveServices(opts ...attr.Attribute) *node.Node {
 	return node.New("cognitive-services", attr.AssetImage("assets/azure/ml/cognitive-services.png"), attr.Shape(attr.None))
@@ -54,5 +54,4 @@ func init() {
   Register(namespace, "MachineLearningStudioWorkspaces", azureMl.MachineLearningStudioWorkspaces)
   Register(namespace, "BatchAi", azureMl.BatchAi)
   Register(namespace, "BotServices", azureMl.BotServices)
-  Register(namespace, "init", azureMl.init)
 }

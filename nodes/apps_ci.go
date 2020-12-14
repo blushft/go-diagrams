@@ -5,42 +5,42 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type ciContainer struct {
+type appsCiContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Ci = &ciContainer{path: "assets/apps/ci"}
+var Ci = &appsCiContainer{path: "assets/apps/ci"}
 
-func (c *ciContainer) Travisci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Travisci(opts ...attr.Attribute) *node.Node {
 	return node.New("travisci", attr.AssetImage("assets/apps/ci/travisci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Zuulci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Zuulci(opts ...attr.Attribute) *node.Node {
 	return node.New("zuulci", attr.AssetImage("assets/apps/ci/zuulci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Circleci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Circleci(opts ...attr.Attribute) *node.Node {
 	return node.New("circleci", attr.AssetImage("assets/apps/ci/circleci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Concourseci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Concourseci(opts ...attr.Attribute) *node.Node {
 	return node.New("concourseci", attr.AssetImage("assets/apps/ci/concourseci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Droneci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Droneci(opts ...attr.Attribute) *node.Node {
 	return node.New("droneci", attr.AssetImage("assets/apps/ci/droneci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Gitlabci(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Gitlabci(opts ...attr.Attribute) *node.Node {
 	return node.New("gitlabci", attr.AssetImage("assets/apps/ci/gitlabci.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Jenkins(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Jenkins(opts ...attr.Attribute) *node.Node {
 	return node.New("jenkins", attr.AssetImage("assets/apps/ci/jenkins.png"), attr.Shape(attr.None))
 }
 
-func (c *ciContainer) Teamcity(opts ...attr.Attribute) *node.Node {
+func (c *appsCiContainer) Teamcity(opts ...attr.Attribute) *node.Node {
 	return node.New("teamcity", attr.AssetImage("assets/apps/ci/teamcity.png"), attr.Shape(attr.None))
 }
 

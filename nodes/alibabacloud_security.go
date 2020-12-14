@@ -10,7 +10,7 @@ type securityContainer struct {
 	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{path: "assets/alibabacloud/security"}
+var AlibabacloudSecurity =&securityContainer{path: "assets/alibabacloud/security"}
 
 func (c *securityContainer) CloudSecurityScanner(opts ...attr.Attribute) *node.Node {
 	return node.New("cloud-security-scanner", attr.AssetImage("assets/alibabacloud/security/cloud-security-scanner.png"), attr.Shape(attr.None))
@@ -82,4 +82,26 @@ func (c *securityContainer) ContentModeration(opts ...attr.Attribute) *node.Node
 
 func (c *securityContainer) DbAudit(opts ...attr.Attribute) *node.Node {
 	return node.New("db-audit", attr.AssetImage("assets/alibabacloud/security/db-audit.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "alibabacloud.security"
+  Register(namespace, "CloudSecurityScanner", AlibabacloudSecurity.CloudSecurityScanner)
+  Register(namespace, "DataEncryptionService", AlibabacloudSecurity.DataEncryptionService)
+  Register(namespace, "IdVerification", AlibabacloudSecurity.IdVerification)
+  Register(namespace, "SecurityCenter", AlibabacloudSecurity.SecurityCenter)
+  Register(namespace, "SslCertificates", AlibabacloudSecurity.SslCertificates)
+  Register(namespace, "AntiBotService", AlibabacloudSecurity.AntiBotService)
+  Register(namespace, "BastionHost", AlibabacloudSecurity.BastionHost)
+  Register(namespace, "ManagedSecurityService", AlibabacloudSecurity.ManagedSecurityService)
+  Register(namespace, "ServerGuard", AlibabacloudSecurity.ServerGuard)
+  Register(namespace, "AntiDdosBasic", AlibabacloudSecurity.AntiDdosBasic)
+  Register(namespace, "AntiDdosPro", AlibabacloudSecurity.AntiDdosPro)
+  Register(namespace, "CrowdsourcedSecurityTesting", AlibabacloudSecurity.CrowdsourcedSecurityTesting)
+  Register(namespace, "GameShield", AlibabacloudSecurity.GameShield)
+  Register(namespace, "WebApplicationFirewall", AlibabacloudSecurity.WebApplicationFirewall)
+  Register(namespace, "AntifraudService", AlibabacloudSecurity.AntifraudService)
+  Register(namespace, "CloudFirewall", AlibabacloudSecurity.CloudFirewall)
+  Register(namespace, "ContentModeration", AlibabacloudSecurity.ContentModeration)
+  Register(namespace, "DbAudit", AlibabacloudSecurity.DbAudit)
 }

@@ -10,7 +10,7 @@ type alibabaCloudAnalyticsContainer struct {
 	attrs []attr.Attribute
 }
 
-var AlibabaAnalytics = &alibabaCloudAnalyticsContainer{path: "assets/alibabacloud/analytics"}
+var AlibabaCloudAnalytics =&alibabaCloudAnalyticsContainer{path: "assets/alibabacloud/analytics"}
 
 func (c *alibabaCloudAnalyticsContainer) DataLakeAnalytics(opts ...attr.Attribute) *node.Node {
 	return node.New("data-lake-analytics", attr.AssetImage("assets/alibabacloud/analytics/data-lake-analytics.png"), attr.Shape(attr.None))
@@ -31,8 +31,11 @@ func (c *alibabaCloudAnalyticsContainer) AnalyticDb(opts ...attr.Attribute) *nod
 func (c *alibabaCloudAnalyticsContainer) ClickHouse(opts ...attr.Attribute) *node.Node {
 	return node.New("click-house", attr.AssetImage("assets/alibabacloud/analytics/click-house.png"), attr.Shape(attr.None))
 }
-
-
 func init() {
-	const namespace = "alibabacloud.analytics"
-	Register()
+  const namespace = "alibabacloud.analytics"
+  Register(namespace, "DataLakeAnalytics", AlibabaCloudAnalytics.DataLakeAnalytics)
+  Register(namespace, "ElaticMapReduce", AlibabaCloudAnalytics.ElaticMapReduce)
+  Register(namespace, "OpenSearch", AlibabaCloudAnalytics.OpenSearch)
+  Register(namespace, "AnalyticDb", AlibabaCloudAnalytics.AnalyticDb)
+  Register(namespace, "ClickHouse", AlibabaCloudAnalytics.ClickHouse)
+}

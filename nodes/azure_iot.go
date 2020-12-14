@@ -10,7 +10,7 @@ type azureiotContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureIot = &awsIoTContainer{path: "assets/azure/iot"}
+var azureIot = &azureiotContainer{path: "assets/azure/iot"}
 
 func (c *azureiotContainer) Sphere(opts ...attr.Attribute) *node.Node {
 	return node.New("sphere", attr.AssetImage("assets/azure/iot/sphere.png"), attr.Shape(attr.None))
@@ -64,5 +64,4 @@ func init() {
   Register(namespace, "IotHub", azureIot.IotHub)
   Register(namespace, "Maps", azureIot.Maps)
   Register(namespace, "Windows10IotCoreServices", azureIot.Windows10IotCoreServices)
-  Register(namespace, "init", azureIot.init)
 }

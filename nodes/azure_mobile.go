@@ -10,7 +10,7 @@ type azuremobileContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureMobile = &mobileContainer{path: "assets/azure/mobile"}
+var azureMobile = &azuremobileContainer{path: "assets/azure/mobile"}
 
 func (c *azuremobileContainer) NotificationHubs(opts ...attr.Attribute) *node.Node {
 	return node.New("notification-hubs", attr.AssetImage("assets/azure/mobile/notification-hubs.png"), attr.Shape(attr.None))
@@ -29,5 +29,4 @@ func init() {
   Register(namespace, "NotificationHubs", azureMobile.NotificationHubs)
   Register(namespace, "AppServiceMobile", azureMobile.AppServiceMobile)
   Register(namespace, "MobileEngagement", azureMobile.MobileEngagement)
-  Register(namespace, "init", azureMobile.init)
 }

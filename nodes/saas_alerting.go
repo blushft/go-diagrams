@@ -5,17 +5,23 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type alertingContainer struct {
+type saasAlertingContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Alerting = &alertingContainer{path: "assets/saas/alerting"}
+var SaasAlerting =&saasAlertingContainer{path: "assets/saas/alerting"}
 
-func (c *alertingContainer) Opsgenie(opts ...attr.Attribute) *node.Node {
+func (c *saasAlertingContainer) Opsgenie(opts ...attr.Attribute) *node.Node {
 	return node.New("opsgenie", attr.AssetImage("assets/saas/alerting/opsgenie.png"), attr.Shape(attr.None))
 }
 
-func (c *alertingContainer) Pushover(opts ...attr.Attribute) *node.Node {
+func (c *saasAlertingContainer) Pushover(opts ...attr.Attribute) *node.Node {
 	return node.New("pushover", attr.AssetImage("assets/saas/alerting/pushover.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "saas.alerting"
+  Register(namespace, "Opsgenie", SaasAlerting.Opsgenie)
+  Register(namespace, "Pushover", SaasAlerting.Pushover)
 }

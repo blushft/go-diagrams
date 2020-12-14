@@ -5,17 +5,23 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type computeContainer struct {
+type outscaleComputeContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Compute = &computeContainer{path: "assets/outscale/compute"}
+var OutscaleCompute =&outscaleComputeContainer{path: "assets/outscale/compute"}
 
-func (c *computeContainer) Compute(opts ...attr.Attribute) *node.Node {
+func (c *outscaleComputeContainer) Compute(opts ...attr.Attribute) *node.Node {
 	return node.New("compute", attr.AssetImage("assets/outscale/compute/compute.png"), attr.Shape(attr.None))
 }
 
-func (c *computeContainer) DirectConnect(opts ...attr.Attribute) *node.Node {
+func (c *outscaleComputeContainer) DirectConnect(opts ...attr.Attribute) *node.Node {
 	return node.New("direct-connect", attr.AssetImage("assets/outscale/compute/direct-connect.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "outscale.compute"
+  Register(namespace, "Compute", OutscaleCompute.Compute)
+  Register(namespace, "DirectConnect", OutscaleCompute.DirectConnect)
 }

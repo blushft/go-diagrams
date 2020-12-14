@@ -5,13 +5,18 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type mediaContainer struct {
+type saasMediaContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Media = &mediaContainer{path: "assets/saas/media"}
+var SaasMedia =&saasMediaContainer{path: "assets/saas/media"}
 
-func (c *mediaContainer) Cloudinary(opts ...attr.Attribute) *node.Node {
+func (c *saasMediaContainer) Cloudinary(opts ...attr.Attribute) *node.Node {
 	return node.New("cloudinary", attr.AssetImage("assets/saas/media/cloudinary.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "saas.media"
+  Register(namespace, "Cloudinary", SaasMedia.Cloudinary)
 }

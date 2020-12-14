@@ -10,7 +10,7 @@ type sharedservicesContainer struct {
 	attrs []attr.Attribute
 }
 
-var Sharedservices = &sharedservicesContainer{path: "assets/openstack/sharedservices"}
+var OpenstackSharedservices =&sharedservicesContainer{path: "assets/openstack/sharedservices"}
 
 func (c *sharedservicesContainer) Barbican(opts ...attr.Attribute) *node.Node {
 	return node.New("barbican", attr.AssetImage("assets/openstack/sharedservices/barbican.png"), attr.Shape(attr.None))
@@ -30,4 +30,13 @@ func (c *sharedservicesContainer) Keystone(opts ...attr.Attribute) *node.Node {
 
 func (c *sharedservicesContainer) Searchlight(opts ...attr.Attribute) *node.Node {
 	return node.New("searchlight", attr.AssetImage("assets/openstack/sharedservices/searchlight.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.sharedservices"
+  Register(namespace, "Barbican", OpenstackSharedservices.Barbican)
+  Register(namespace, "Glance", OpenstackSharedservices.Glance)
+  Register(namespace, "Karbor", OpenstackSharedservices.Karbor)
+  Register(namespace, "Keystone", OpenstackSharedservices.Keystone)
+  Register(namespace, "Searchlight", OpenstackSharedservices.Searchlight)
 }

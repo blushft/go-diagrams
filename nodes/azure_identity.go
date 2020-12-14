@@ -10,7 +10,7 @@ type azureidentityContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureIdentity = &identityContainer{path: "assets/azure/identity"}
+var azureIdentity = &saasIdentityContainer{path: "assets/azure/identity"}
 
 func (c *azureidentityContainer) ManagedIdentities(opts ...attr.Attribute) *node.Node {
 	return node.New("managed-identities", attr.AssetImage("assets/azure/identity/managed-identities.png"), attr.Shape(attr.None))

@@ -7,4 +7,8 @@ type adjacentenablersContainer struct {
 	attrs []attr.Attribute
 }
 
-var Adjacentenablers = &adjacentenablersContainer{path: "assets/openstack/adjacentenablers"}
+var OpenstackAdjacentenablers =&adjacentenablersContainer{path: "assets/openstack/adjacentenablers"}
+
+func init() {
+  const namespace = "openstack.adjacentenablers"
+}

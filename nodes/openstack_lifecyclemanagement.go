@@ -7,4 +7,8 @@ type lifecyclemanagementContainer struct {
 	attrs []attr.Attribute
 }
 
-var Lifecyclemanagement = &lifecyclemanagementContainer{path: "assets/openstack/lifecyclemanagement"}
+var OpenstackLifecyclemanagement =&lifecyclemanagementContainer{path: "assets/openstack/lifecyclemanagement"}
+
+func init() {
+  const namespace = "openstack.lifecyclemanagement"
+}

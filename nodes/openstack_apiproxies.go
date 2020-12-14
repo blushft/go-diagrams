@@ -10,8 +10,13 @@ type apiproxiesContainer struct {
 	attrs []attr.Attribute
 }
 
-var Apiproxies = &apiproxiesContainer{path: "assets/openstack/apiproxies"}
+var OpenstackApiproxies =&apiproxiesContainer{path: "assets/openstack/apiproxies"}
 
 func (c *apiproxiesContainer) Ec2Api(opts ...attr.Attribute) *node.Node {
 	return node.New("ec2api", attr.AssetImage("assets/openstack/apiproxies/ec2api.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.apiproxies"
+  Register(namespace, "Ec2Api", OpenstackApiproxies.Ec2Api)
 }

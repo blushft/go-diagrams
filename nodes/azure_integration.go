@@ -10,7 +10,7 @@ type azureintegrationContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureIntegration = &integrationContainer{path: "assets/azure/integration"}
+var azureIntegration = &azureintegrationContainer{path: "assets/azure/integration"}
 
 func (c *azureintegrationContainer) ServiceCatalogManagedApplicationDefinitions(opts ...attr.Attribute) *node.Node {
 	return node.New("service-catalog-managed-application-definitions", attr.AssetImage("assets/azure/integration/service-catalog-managed-application-definitions.png"), attr.Shape(attr.None))
@@ -99,5 +99,4 @@ func init() {
   Register(namespace, "LogicAppsCustomConnector", azureIntegration.LogicAppsCustomConnector)
   Register(namespace, "ServiceBus", azureIntegration.ServiceBus)
   Register(namespace, "StorsimpleDeviceManagers", azureIntegration.StorsimpleDeviceManagers)
-  Register(namespace, "init", azureIntegration.init)
 }

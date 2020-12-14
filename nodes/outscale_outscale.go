@@ -7,4 +7,8 @@ type outscaleContainer struct {
 	attrs []attr.Attribute
 }
 
-var Outscale = &outscaleContainer{path: "assets/outscale/outscale"}
+var OutscaleOutscale =&outscaleContainer{path: "assets/outscale/outscale"}
+
+func init() {
+  const namespace = "outscale.outscale"
+}

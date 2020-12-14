@@ -10,7 +10,7 @@ type azurewebContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureWeb = &webContainer{path: "assets/azure/web"}
+var AzureWeb = &azurewebContainer{path: "assets/azure/web"}
 
 func (c *azurewebContainer) MediaServices(opts ...attr.Attribute) *node.Node {
 	return node.New("media-services", attr.AssetImage("assets/azure/web/media-services.png"), attr.Shape(attr.None))
@@ -54,15 +54,14 @@ func (c *azurewebContainer) AppServiceCertificates(opts ...attr.Attribute) *node
 
 func init() {
   const namespace = "azure.web"
-  Register(namespace, "MediaServices", azureWeb.MediaServices)
-  Register(namespace, "NotificationHubNamespaces", azureWeb.NotificationHubNamespaces)
-  Register(namespace, "Signalr", azureWeb.Signalr)
-  Register(namespace, "AppServiceDomains", azureWeb.AppServiceDomains)
-  Register(namespace, "AppServicePlans", azureWeb.AppServicePlans)
-  Register(namespace, "AppServiceEnvironments", azureWeb.AppServiceEnvironments)
-  Register(namespace, "AppServices", azureWeb.AppServices)
-  Register(namespace, "Search", azureWeb.Search)
-  Register(namespace, "ApiConnections", azureWeb.ApiConnections)
-  Register(namespace, "AppServiceCertificates", azureWeb.AppServiceCertificates)
-  Register(namespace, "init", azureWeb.init)
+  Register(namespace, "MediaServices", AzureWeb.MediaServices)
+  Register(namespace, "NotificationHubNamespaces", AzureWeb.NotificationHubNamespaces)
+  Register(namespace, "Signalr", AzureWeb.Signalr)
+  Register(namespace, "AppServiceDomains", AzureWeb.AppServiceDomains)
+  Register(namespace, "AppServicePlans", AzureWeb.AppServicePlans)
+  Register(namespace, "AppServiceEnvironments", AzureWeb.AppServiceEnvironments)
+  Register(namespace, "AppServices", AzureWeb.AppServices)
+  Register(namespace, "Search", AzureWeb.Search)
+  Register(namespace, "ApiConnections", AzureWeb.ApiConnections)
+  Register(namespace, "AppServiceCertificates", AzureWeb.AppServiceCertificates)
 }

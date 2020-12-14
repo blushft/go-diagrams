@@ -7,4 +7,8 @@ type openstackContainer struct {
 	attrs []attr.Attribute
 }
 
-var Openstack = &openstackContainer{path: "assets/openstack/openstack"}
+var OpenstackOpenstack =&openstackContainer{path: "assets/openstack/openstack"}
+
+func init() {
+  const namespace = "openstack.openstack"
+}

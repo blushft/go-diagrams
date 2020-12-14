@@ -10,7 +10,7 @@ type optimizationContainer struct {
 	attrs []attr.Attribute
 }
 
-var Optimization = &optimizationContainer{path: "assets/openstack/optimization"}
+var OpenstackOptimization =&optimizationContainer{path: "assets/openstack/optimization"}
 
 func (c *optimizationContainer) Rally(opts ...attr.Attribute) *node.Node {
 	return node.New("rally", attr.AssetImage("assets/openstack/optimization/rally.png"), attr.Shape(attr.None))
@@ -26,4 +26,12 @@ func (c *optimizationContainer) Watcher(opts ...attr.Attribute) *node.Node {
 
 func (c *optimizationContainer) Congress(opts ...attr.Attribute) *node.Node {
 	return node.New("congress", attr.AssetImage("assets/openstack/optimization/congress.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.optimization"
+  Register(namespace, "Rally", OpenstackOptimization.Rally)
+  Register(namespace, "Vitrage", OpenstackOptimization.Vitrage)
+  Register(namespace, "Watcher", OpenstackOptimization.Watcher)
+  Register(namespace, "Congress", OpenstackOptimization.Congress)
 }

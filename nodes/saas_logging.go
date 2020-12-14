@@ -5,17 +5,23 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type loggingContainer struct {
+type saasLoggingContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Logging = &loggingContainer{path: "assets/saas/logging"}
+var SaasLogging =&saasLoggingContainer{path: "assets/saas/logging"}
 
-func (c *loggingContainer) Datadog(opts ...attr.Attribute) *node.Node {
+func (c *saasLoggingContainer) Datadog(opts ...attr.Attribute) *node.Node {
 	return node.New("datadog", attr.AssetImage("assets/saas/logging/datadog.png"), attr.Shape(attr.None))
 }
 
-func (c *loggingContainer) Papertrail(opts ...attr.Attribute) *node.Node {
+func (c *saasLoggingContainer) Papertrail(opts ...attr.Attribute) *node.Node {
 	return node.New("papertrail", attr.AssetImage("assets/saas/logging/papertrail.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "saas.logging"
+  Register(namespace, "Datadog", SaasLogging.Datadog)
+  Register(namespace, "Papertrail", SaasLogging.Papertrail)
 }

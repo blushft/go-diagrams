@@ -10,7 +10,7 @@ type azuresecurityContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureSecurity = &awsSecurityContainer{path: "assets/azure/security"}
+var azureSecurity = &azuresecurityContainer{path: "assets/azure/security"}
 
 func (c *azuresecurityContainer) KeyVaults(opts ...attr.Attribute) *node.Node {
 	return node.New("key-vaults", attr.AssetImage("assets/azure/security/key-vaults.png"), attr.Shape(attr.None))
@@ -29,5 +29,4 @@ func init() {
   Register(namespace, "KeyVaults", azureSecurity.KeyVaults)
   Register(namespace, "SecurityCenter", azureSecurity.SecurityCenter)
   Register(namespace, "Sentinel", azureSecurity.Sentinel)
-  Register(namespace, "init", azureSecurity.init)
 }

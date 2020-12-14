@@ -10,7 +10,7 @@ type azuregeneralContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureGeneral = &generalContainer{path: "assets/azure/general"}
+var azureGeneral = &azuregeneralContainer{path: "assets/azure/general"}
 
 func (c *azuregeneralContainer) Allresources(opts ...attr.Attribute) *node.Node {
 	return node.New("allresources", attr.AssetImage("assets/azure/general/allresources.png"), attr.Shape(attr.None))
@@ -144,5 +144,4 @@ func init() {
   Register(namespace, "Resource", azureGeneral.Resource)
   Register(namespace, "Resourcegroups", azureGeneral.Resourcegroups)
   Register(namespace, "Userresource", azureGeneral.Userresource)
-  Register(namespace, "init", azureGeneral.init)
 }

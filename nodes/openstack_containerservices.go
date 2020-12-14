@@ -10,8 +10,13 @@ type containerservicesContainer struct {
 	attrs []attr.Attribute
 }
 
-var Containerservices = &containerservicesContainer{path: "assets/openstack/containerservices"}
+var OpenstackContainerservices =&containerservicesContainer{path: "assets/openstack/containerservices"}
 
 func (c *containerservicesContainer) Kuryr(opts ...attr.Attribute) *node.Node {
 	return node.New("kuryr", attr.AssetImage("assets/openstack/containerservices/kuryr.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.containerservices"
+  Register(namespace, "Kuryr", OpenstackContainerservices.Kuryr)
 }

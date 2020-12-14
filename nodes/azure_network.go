@@ -10,7 +10,7 @@ type azurenetworkContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureNetwork = &awsNetworkContainer{path: "assets/azure/network"}
+var azureNetwork = &azurenetworkContainer{path: "assets/azure/network"}
 
 func (c *azurenetworkContainer) DdosProtectionPlans(opts ...attr.Attribute) *node.Node {
 	return node.New("ddos-protection-plans", attr.AssetImage("assets/azure/network/ddos-protection-plans.png"), attr.Shape(attr.None))
@@ -144,5 +144,4 @@ func init() {
   Register(namespace, "ReservedIpAddressesClassic", azureNetwork.ReservedIpAddressesClassic)
   Register(namespace, "RouteTables", azureNetwork.RouteTables)
   Register(namespace, "VirtualNetworkClassic", azureNetwork.VirtualNetworkClassic)
-  Register(namespace, "init", azureNetwork.init)
 }

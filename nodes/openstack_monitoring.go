@@ -10,7 +10,7 @@ type monitoringContainer struct {
 	attrs []attr.Attribute
 }
 
-var Monitoring = &monitoringContainer{path: "assets/openstack/monitoring"}
+var OpenstackMonitoring =&monitoringContainer{path: "assets/openstack/monitoring"}
 
 func (c *monitoringContainer) Monasca(opts ...attr.Attribute) *node.Node {
 	return node.New("monasca", attr.AssetImage("assets/openstack/monitoring/monasca.png"), attr.Shape(attr.None))
@@ -18,4 +18,10 @@ func (c *monitoringContainer) Monasca(opts ...attr.Attribute) *node.Node {
 
 func (c *monitoringContainer) Telemetry(opts ...attr.Attribute) *node.Node {
 	return node.New("telemetry", attr.AssetImage("assets/openstack/monitoring/telemetry.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.monitoring"
+  Register(namespace, "Monasca", OpenstackMonitoring.Monasca)
+  Register(namespace, "Telemetry", OpenstackMonitoring.Telemetry)
 }

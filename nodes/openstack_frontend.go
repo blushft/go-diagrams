@@ -10,8 +10,13 @@ type frontendContainer struct {
 	attrs []attr.Attribute
 }
 
-var Frontend = &frontendContainer{path: "assets/openstack/frontend"}
+var OpenstackFrontend =&frontendContainer{path: "assets/openstack/frontend"}
 
 func (c *frontendContainer) Horizon(opts ...attr.Attribute) *node.Node {
 	return node.New("horizon", attr.AssetImage("assets/openstack/frontend/horizon.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.frontend"
+  Register(namespace, "Horizon", OpenstackFrontend.Horizon)
 }

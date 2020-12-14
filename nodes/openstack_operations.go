@@ -2,9 +2,13 @@ package nodes
 
 import attr "github.com/blushft/go-diagrams/attr"
 
-type operationsContainer struct {
+type openstackOperationsContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Operations = &operationsContainer{path: "assets/openstack/operations"}
+var OpenstackOperations = &openstackOperationsContainer{path: "assets/openstack/operations"}
+
+func init() {
+  const namespace = "openstack.operations"
+}

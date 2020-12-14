@@ -10,8 +10,13 @@ type billingContainer struct {
 	attrs []attr.Attribute
 }
 
-var Billing = &billingContainer{path: "assets/openstack/billing"}
+var OpenstackBilling =&billingContainer{path: "assets/openstack/billing"}
 
 func (c *billingContainer) Cloudkitty(opts ...attr.Attribute) *node.Node {
 	return node.New("cloudkitty", attr.AssetImage("assets/openstack/billing/cloudkitty.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.billing"
+  Register(namespace, "Cloudkitty", OpenstackBilling.Cloudkitty)
 }

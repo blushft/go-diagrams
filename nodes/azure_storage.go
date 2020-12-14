@@ -10,7 +10,7 @@ type azurestorageContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureStorage = &awsStorageContainer{path: "assets/azure/storage"}
+var azureStorage = &azurestorageContainer{path: "assets/azure/storage"}
 
 func (c *azurestorageContainer) Azurefxtedgefiler(opts ...attr.Attribute) *node.Node {
 	return node.New("azurefxtedgefiler", attr.AssetImage("assets/azure/storage/azurefxtedgefiler.png"), attr.Shape(attr.None))
@@ -94,5 +94,4 @@ func init() {
   Register(namespace, "StorageAccountsClassic", azureStorage.StorageAccountsClassic)
   Register(namespace, "StorageSyncServices", azureStorage.StorageSyncServices)
   Register(namespace, "TableStorage", azureStorage.TableStorage)
-  Register(namespace, "init", azureStorage.init)
 }

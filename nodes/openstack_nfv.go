@@ -10,8 +10,13 @@ type nfvContainer struct {
 	attrs []attr.Attribute
 }
 
-var Nfv = &nfvContainer{path: "assets/openstack/nfv"}
+var OpenstackNfv =&nfvContainer{path: "assets/openstack/nfv"}
 
 func (c *nfvContainer) Tacker(opts ...attr.Attribute) *node.Node {
 	return node.New("tacker", attr.AssetImage("assets/openstack/nfv/tacker.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "openstack.nfv"
+  Register(namespace, "Tacker", OpenstackNfv.Tacker)
 }

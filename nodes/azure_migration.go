@@ -10,7 +10,7 @@ type azuremigrationContainer struct {
 	attrs []attr.Attribute
 }
 
-var azureMigration = &awsMigrationContainer{path: "assets/azure/migration"}
+var azureMigration = &azuremigrationContainer{path: "assets/azure/migration"}
 
 func (c *azuremigrationContainer) DatabaseMigrationServices(opts ...attr.Attribute) *node.Node {
 	return node.New("database-migration-services", attr.AssetImage("assets/azure/migration/database-migration-services.png"), attr.Shape(attr.None))
@@ -29,5 +29,4 @@ func init() {
   Register(namespace, "DatabaseMigrationServices", azureMigration.DatabaseMigrationServices)
   Register(namespace, "MigrationProjects", azureMigration.MigrationProjects)
   Register(namespace, "RecoveryServicesVaults", azureMigration.RecoveryServicesVaults)
-  Register(namespace, "init", azureMigration.init)
 }

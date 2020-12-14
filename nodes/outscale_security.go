@@ -5,17 +5,23 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type securityContainer struct {
+type outscaleSecurityContainer struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Security = &securityContainer{path: "assets/outscale/security"}
+var OutscaleSecurity =&outscaleSecurityContainer{path: "assets/outscale/security"}
 
-func (c *securityContainer) Firewall(opts ...attr.Attribute) *node.Node {
+func (c *outscaleSecurityContainer) Firewall(opts ...attr.Attribute) *node.Node {
 	return node.New("firewall", attr.AssetImage("assets/outscale/security/firewall.png"), attr.Shape(attr.None))
 }
 
-func (c *securityContainer) IdentityAndAccessManagement(opts ...attr.Attribute) *node.Node {
+func (c *outscaleSecurityContainer) IdentityAndAccessManagement(opts ...attr.Attribute) *node.Node {
 	return node.New("identity-and-access-management", attr.AssetImage("assets/outscale/security/identity-and-access-management.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "outscale.security"
+  Register(namespace, "Firewall", OutscaleSecurity.Firewall)
+  Register(namespace, "IdentityAndAccessManagement", OutscaleSecurity.IdentityAndAccessManagement)
 }

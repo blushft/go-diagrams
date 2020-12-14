@@ -5,13 +5,18 @@ import (
 	"github.com/blushft/go-diagrams/node"
 )
 
-type recommendationContainer struct {
+type saasReccomendationConatiner struct {
 	path  string
 	attrs []attr.Attribute
 }
 
-var Recommendation = &recommendationContainer{path: "assets/saas/recommendation"}
+var SaasRecommendation =&saasReccomendationConatiner{path: "assets/saas/recommendation"}
 
-func (c *recommendationContainer) Recombee(opts ...attr.Attribute) *node.Node {
+func (c *saasReccomendationConatiner) Recombee(opts ...attr.Attribute) *node.Node {
 	return node.New("recombee", attr.AssetImage("assets/saas/recommendation/recombee.png"), attr.Shape(attr.None))
+}
+
+func init() {
+  const namespace = "saas.recommendation"
+  Register(namespace, "Recombee", SaasRecommendation.Recombee)
 }
