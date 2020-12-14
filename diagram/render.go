@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path/filepath"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -63,6 +64,22 @@ type INode interface {
 	ID() string
 }
 
+type SortINodeByLabel []INode
+
+func (b SortINodeByLabel) Len() int {
+	return len(b)
+}
+
+func (b SortINodeByLabel) Less(i, j int) bool {
+	return b[i].ID() < b[j].ID()
+}
+
+func (b SortINodeByLabel) Swap(i, j int) {
+	b[i], b[j] = b[j], b[i]
+}
+
+var _ sort.Interface = SortINodeByLabel{}
+
 type IEdge interface {
 	Identifiable
 	Attributed
@@ -102,6 +119,8 @@ func Render(d IDiagram, opts ...RenderOption) error {
 		}
 	}
 
+	_ = g.AddAttr(d.ID(), string(graphviz.Compound), "true")
+
 	if err := renderGroups(g, d); err != nil {
 		return err
 	}
@@ -110,6 +129,9 @@ func Render(d IDiagram, opts ...RenderOption) error {
 }
 
 func renderGroups(g *graphviz.Escape, d IDiagram) error {
+	sort.Sort(SortINodeByLabel(d.Nodes()))
+	sort.Sort(SortINodeByLabel(d.Edges()))
+	
 	for _, n := range d.Nodes() {
 		attr, err := n.Attributes()
 		if err != nil {
@@ -133,7 +155,7 @@ func renderGroups(g *graphviz.Escape, d IDiagram) error {
 	}
 
 	for _, child := range d.Children() {
-		attr, err := d.Attributes()
+		attr, err := child.Attributes()
 		if err != nil {
 			return err
 		}
@@ -159,7 +181,6 @@ func renderOutput(g *graphviz.Escape, ro RenderOptions) error {
 	if err := os.MkdirAll(outPath, os.ModePerm); err != nil {
 		return err
 	}
-
 	for _, n := range g.Nodes.Nodes {
 		if img, ok := n.Attrs[graphviz.Image]; ok {
 			// Strip quotes

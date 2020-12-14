@@ -45,7 +45,7 @@ func BoundingBox(r Rect) Attribute {
 	return newAttr("bb", r, Graph)
 }
 
-func BGColor(c color.Color) Attribute {
+func BGColor(c string) Attribute {
 	return newAttr("bgcolor", c, Graph, Clusters)
 }
 
@@ -107,6 +107,10 @@ func Dimen(i int) Attribute {
 
 func Direction(d EdgeDirection) Attribute {
 	return newAttr("dir", d, Edges)
+}
+
+func Directed(d bool) Attribute {
+	return newAttr("dir", d, Graph)
 }
 
 func DirEdgeConstraints(b bool) Attribute {

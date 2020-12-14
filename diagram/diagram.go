@@ -131,15 +131,22 @@ func (g *Group) interpretYML(yml *DiagramData) error {
 	if yml.Direction != "" {
 		attrs = append(attrs, attr.Direction(yml.Direction))
 	}
+	
+	if yml.Direction != attr.EdgeNone {
+		attrs = append(attrs, attr.Directed(true))
+	}
+
+	g.attrs.Set(attrs...)
 
 	for _, v := range yml.Groups {
 		parsedGroup := g.parseGroup(v)
 		g.AddChildren(&parsedGroup)
 	}
 
-	/*for _, v := range yml.Groups {
+
+	for _, v := range yml.Groups {
 		g.parseGroupConnection(v)
-	}*/
+	}
 
 	return nil
 }
@@ -170,7 +177,7 @@ func parseAttributes(v Meta) []attr.Attribute {
 	}
 
 	if v.BackgroundColor != "" {
-		attrs = append(attrs, attr.Background(v.BackgroundColor))
+		attrs = append(attrs, attr.BGColor(v.BackgroundColor))
 	}
 
 	return attrs
@@ -183,11 +190,17 @@ func (g *Group) parseGroup(v GroupData) Group {
 		v.Name = uuid.New().String()
 	}
 
-	group := NewGroup(v.Name, attrs...)
+	group := NewCluster(v.Name, attrs...)
 
 	for _, child := range v.Nodes {
 		parsedNode := g.parseNode(child)
 		group.AddNode(parsedNode)
+		for _, ct := range child.ConnectTo {
+			dest := g.findByID(ct)
+			if dest != nil {
+				g.Connect(parsedNode, dest)
+			}
+		}
 	}
 	
 	for _, groupData := range v.Group {
@@ -214,15 +227,23 @@ func (g *Group) findByID(to string) INode {
 }
 
 func (g *Group) parseGroupConnection(v GroupData) {
-	var srcRef INode
+	for _, srcNode := range v.Nodes {
+		srcRef := g.findByID(srcNode.Name)
+		if srcRef == nil {
+			continue
+		}
+		for _, dest := range v.ConnectAllTo {
+			destRef := g.findByID(dest)
+			if destRef != nil {
+				g.Connect(srcRef, destRef)
+			}
+		}
 
-	if len(v.ConnectAllTo) != 0 {
-		srcRef = g.findByID(v.Meta.Name)
-	}
-	for _, dest := range v.ConnectAllTo {
-		destRef := g.findByID(dest)
-		if destRef != nil && srcRef != nil {
-			g.Connect(srcRef, destRef)
+		for _, dest := range srcNode.ConnectTo {
+			destRef := g.findByID(dest)
+			if destRef != nil {
+				g.Connect(srcRef, destRef)
+			}
 		}
 	}
 	
@@ -236,7 +257,7 @@ func innerFindById(root *Group, to string) INode {
 		return nil
 	}
 	
-	if root.ID() == to {
+	if root.ID() == to || root.ID() == "cluster" + to {
 		return root
 	}
 
@@ -250,7 +271,7 @@ func innerFindById(root *Group, to string) INode {
 
 
 	for _, v := range root.nodes {
-		if v.ID() == to {
+		if v.ID() == to || v.ID() == "cluster" + to {
 			return v
 		}
 	}
