@@ -13,7 +13,9 @@ type genericStorageContainer struct {
 var GenericStorage = &genericStorageContainer{path: "assets/generic/storage"}
 
 func (c *genericStorageContainer) Storage(opts ...attr.Attribute) *node.Node {
-	return node.New("storage", attr.AssetImage("assets/generic/storage/storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/storage/storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage", opts...)
 }
 
 func init() {

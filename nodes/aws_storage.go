@@ -13,67 +13,99 @@ type awsStorageContainer struct {
 var AWSStorage = &awsStorageContainer{path: "assets/aws/storage"}
 
 func (c *awsStorageContainer) S3Glacier(opts ...attr.Attribute) *node.Node {
-	return node.New("s3-glacier", attr.AssetImage("assets/aws/storage/s3-glacier.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/s3-glacier.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("s3-glacier", opts...)
 }
 
 func (c *awsStorageContainer) EfsInfrequentaccessPrimaryBg(opts ...attr.Attribute) *node.Node {
-	return node.New("efs-infrequentaccess-primary-bg", attr.AssetImage("assets/aws/storage/efs-infrequentaccess-primary-bg.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/efs-infrequentaccess-primary-bg.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("efs-infrequentaccess-primary-bg", opts...)
 }
 
 func (c *awsStorageContainer) EfsStandardPrimaryBg(opts ...attr.Attribute) *node.Node {
-	return node.New("efs-standard-primary-bg", attr.AssetImage("assets/aws/storage/efs-standard-primary-bg.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/efs-standard-primary-bg.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("efs-standard-primary-bg", opts...)
 }
 
 func (c *awsStorageContainer) ElasticFileSystemEfs(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-file-system-efs", attr.AssetImage("assets/aws/storage/elastic-file-system-efs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/elastic-file-system-efs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-file-system-efs", opts...)
 }
 
 func (c *awsStorageContainer) FsxForWindowsFileServer(opts ...attr.Attribute) *node.Node {
-	return node.New("fsx-for-windows-file-server", attr.AssetImage("assets/aws/storage/fsx-for-windows-file-server.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/fsx-for-windows-file-server.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fsx-for-windows-file-server", opts...)
 }
 
 func (c *awsStorageContainer) ElasticBlockStoreEbs(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-block-store-ebs", attr.AssetImage("assets/aws/storage/elastic-block-store-ebs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/elastic-block-store-ebs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-block-store-ebs", opts...)
 }
 
 func (c *awsStorageContainer) Storage(opts ...attr.Attribute) *node.Node {
-	return node.New("storage", attr.AssetImage("assets/aws/storage/storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage", opts...)
 }
 
 func (c *awsStorageContainer) Backup(opts ...attr.Attribute) *node.Node {
-	return node.New("backup", attr.AssetImage("assets/aws/storage/backup.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/backup.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("backup", opts...)
 }
 
 func (c *awsStorageContainer) Fsx(opts ...attr.Attribute) *node.Node {
-	return node.New("fsx", attr.AssetImage("assets/aws/storage/fsx.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/fsx.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fsx", opts...)
 }
 
 func (c *awsStorageContainer) StorageGateway(opts ...attr.Attribute) *node.Node {
-	return node.New("storage-gateway", attr.AssetImage("assets/aws/storage/storage-gateway.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/storage-gateway.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage-gateway", opts...)
 }
 
 func (c *awsStorageContainer) Snowball(opts ...attr.Attribute) *node.Node {
-	return node.New("snowball", attr.AssetImage("assets/aws/storage/snowball.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/snowball.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("snowball", opts...)
 }
 
 func (c *awsStorageContainer) Snowmobile(opts ...attr.Attribute) *node.Node {
-	return node.New("snowmobile", attr.AssetImage("assets/aws/storage/snowmobile.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/snowmobile.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("snowmobile", opts...)
 }
 
 func (c *awsStorageContainer) CloudendureDisasterRecovery(opts ...attr.Attribute) *node.Node {
-	return node.New("cloudendure-disaster-recovery", attr.AssetImage("assets/aws/storage/cloudendure-disaster-recovery.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/cloudendure-disaster-recovery.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloudendure-disaster-recovery", opts...)
 }
 
 func (c *awsStorageContainer) FsxForLustre(opts ...attr.Attribute) *node.Node {
-	return node.New("fsx-for-lustre", attr.AssetImage("assets/aws/storage/fsx-for-lustre.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/fsx-for-lustre.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fsx-for-lustre", opts...)
 }
 
 func (c *awsStorageContainer) SimpleStorageServiceS3(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-storage-service-s3", attr.AssetImage("assets/aws/storage/simple-storage-service-s3.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/simple-storage-service-s3.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-storage-service-s3", opts...)
 }
 
 func (c *awsStorageContainer) SnowballEdge(opts ...attr.Attribute) *node.Node {
-	return node.New("snowball-edge", attr.AssetImage("assets/aws/storage/snowball-edge.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/storage/snowball-edge.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("snowball-edge", opts...)
 }
 
 func init() {

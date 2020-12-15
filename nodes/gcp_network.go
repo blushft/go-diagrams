@@ -13,71 +13,105 @@ type gcpNetworkContainer struct {
 var GCPNetwork = &gcpNetworkContainer{path: "assets/gcp/network"}
 
 func (c *gcpNetworkContainer) Cdn(opts ...attr.Attribute) *node.Node {
-	return node.New("cdn", attr.AssetImage("assets/gcp/network/cdn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/cdn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cdn", opts...)
 }
 
 func (c *gcpNetworkContainer) DedicatedInterconnect(opts ...attr.Attribute) *node.Node {
-	return node.New("dedicated-interconnect", attr.AssetImage("assets/gcp/network/dedicated-interconnect.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/dedicated-interconnect.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dedicated-interconnect", opts...)
 }
 
 func (c *gcpNetworkContainer) LoadBalancing(opts ...attr.Attribute) *node.Node {
-	return node.New("load-balancing", attr.AssetImage("assets/gcp/network/load-balancing.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/load-balancing.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("load-balancing", opts...)
 }
 
 func (c *gcpNetworkContainer) Router(opts ...attr.Attribute) *node.Node {
-	return node.New("router", attr.AssetImage("assets/gcp/network/router.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/router.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("router", opts...)
 }
 
 func (c *gcpNetworkContainer) StandardNetworkTier(opts ...attr.Attribute) *node.Node {
-	return node.New("standard-network-tier", attr.AssetImage("assets/gcp/network/standard-network-tier.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/standard-network-tier.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("standard-network-tier", opts...)
 }
 
 func (c *gcpNetworkContainer) Dns(opts ...attr.Attribute) *node.Node {
-	return node.New("dns", attr.AssetImage("assets/gcp/network/dns.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/dns.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dns", opts...)
 }
 
 func (c *gcpNetworkContainer) Nat(opts ...attr.Attribute) *node.Node {
-	return node.New("nat", attr.AssetImage("assets/gcp/network/nat.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/nat.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nat", opts...)
 }
 
 func (c *gcpNetworkContainer) Network(opts ...attr.Attribute) *node.Node {
-	return node.New("network", attr.AssetImage("assets/gcp/network/network.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/network.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("network", opts...)
 }
 
 func (c *gcpNetworkContainer) VirtualPrivateCloud(opts ...attr.Attribute) *node.Node {
-	return node.New("virtual-private-cloud", attr.AssetImage("assets/gcp/network/virtual-private-cloud.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/virtual-private-cloud.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("virtual-private-cloud", opts...)
 }
 
 func (c *gcpNetworkContainer) Armor(opts ...attr.Attribute) *node.Node {
-	return node.New("armor", attr.AssetImage("assets/gcp/network/armor.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/armor.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("armor", opts...)
 }
 
 func (c *gcpNetworkContainer) FirewallRules(opts ...attr.Attribute) *node.Node {
-	return node.New("firewall-rules", attr.AssetImage("assets/gcp/network/firewall-rules.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/firewall-rules.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("firewall-rules", opts...)
 }
 
 func (c *gcpNetworkContainer) PartnerInterconnect(opts ...attr.Attribute) *node.Node {
-	return node.New("partner-interconnect", attr.AssetImage("assets/gcp/network/partner-interconnect.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/partner-interconnect.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("partner-interconnect", opts...)
 }
 
 func (c *gcpNetworkContainer) PremiumNetworkTier(opts ...attr.Attribute) *node.Node {
-	return node.New("premium-network-tier", attr.AssetImage("assets/gcp/network/premium-network-tier.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/premium-network-tier.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("premium-network-tier", opts...)
 }
 
 func (c *gcpNetworkContainer) ExternalIpAddresses(opts ...attr.Attribute) *node.Node {
-	return node.New("external-ip-addresses", attr.AssetImage("assets/gcp/network/external-ip-addresses.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/external-ip-addresses.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("external-ip-addresses", opts...)
 }
 
 func (c *gcpNetworkContainer) Routes(opts ...attr.Attribute) *node.Node {
-	return node.New("routes", attr.AssetImage("assets/gcp/network/routes.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/routes.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("routes", opts...)
 }
 
 func (c *gcpNetworkContainer) TrafficDirector(opts ...attr.Attribute) *node.Node {
-	return node.New("traffic-director", attr.AssetImage("assets/gcp/network/traffic-director.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/traffic-director.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("traffic-director", opts...)
 }
 
 func (c *gcpNetworkContainer) Vpn(opts ...attr.Attribute) *node.Node {
-	return node.New("vpn", attr.AssetImage("assets/gcp/network/vpn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/network/vpn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vpn", opts...)
 }
 
 func init() {

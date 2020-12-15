@@ -13,47 +13,69 @@ type frameworkContainer struct {
 var Framework = &frameworkContainer{path: "assets/programming/framework"}
 
 func (c *frameworkContainer) Rails(opts ...attr.Attribute) *node.Node {
-	return node.New("rails", attr.AssetImage("assets/programming/framework/rails.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/rails.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rails", opts...)
 }
 
 func (c *frameworkContainer) Spring(opts ...attr.Attribute) *node.Node {
-	return node.New("spring", attr.AssetImage("assets/programming/framework/spring.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/spring.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("spring", opts...)
 }
 
 func (c *frameworkContainer) Angular(opts ...attr.Attribute) *node.Node {
-	return node.New("angular", attr.AssetImage("assets/programming/framework/angular.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/angular.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("angular", opts...)
 }
 
 func (c *frameworkContainer) Backbone(opts ...attr.Attribute) *node.Node {
-	return node.New("backbone", attr.AssetImage("assets/programming/framework/backbone.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/backbone.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("backbone", opts...)
 }
 
 func (c *frameworkContainer) Ember(opts ...attr.Attribute) *node.Node {
-	return node.New("ember", attr.AssetImage("assets/programming/framework/ember.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/ember.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ember", opts...)
 }
 
 func (c *frameworkContainer) Flask(opts ...attr.Attribute) *node.Node {
-	return node.New("flask", attr.AssetImage("assets/programming/framework/flask.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/flask.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("flask", opts...)
 }
 
 func (c *frameworkContainer) Laravel(opts ...attr.Attribute) *node.Node {
-	return node.New("laravel", attr.AssetImage("assets/programming/framework/laravel.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/laravel.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("laravel", opts...)
 }
 
 func (c *frameworkContainer) Django(opts ...attr.Attribute) *node.Node {
-	return node.New("django", attr.AssetImage("assets/programming/framework/django.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/django.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("django", opts...)
 }
 
 func (c *frameworkContainer) Flutter(opts ...attr.Attribute) *node.Node {
-	return node.New("flutter", attr.AssetImage("assets/programming/framework/flutter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/flutter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("flutter", opts...)
 }
 
 func (c *frameworkContainer) React(opts ...attr.Attribute) *node.Node {
-	return node.New("react", attr.AssetImage("assets/programming/framework/react.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/react.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("react", opts...)
 }
 
 func (c *frameworkContainer) Vue(opts ...attr.Attribute) *node.Node {
-	return node.New("vue", attr.AssetImage("assets/programming/framework/vue.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/programming/framework/vue.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vue", opts...)
 }
 
 func init() {

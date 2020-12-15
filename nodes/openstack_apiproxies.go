@@ -13,7 +13,9 @@ type apiproxiesContainer struct {
 var OpenstackApiproxies =&apiproxiesContainer{path: "assets/openstack/apiproxies"}
 
 func (c *apiproxiesContainer) Ec2Api(opts ...attr.Attribute) *node.Node {
-	return node.New("ec2api", attr.AssetImage("assets/openstack/apiproxies/ec2api.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/apiproxies/ec2api.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ec2api", opts...)
 }
 
 func init() {

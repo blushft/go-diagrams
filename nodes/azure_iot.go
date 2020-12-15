@@ -13,43 +13,63 @@ type azureiotContainer struct {
 var azureIot = &azureiotContainer{path: "assets/azure/iot"}
 
 func (c *azureiotContainer) Sphere(opts ...attr.Attribute) *node.Node {
-	return node.New("sphere", attr.AssetImage("assets/azure/iot/sphere.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/sphere.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sphere", opts...)
 }
 
 func (c *azureiotContainer) TimeSeriesInsightsEnvironments(opts ...attr.Attribute) *node.Node {
-	return node.New("time-series-insights-environments", attr.AssetImage("assets/azure/iot/time-series-insights-environments.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/time-series-insights-environments.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("time-series-insights-environments", opts...)
 }
 
 func (c *azureiotContainer) TimeSeriesInsightsEventsSources(opts ...attr.Attribute) *node.Node {
-	return node.New("time-series-insights-events-sources", attr.AssetImage("assets/azure/iot/time-series-insights-events-sources.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/time-series-insights-events-sources.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("time-series-insights-events-sources", opts...)
 }
 
 func (c *azureiotContainer) DeviceProvisioningServices(opts ...attr.Attribute) *node.Node {
-	return node.New("device-provisioning-services", attr.AssetImage("assets/azure/iot/device-provisioning-services.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/device-provisioning-services.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("device-provisioning-services", opts...)
 }
 
 func (c *azureiotContainer) DigitalTwins(opts ...attr.Attribute) *node.Node {
-	return node.New("digital-twins", attr.AssetImage("assets/azure/iot/digital-twins.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/digital-twins.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("digital-twins", opts...)
 }
 
 func (c *azureiotContainer) IotCentralApplications(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-central-applications", attr.AssetImage("assets/azure/iot/iot-central-applications.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/iot-central-applications.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-central-applications", opts...)
 }
 
 func (c *azureiotContainer) IotHubSecurity(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-hub-security", attr.AssetImage("assets/azure/iot/iot-hub-security.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/iot-hub-security.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-hub-security", opts...)
 }
 
 func (c *azureiotContainer) IotHub(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-hub", attr.AssetImage("assets/azure/iot/iot-hub.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/iot-hub.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-hub", opts...)
 }
 
 func (c *azureiotContainer) Maps(opts ...attr.Attribute) *node.Node {
-	return node.New("maps", attr.AssetImage("assets/azure/iot/maps.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/maps.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("maps", opts...)
 }
 
 func (c *azureiotContainer) Windows10IotCoreServices(opts ...attr.Attribute) *node.Node {
-	return node.New("windows-10-iot-core-services", attr.AssetImage("assets/azure/iot/windows-10-iot-core-services.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/iot/windows-10-iot-core-services.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("windows-10-iot-core-services", opts...)
 }
 
 func init() {

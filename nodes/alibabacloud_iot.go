@@ -13,19 +13,27 @@ type alibabaCloudIotContainer struct {
 var AlibabacloudAlibabaCloudIot =&alibabaCloudIotContainer{path: "assets/alibabacloud/iot"}
 
 func (c *alibabaCloudIotContainer) IotLinkWan(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-link-wan", attr.AssetImage("assets/alibabacloud/iot/iot-link-wan.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/iot/iot-link-wan.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-link-wan", opts...)
 }
 
 func (c *alibabaCloudIotContainer) IotMobileConnectionPackage(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-mobile-connection-package", attr.AssetImage("assets/alibabacloud/iot/iot-mobile-connection-package.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/iot/iot-mobile-connection-package.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-mobile-connection-package", opts...)
 }
 
 func (c *alibabaCloudIotContainer) IotPlatform(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-platform", attr.AssetImage("assets/alibabacloud/iot/iot-platform.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/iot/iot-platform.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-platform", opts...)
 }
 
 func (c *alibabaCloudIotContainer) IotInternetDeviceId(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-internet-device-id", attr.AssetImage("assets/alibabacloud/iot/iot-internet-device-id.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/iot/iot-internet-device-id.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-internet-device-id", opts...)
 }
 
 func init() {

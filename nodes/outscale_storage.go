@@ -13,11 +13,15 @@ type outscaleStorageContainer struct {
 var OutscaleStorage =&outscaleStorageContainer{path: "assets/outscale/storage"}
 
 func (c *outscaleStorageContainer) SimpleStorageService(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-storage-service", attr.AssetImage("assets/outscale/storage/simple-storage-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/storage/simple-storage-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-storage-service", opts...)
 }
 
 func (c *outscaleStorageContainer) Storage(opts ...attr.Attribute) *node.Node {
-	return node.New("storage", attr.AssetImage("assets/outscale/storage/storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/storage/storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage", opts...)
 }
 
 func init() {

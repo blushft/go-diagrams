@@ -13,11 +13,15 @@ type saasLoggingContainer struct {
 var SaasLogging =&saasLoggingContainer{path: "assets/saas/logging"}
 
 func (c *saasLoggingContainer) Datadog(opts ...attr.Attribute) *node.Node {
-	return node.New("datadog", attr.AssetImage("assets/saas/logging/datadog.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/logging/datadog.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("datadog", opts...)
 }
 
 func (c *saasLoggingContainer) Papertrail(opts ...attr.Attribute) *node.Node {
-	return node.New("papertrail", attr.AssetImage("assets/saas/logging/papertrail.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/logging/papertrail.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("papertrail", opts...)
 }
 
 func init() {

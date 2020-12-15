@@ -13,19 +13,27 @@ type optimizationContainer struct {
 var OpenstackOptimization =&optimizationContainer{path: "assets/openstack/optimization"}
 
 func (c *optimizationContainer) Rally(opts ...attr.Attribute) *node.Node {
-	return node.New("rally", attr.AssetImage("assets/openstack/optimization/rally.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/optimization/rally.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rally", opts...)
 }
 
 func (c *optimizationContainer) Vitrage(opts ...attr.Attribute) *node.Node {
-	return node.New("vitrage", attr.AssetImage("assets/openstack/optimization/vitrage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/optimization/vitrage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vitrage", opts...)
 }
 
 func (c *optimizationContainer) Watcher(opts ...attr.Attribute) *node.Node {
-	return node.New("watcher", attr.AssetImage("assets/openstack/optimization/watcher.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/optimization/watcher.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("watcher", opts...)
 }
 
 func (c *optimizationContainer) Congress(opts ...attr.Attribute) *node.Node {
-	return node.New("congress", attr.AssetImage("assets/openstack/optimization/congress.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/optimization/congress.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("congress", opts...)
 }
 
 func init() {

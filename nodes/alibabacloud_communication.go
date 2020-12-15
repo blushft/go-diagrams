@@ -13,11 +13,15 @@ type communicationContainer struct {
 var AlibabaCommunication = &communicationContainer{path: "assets/alibabacloud/communication"}
 
 func (c *communicationContainer) MobilePush(opts ...attr.Attribute) *node.Node {
-	return node.New("mobile-push", attr.AssetImage("assets/alibabacloud/communication/mobile-push.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/communication/mobile-push.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mobile-push", opts...)
 }
 
 func (c *communicationContainer) DirectMail(opts ...attr.Attribute) *node.Node {
-	return node.New("direct-mail", attr.AssetImage("assets/alibabacloud/communication/direct-mail.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/communication/direct-mail.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("direct-mail", opts...)
 }
 
 func init() {

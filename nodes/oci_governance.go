@@ -13,59 +13,87 @@ type ociGovernanceContainer struct {
 var OciGovernance = &ociGovernanceContainer{path: "assets/oci/governance"}
 
 func (c *ociGovernanceContainer) TaggingWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("tagging-white", attr.AssetImage("assets/oci/governance/tagging-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/tagging-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tagging-white", opts...)
 }
 
 func (c *ociGovernanceContainer) CompartmentsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("compartments-white", attr.AssetImage("assets/oci/governance/compartments-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/compartments-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("compartments-white", opts...)
 }
 
 func (c *ociGovernanceContainer) Groups(opts ...attr.Attribute) *node.Node {
-	return node.New("groups", attr.AssetImage("assets/oci/governance/groups.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/groups.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("groups", opts...)
 }
 
 func (c *ociGovernanceContainer) LoggingWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("logging-white", attr.AssetImage("assets/oci/governance/logging-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/logging-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("logging-white", opts...)
 }
 
 func (c *ociGovernanceContainer) Ocid(opts ...attr.Attribute) *node.Node {
-	return node.New("ocid", attr.AssetImage("assets/oci/governance/ocid.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/ocid.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ocid", opts...)
 }
 
 func (c *ociGovernanceContainer) Audit(opts ...attr.Attribute) *node.Node {
-	return node.New("audit", attr.AssetImage("assets/oci/governance/audit.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/audit.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("audit", opts...)
 }
 
 func (c *ociGovernanceContainer) OcidWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("ocid-white", attr.AssetImage("assets/oci/governance/ocid-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/ocid-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ocid-white", opts...)
 }
 
 func (c *ociGovernanceContainer) Compartments(opts ...attr.Attribute) *node.Node {
-	return node.New("compartments", attr.AssetImage("assets/oci/governance/compartments.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/compartments.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("compartments", opts...)
 }
 
 func (c *ociGovernanceContainer) GroupsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("groups-white", attr.AssetImage("assets/oci/governance/groups-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/groups-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("groups-white", opts...)
 }
 
 func (c *ociGovernanceContainer) Logging(opts ...attr.Attribute) *node.Node {
-	return node.New("logging", attr.AssetImage("assets/oci/governance/logging.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/logging.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("logging", opts...)
 }
 
 func (c *ociGovernanceContainer) Policies(opts ...attr.Attribute) *node.Node {
-	return node.New("policies", attr.AssetImage("assets/oci/governance/policies.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/policies.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("policies", opts...)
 }
 
 func (c *ociGovernanceContainer) AuditWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("audit-white", attr.AssetImage("assets/oci/governance/audit-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/audit-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("audit-white", opts...)
 }
 
 func (c *ociGovernanceContainer) PoliciesWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("policies-white", attr.AssetImage("assets/oci/governance/policies-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/policies-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("policies-white", opts...)
 }
 
 func (c *ociGovernanceContainer) Tagging(opts ...attr.Attribute) *node.Node {
-	return node.New("tagging", attr.AssetImage("assets/oci/governance/tagging.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/governance/tagging.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tagging", opts...)
 }
 
 func init() {

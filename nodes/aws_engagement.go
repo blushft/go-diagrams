@@ -13,15 +13,21 @@ type engagementContainer struct {
 var Engagement = &engagementContainer{path: "assets/aws/engagement"}
 
 func (c *engagementContainer) Connect(opts ...attr.Attribute) *node.Node {
-	return node.New("connect", attr.AssetImage("assets/aws/engagement/connect.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/engagement/connect.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("connect", opts...)
 }
 
 func (c *engagementContainer) Pinpoint(opts ...attr.Attribute) *node.Node {
-	return node.New("pinpoint", attr.AssetImage("assets/aws/engagement/pinpoint.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/engagement/pinpoint.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("pinpoint", opts...)
 }
 
 func (c *engagementContainer) SimpleEmailServiceSes(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-email-service-ses", attr.AssetImage("assets/aws/engagement/simple-email-service-ses.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/engagement/simple-email-service-ses.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-email-service-ses", opts...)
 }
 
 func init() {

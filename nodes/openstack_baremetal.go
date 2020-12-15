@@ -13,11 +13,15 @@ type baremetalContainer struct {
 var OpenstackBaremetal =&baremetalContainer{path: "assets/openstack/baremetal"}
 
 func (c *baremetalContainer) Cyborg(opts ...attr.Attribute) *node.Node {
-	return node.New("cyborg", attr.AssetImage("assets/openstack/baremetal/cyborg.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/baremetal/cyborg.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cyborg", opts...)
 }
 
 func (c *baremetalContainer) Ironic(opts ...attr.Attribute) *node.Node {
-	return node.New("ironic", attr.AssetImage("assets/openstack/baremetal/ironic.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/baremetal/ironic.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ironic", opts...)
 }
 
 func init() {

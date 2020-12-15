@@ -13,11 +13,15 @@ type saasAlertingContainer struct {
 var SaasAlerting =&saasAlertingContainer{path: "assets/saas/alerting"}
 
 func (c *saasAlertingContainer) Opsgenie(opts ...attr.Attribute) *node.Node {
-	return node.New("opsgenie", attr.AssetImage("assets/saas/alerting/opsgenie.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/alerting/opsgenie.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("opsgenie", opts...)
 }
 
 func (c *saasAlertingContainer) Pushover(opts ...attr.Attribute) *node.Node {
-	return node.New("pushover", attr.AssetImage("assets/saas/alerting/pushover.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/alerting/pushover.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("pushover", opts...)
 }
 
 func init() {

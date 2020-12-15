@@ -13,27 +13,39 @@ type gcpSecurityContainer struct {
 var GcpSecurity = &gcpSecurityContainer{path: "assets/gcp/security"}
 
 func (c *gcpSecurityContainer) KeyManagementService(opts ...attr.Attribute) *node.Node {
-	return node.New("key-management-service", attr.AssetImage("assets/gcp/security/key-management-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/key-management-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("key-management-service", opts...)
 }
 
 func (c *gcpSecurityContainer) ResourceManager(opts ...attr.Attribute) *node.Node {
-	return node.New("resource-manager", attr.AssetImage("assets/gcp/security/resource-manager.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/resource-manager.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resource-manager", opts...)
 }
 
 func (c *gcpSecurityContainer) SecurityCommandCenter(opts ...attr.Attribute) *node.Node {
-	return node.New("security-command-center", attr.AssetImage("assets/gcp/security/security-command-center.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/security-command-center.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("security-command-center", opts...)
 }
 
 func (c *gcpSecurityContainer) SecurityScanner(opts ...attr.Attribute) *node.Node {
-	return node.New("security-scanner", attr.AssetImage("assets/gcp/security/security-scanner.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/security-scanner.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("security-scanner", opts...)
 }
 
 func (c *gcpSecurityContainer) Iam(opts ...attr.Attribute) *node.Node {
-	return node.New("iam", attr.AssetImage("assets/gcp/security/iam.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/iam.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iam", opts...)
 }
 
 func (c *gcpSecurityContainer) Iap(opts ...attr.Attribute) *node.Node {
-	return node.New("iap", attr.AssetImage("assets/gcp/security/iap.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/security/iap.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iap", opts...)
 }
 
 func init() {

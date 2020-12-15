@@ -13,11 +13,15 @@ type saasIdentityContainer struct {
 var SaasIdentity =&saasIdentityContainer{path: "assets/saas/identity"}
 
 func (c *saasIdentityContainer) Auth0(opts ...attr.Attribute) *node.Node {
-	return node.New("auth0", attr.AssetImage("assets/saas/identity/auth0.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/identity/auth0.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("auth0", opts...)
 }
 
 func (c *saasIdentityContainer) Okta(opts ...attr.Attribute) *node.Node {
-	return node.New("okta", attr.AssetImage("assets/saas/identity/okta.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/identity/okta.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("okta", opts...)
 }
 
 func init() {

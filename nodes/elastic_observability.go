@@ -13,21 +13,31 @@ type observabilityContainer struct {
 var Observability = &observabilityContainer{path: "assets/elastic/observability"}
 
 func (c *observabilityContainer) Metrics(opts ...attr.Attribute) *node.Node {
-	return node.New("metrics", attr.AssetImage("assets/elastic/observability/metrics.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/observability/metrics.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("metrics", opts...)
 }
 
 func (c *observabilityContainer) Observability(opts ...attr.Attribute) *node.Node {
-	return node.New("observability", attr.AssetImage("assets/elastic/observability/observability.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/observability/observability.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("observability", opts...)
 }
 
 func (c *observabilityContainer) Uptime(opts ...attr.Attribute) *node.Node {
-	return node.New("uptime", attr.AssetImage("assets/elastic/observability/uptime.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/observability/uptime.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("uptime", opts...)
 }
 
 func (c *observabilityContainer) Apm(opts ...attr.Attribute) *node.Node {
-	return node.New("apm", attr.AssetImage("assets/elastic/observability/apm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/observability/apm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apm", opts...)
 }
 
 func (c *observabilityContainer) Logs(opts ...attr.Attribute) *node.Node {
-	return node.New("logs", attr.AssetImage("assets/elastic/observability/logs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/observability/logs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("logs", opts...)
 }

@@ -13,7 +13,9 @@ type migrationContainer struct {
 var GcpMigration = &migrationContainer{path: "assets/gcp/migration"}
 
 func (c *migrationContainer) TransferAppliance(opts ...attr.Attribute) *node.Node {
-	return node.New("transfer-appliance", attr.AssetImage("assets/gcp/migration/transfer-appliance.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/migration/transfer-appliance.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("transfer-appliance", opts...)
 }
 
 func init(){

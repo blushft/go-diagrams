@@ -13,31 +13,45 @@ type k8sComputeContainer struct {
 var K8sCompute = &k8sComputeContainer{path: "assets/k8s/compute"}
 
 func (c *k8sComputeContainer) Pod(opts ...attr.Attribute) *node.Node {
-	return node.New("pod", attr.AssetImage("assets/k8s/compute/pod.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/pod.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("pod", opts...)
 }
 
 func (c *k8sComputeContainer) Rs(opts ...attr.Attribute) *node.Node {
-	return node.New("rs", attr.AssetImage("assets/k8s/compute/rs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/rs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rs", opts...)
 }
 
 func (c *k8sComputeContainer) Sts(opts ...attr.Attribute) *node.Node {
-	return node.New("sts", attr.AssetImage("assets/k8s/compute/sts.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/sts.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sts", opts...)
 }
 
 func (c *k8sComputeContainer) Cronjob(opts ...attr.Attribute) *node.Node {
-	return node.New("cronjob", attr.AssetImage("assets/k8s/compute/cronjob.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/cronjob.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cronjob", opts...)
 }
 
 func (c *k8sComputeContainer) Deploy(opts ...attr.Attribute) *node.Node {
-	return node.New("deploy", attr.AssetImage("assets/k8s/compute/deploy.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/deploy.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("deploy", opts...)
 }
 
 func (c *k8sComputeContainer) Ds(opts ...attr.Attribute) *node.Node {
-	return node.New("ds", attr.AssetImage("assets/k8s/compute/ds.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/ds.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ds", opts...)
 }
 
 func (c *k8sComputeContainer) Job(opts ...attr.Attribute) *node.Node {
-	return node.New("job", attr.AssetImage("assets/k8s/compute/job.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/compute/job.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("job", opts...)
 }
 
 func init() {

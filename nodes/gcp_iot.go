@@ -13,7 +13,9 @@ type iotContainer struct {
 var GcpIot = &iotContainer{path: "assets/gcp/iot"}
 
 func (c *iotContainer) IotCore(opts ...attr.Attribute) *node.Node {
-	return node.New("iot-core", attr.AssetImage("assets/gcp/iot/iot-core.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/iot/iot-core.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iot-core", opts...)
 }
 
 func init(){

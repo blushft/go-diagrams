@@ -13,11 +13,15 @@ type saasSocialContainer struct {
 var SaasSocial =&saasSocialContainer{path: "assets/saas/social"}
 
 func (c *saasSocialContainer) Facebook(opts ...attr.Attribute) *node.Node {
-	return node.New("facebook", attr.AssetImage("assets/saas/social/facebook.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/social/facebook.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("facebook", opts...)
 }
 
 func (c *saasSocialContainer) Twitter(opts ...attr.Attribute) *node.Node {
-	return node.New("twitter", attr.AssetImage("assets/saas/social/twitter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/social/twitter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("twitter", opts...)
 }
 
 func init() {

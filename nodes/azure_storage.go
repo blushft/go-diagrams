@@ -13,67 +13,99 @@ type azurestorageContainer struct {
 var azureStorage = &azurestorageContainer{path: "assets/azure/storage"}
 
 func (c *azurestorageContainer) Azurefxtedgefiler(opts ...attr.Attribute) *node.Node {
-	return node.New("azurefxtedgefiler", attr.AssetImage("assets/azure/storage/azurefxtedgefiler.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/azurefxtedgefiler.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("azurefxtedgefiler", opts...)
 }
 
 func (c *azurestorageContainer) NetappFiles(opts ...attr.Attribute) *node.Node {
-	return node.New("netapp-files", attr.AssetImage("assets/azure/storage/netapp-files.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/netapp-files.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("netapp-files", opts...)
 }
 
 func (c *azurestorageContainer) QueuesStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("queues-storage", attr.AssetImage("assets/azure/storage/queues-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/queues-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("queues-storage", opts...)
 }
 
 func (c *azurestorageContainer) StorageExplorer(opts ...attr.Attribute) *node.Node {
-	return node.New("storage-explorer", attr.AssetImage("assets/azure/storage/storage-explorer.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storage-explorer.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage-explorer", opts...)
 }
 
 func (c *azurestorageContainer) DataBoxEdgeDataBoxGateway(opts ...attr.Attribute) *node.Node {
-	return node.New("data-box-edge---data-box-gateway", attr.AssetImage("assets/azure/storage/data-box-edge---data-box-gateway.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/data-box-edge---data-box-gateway.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-box-edge---data-box-gateway", opts...)
 }
 
 func (c *azurestorageContainer) StorsimpleDataManagers(opts ...attr.Attribute) *node.Node {
-	return node.New("storsimple-data-managers", attr.AssetImage("assets/azure/storage/storsimple-data-managers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storsimple-data-managers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storsimple-data-managers", opts...)
 }
 
 func (c *azurestorageContainer) StorsimpleDeviceManagers(opts ...attr.Attribute) *node.Node {
-	return node.New("storsimple-device-managers", attr.AssetImage("assets/azure/storage/storsimple-device-managers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storsimple-device-managers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storsimple-device-managers", opts...)
 }
 
 func (c *azurestorageContainer) ArchiveStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("archive-storage", attr.AssetImage("assets/azure/storage/archive-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/archive-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("archive-storage", opts...)
 }
 
 func (c *azurestorageContainer) BlobStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("blob-storage", attr.AssetImage("assets/azure/storage/blob-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/blob-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("blob-storage", opts...)
 }
 
 func (c *azurestorageContainer) DataBox(opts ...attr.Attribute) *node.Node {
-	return node.New("data-box", attr.AssetImage("assets/azure/storage/data-box.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/data-box.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-box", opts...)
 }
 
 func (c *azurestorageContainer) DataLakeStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("data-lake-storage", attr.AssetImage("assets/azure/storage/data-lake-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/data-lake-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-lake-storage", opts...)
 }
 
 func (c *azurestorageContainer) StorageAccounts(opts ...attr.Attribute) *node.Node {
-	return node.New("storage-accounts", attr.AssetImage("assets/azure/storage/storage-accounts.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storage-accounts.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage-accounts", opts...)
 }
 
 func (c *azurestorageContainer) GeneralStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("general-storage", attr.AssetImage("assets/azure/storage/general-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/general-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("general-storage", opts...)
 }
 
 func (c *azurestorageContainer) StorageAccountsClassic(opts ...attr.Attribute) *node.Node {
-	return node.New("storage-accounts-classic", attr.AssetImage("assets/azure/storage/storage-accounts-classic.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storage-accounts-classic.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage-accounts-classic", opts...)
 }
 
 func (c *azurestorageContainer) StorageSyncServices(opts ...attr.Attribute) *node.Node {
-	return node.New("storage-sync-services", attr.AssetImage("assets/azure/storage/storage-sync-services.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/storage-sync-services.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage-sync-services", opts...)
 }
 
 func (c *azurestorageContainer) TableStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("table-storage", attr.AssetImage("assets/azure/storage/table-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/storage/table-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("table-storage", opts...)
 }
 
 func init() {

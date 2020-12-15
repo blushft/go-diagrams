@@ -13,19 +13,27 @@ type k8sStorageContainer struct {
 var K8sStorage = &k8sStorageContainer{path: "assets/k8s/storage"}
 
 func (c *k8sStorageContainer) Pv(opts ...attr.Attribute) *node.Node {
-	return node.New("pv", attr.AssetImage("assets/k8s/storage/pv.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/storage/pv.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("pv", opts...)
 }
 
 func (c *k8sStorageContainer) Pvc(opts ...attr.Attribute) *node.Node {
-	return node.New("pvc", attr.AssetImage("assets/k8s/storage/pvc.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/storage/pvc.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("pvc", opts...)
 }
 
 func (c *k8sStorageContainer) Sc(opts ...attr.Attribute) *node.Node {
-	return node.New("sc", attr.AssetImage("assets/k8s/storage/sc.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/storage/sc.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sc", opts...)
 }
 
 func (c *k8sStorageContainer) Vol(opts ...attr.Attribute) *node.Node {
-	return node.New("vol", attr.AssetImage("assets/k8s/storage/vol.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/storage/vol.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vol", opts...)
 }
 
 func init() {

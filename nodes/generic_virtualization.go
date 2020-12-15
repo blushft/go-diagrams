@@ -13,15 +13,21 @@ type genericVirtualizationContainer struct {
 var GenericVirtualization = &genericVirtualizationContainer{path: "assets/generic/virtualization"}
 
 func (c *genericVirtualizationContainer) Vmware(opts ...attr.Attribute) *node.Node {
-	return node.New("vmware", attr.AssetImage("assets/generic/virtualization/vmware.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/virtualization/vmware.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vmware", opts...)
 }
 
 func (c *genericVirtualizationContainer) Xen(opts ...attr.Attribute) *node.Node {
-	return node.New("xen", attr.AssetImage("assets/generic/virtualization/xen.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/virtualization/xen.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("xen", opts...)
 }
 
 func (c *genericVirtualizationContainer) Virtualbox(opts ...attr.Attribute) *node.Node {
-	return node.New("virtualbox", attr.AssetImage("assets/generic/virtualization/virtualbox.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/virtualization/virtualbox.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("virtualbox", opts...)
 }
 
 func init() {

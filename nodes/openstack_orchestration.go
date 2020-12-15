@@ -13,23 +13,33 @@ type openstackOrchestrationContainer struct {
 var OpenstackOrchestration = &openstackOrchestrationContainer{path: "assets/openstack/orchestration"}
 
 func (c *openstackOrchestrationContainer) Blazar(opts ...attr.Attribute) *node.Node {
-	return node.New("blazar", attr.AssetImage("assets/openstack/orchestration/blazar.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/orchestration/blazar.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("blazar", opts...)
 }
 
 func (c *openstackOrchestrationContainer) Heat(opts ...attr.Attribute) *node.Node {
-	return node.New("heat", attr.AssetImage("assets/openstack/orchestration/heat.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/orchestration/heat.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("heat", opts...)
 }
 
 func (c *openstackOrchestrationContainer) Mistral(opts ...attr.Attribute) *node.Node {
-	return node.New("mistral", attr.AssetImage("assets/openstack/orchestration/mistral.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/orchestration/mistral.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mistral", opts...)
 }
 
 func (c *openstackOrchestrationContainer) Senlin(opts ...attr.Attribute) *node.Node {
-	return node.New("senlin", attr.AssetImage("assets/openstack/orchestration/senlin.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/orchestration/senlin.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("senlin", opts...)
 }
 
 func (c *openstackOrchestrationContainer) Zaqar(opts ...attr.Attribute) *node.Node {
-	return node.New("zaqar", attr.AssetImage("assets/openstack/orchestration/zaqar.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/orchestration/zaqar.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("zaqar", opts...)
 }
 
 func init() {

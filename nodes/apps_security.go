@@ -13,11 +13,15 @@ type appsSecurityContainer struct {
 var Security = &appsSecurityContainer{path: "assets/apps/security"}
 
 func (c *appsSecurityContainer) Trivy(opts ...attr.Attribute) *node.Node {
-	return node.New("trivy", attr.AssetImage("assets/apps/security/trivy.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/security/trivy.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("trivy", opts...)
 }
 
 func (c *appsSecurityContainer) Vault(opts ...attr.Attribute) *node.Node {
-	return node.New("vault", attr.AssetImage("assets/apps/security/vault.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/security/vault.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vault", opts...)
 }
 
 func init() {

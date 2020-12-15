@@ -13,7 +13,9 @@ type k8sGroupContainer struct {
 var K8sGroup = &k8sGroupContainer{path: "assets/k8s/group"}
 
 func (c *k8sGroupContainer) Ns(opts ...attr.Attribute) *node.Node {
-	return node.New("ns", attr.AssetImage("assets/k8s/group/ns.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/group/ns.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ns", opts...)
 }
 
 func init() {

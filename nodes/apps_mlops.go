@@ -13,7 +13,9 @@ type mlopsContainer struct {
 var Mlops = &mlopsContainer{path: "assets/apps/mlops"}
 
 func (c *mlopsContainer) Polyaxon(opts ...attr.Attribute) *node.Node {
-	return node.New("polyaxon", attr.AssetImage("assets/apps/mlops/polyaxon.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/mlops/polyaxon.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("polyaxon", opts...)
 }
 
 func init() {

@@ -13,63 +13,93 @@ type devtoolsContainer struct {
 var GcpDevTools = &devtoolsContainer{path: "assets/gcp/devtools"}
 
 func (c *devtoolsContainer) CodeForIntellij(opts ...attr.Attribute) *node.Node {
-	return node.New("code-for-intellij", attr.AssetImage("assets/gcp/devtools/code-for-intellij.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/code-for-intellij.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("code-for-intellij", opts...)
 }
 
 func (c *devtoolsContainer) MavenAppEnginePlugin(opts ...attr.Attribute) *node.Node {
-	return node.New("maven-app-engine-plugin", attr.AssetImage("assets/gcp/devtools/maven-app-engine-plugin.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/maven-app-engine-plugin.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("maven-app-engine-plugin", opts...)
 }
 
 func (c *devtoolsContainer) GradleAppEnginePlugin(opts ...attr.Attribute) *node.Node {
-	return node.New("gradle-app-engine-plugin", attr.AssetImage("assets/gcp/devtools/gradle-app-engine-plugin.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/gradle-app-engine-plugin.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("gradle-app-engine-plugin", opts...)
 }
 
 func (c *devtoolsContainer) Sdk(opts ...attr.Attribute) *node.Node {
-	return node.New("sdk", attr.AssetImage("assets/gcp/devtools/sdk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/sdk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sdk", opts...)
 }
 
 func (c *devtoolsContainer) TestLab(opts ...attr.Attribute) *node.Node {
-	return node.New("test-lab", attr.AssetImage("assets/gcp/devtools/test-lab.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/test-lab.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("test-lab", opts...)
 }
 
 func (c *devtoolsContainer) ToolsForVisualStudio(opts ...attr.Attribute) *node.Node {
-	return node.New("tools-for-visual-studio", attr.AssetImage("assets/gcp/devtools/tools-for-visual-studio.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/tools-for-visual-studio.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tools-for-visual-studio", opts...)
 }
 
 func (c *devtoolsContainer) Code(opts ...attr.Attribute) *node.Node {
-	return node.New("code", attr.AssetImage("assets/gcp/devtools/code.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/code.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("code", opts...)
 }
 
 func (c *devtoolsContainer) IdePlugins(opts ...attr.Attribute) *node.Node {
-	return node.New("ide-plugins", attr.AssetImage("assets/gcp/devtools/ide-plugins.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/ide-plugins.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ide-plugins", opts...)
 }
 
 func (c *devtoolsContainer) Scheduler(opts ...attr.Attribute) *node.Node {
-	return node.New("scheduler", attr.AssetImage("assets/gcp/devtools/scheduler.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/scheduler.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("scheduler", opts...)
 }
 
 func (c *devtoolsContainer) Tasks(opts ...attr.Attribute) *node.Node {
-	return node.New("tasks", attr.AssetImage("assets/gcp/devtools/tasks.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/tasks.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tasks", opts...)
 }
 
 func (c *devtoolsContainer) ToolsForEclipse(opts ...attr.Attribute) *node.Node {
-	return node.New("tools-for-eclipse", attr.AssetImage("assets/gcp/devtools/tools-for-eclipse.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/tools-for-eclipse.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tools-for-eclipse", opts...)
 }
 
 func (c *devtoolsContainer) Build(opts ...attr.Attribute) *node.Node {
-	return node.New("build", attr.AssetImage("assets/gcp/devtools/build.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/build.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("build", opts...)
 }
 
 func (c *devtoolsContainer) ContainerRegistry(opts ...attr.Attribute) *node.Node {
-	return node.New("container-registry", attr.AssetImage("assets/gcp/devtools/container-registry.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/container-registry.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("container-registry", opts...)
 }
 
 func (c *devtoolsContainer) SourceRepositories(opts ...attr.Attribute) *node.Node {
-	return node.New("source-repositories", attr.AssetImage("assets/gcp/devtools/source-repositories.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/source-repositories.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("source-repositories", opts...)
 }
 
 func (c *devtoolsContainer) ToolsForPowershell(opts ...attr.Attribute) *node.Node {
-	return node.New("tools-for-powershell", attr.AssetImage("assets/gcp/devtools/tools-for-powershell.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/devtools/tools-for-powershell.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tools-for-powershell", opts...)
 }
 
 func init(){

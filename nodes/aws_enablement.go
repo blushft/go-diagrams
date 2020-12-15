@@ -13,19 +13,27 @@ type enablementContainer struct {
 var Enablement = &enablementContainer{path: "assets/aws/enablement"}
 
 func (c *enablementContainer) Iq(opts ...attr.Attribute) *node.Node {
-	return node.New("iq", attr.AssetImage("assets/aws/enablement/iq.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enablement/iq.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("iq", opts...)
 }
 
 func (c *enablementContainer) ManagedServices(opts ...attr.Attribute) *node.Node {
-	return node.New("managed-services", attr.AssetImage("assets/aws/enablement/managed-services.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enablement/managed-services.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("managed-services", opts...)
 }
 
 func (c *enablementContainer) ProfessionalServices(opts ...attr.Attribute) *node.Node {
-	return node.New("professional-services", attr.AssetImage("assets/aws/enablement/professional-services.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enablement/professional-services.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("professional-services", opts...)
 }
 
 func (c *enablementContainer) Support(opts ...attr.Attribute) *node.Node {
-	return node.New("support", attr.AssetImage("assets/aws/enablement/support.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enablement/support.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("support", opts...)
 }
 
 func init() {

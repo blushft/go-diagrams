@@ -13,7 +13,9 @@ type containerservicesContainer struct {
 var OpenstackContainerservices =&containerservicesContainer{path: "assets/openstack/containerservices"}
 
 func (c *containerservicesContainer) Kuryr(opts ...attr.Attribute) *node.Node {
-	return node.New("kuryr", attr.AssetImage("assets/openstack/containerservices/kuryr.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/containerservices/kuryr.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("kuryr", opts...)
 }
 
 func init() {

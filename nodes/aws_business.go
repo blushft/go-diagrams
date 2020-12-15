@@ -13,15 +13,21 @@ type awsBusinessContainer struct {
 var AWSBusiness = &awsBusinessContainer{path: "assets/aws/business"}
 
 func (c *awsBusinessContainer) AlexaForBusiness(opts ...attr.Attribute) *node.Node {
-	return node.New("alexa-for-business", attr.AssetImage("assets/aws/business/alexa-for-business.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/business/alexa-for-business.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("alexa-for-business", opts...)
 }
 
 func (c *awsBusinessContainer) Chime(opts ...attr.Attribute) *node.Node {
-	return node.New("chime", attr.AssetImage("assets/aws/business/chime.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/business/chime.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("chime", opts...)
 }
 
 func (c *awsBusinessContainer) Workmail(opts ...attr.Attribute) *node.Node {
-	return node.New("workmail", attr.AssetImage("assets/aws/business/workmail.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/business/workmail.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("workmail", opts...)
 }
 
 func init() {

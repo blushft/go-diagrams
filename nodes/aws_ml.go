@@ -13,91 +13,135 @@ type awsMlContainer struct {
 var AWSMl = &awsMlContainer{path: "assets/aws/ml"}
 
 func (c *awsMlContainer) Deepracer(opts ...attr.Attribute) *node.Node {
-	return node.New("deepracer", attr.AssetImage("assets/aws/ml/deepracer.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/deepracer.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("deepracer", opts...)
 }
 
 func (c *awsMlContainer) Forecast(opts ...attr.Attribute) *node.Node {
-	return node.New("forecast", attr.AssetImage("assets/aws/ml/forecast.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/forecast.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("forecast", opts...)
 }
 
 func (c *awsMlContainer) SagemakerNotebook(opts ...attr.Attribute) *node.Node {
-	return node.New("sagemaker-notebook", attr.AssetImage("assets/aws/ml/sagemaker-notebook.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/sagemaker-notebook.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sagemaker-notebook", opts...)
 }
 
 func (c *awsMlContainer) Sagemaker(opts ...attr.Attribute) *node.Node {
-	return node.New("sagemaker", attr.AssetImage("assets/aws/ml/sagemaker.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/sagemaker.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sagemaker", opts...)
 }
 
 func (c *awsMlContainer) TensorflowOnAws(opts ...attr.Attribute) *node.Node {
-	return node.New("tensorflow-on-aws", attr.AssetImage("assets/aws/ml/tensorflow-on-aws.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/tensorflow-on-aws.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tensorflow-on-aws", opts...)
 }
 
 func (c *awsMlContainer) DeepLearningAmis(opts ...attr.Attribute) *node.Node {
-	return node.New("deep-learning-amis", attr.AssetImage("assets/aws/ml/deep-learning-amis.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/deep-learning-amis.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("deep-learning-amis", opts...)
 }
 
 func (c *awsMlContainer) MachineLearning(opts ...attr.Attribute) *node.Node {
-	return node.New("machine-learning", attr.AssetImage("assets/aws/ml/machine-learning.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/machine-learning.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("machine-learning", opts...)
 }
 
 func (c *awsMlContainer) Personalize(opts ...attr.Attribute) *node.Node {
-	return node.New("personalize", attr.AssetImage("assets/aws/ml/personalize.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/personalize.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("personalize", opts...)
 }
 
 func (c *awsMlContainer) Rekognition(opts ...attr.Attribute) *node.Node {
-	return node.New("rekognition", attr.AssetImage("assets/aws/ml/rekognition.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/rekognition.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rekognition", opts...)
 }
 
 func (c *awsMlContainer) SagemakerTrainingJob(opts ...attr.Attribute) *node.Node {
-	return node.New("sagemaker-training-job", attr.AssetImage("assets/aws/ml/sagemaker-training-job.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/sagemaker-training-job.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sagemaker-training-job", opts...)
 }
 
 func (c *awsMlContainer) Translate(opts ...attr.Attribute) *node.Node {
-	return node.New("translate", attr.AssetImage("assets/aws/ml/translate.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/translate.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("translate", opts...)
 }
 
 func (c *awsMlContainer) Lex(opts ...attr.Attribute) *node.Node {
-	return node.New("lex", attr.AssetImage("assets/aws/ml/lex.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/lex.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("lex", opts...)
 }
 
 func (c *awsMlContainer) DeepLearningContainers(opts ...attr.Attribute) *node.Node {
-	return node.New("deep-learning-containers", attr.AssetImage("assets/aws/ml/deep-learning-containers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/deep-learning-containers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("deep-learning-containers", opts...)
 }
 
 func (c *awsMlContainer) ElasticInference(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-inference", attr.AssetImage("assets/aws/ml/elastic-inference.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/elastic-inference.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-inference", opts...)
 }
 
 func (c *awsMlContainer) SagemakerModel(opts ...attr.Attribute) *node.Node {
-	return node.New("sagemaker-model", attr.AssetImage("assets/aws/ml/sagemaker-model.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/sagemaker-model.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sagemaker-model", opts...)
 }
 
 func (c *awsMlContainer) Textract(opts ...attr.Attribute) *node.Node {
-	return node.New("textract", attr.AssetImage("assets/aws/ml/textract.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/textract.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("textract", opts...)
 }
 
 func (c *awsMlContainer) Transcribe(opts ...attr.Attribute) *node.Node {
-	return node.New("transcribe", attr.AssetImage("assets/aws/ml/transcribe.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/transcribe.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("transcribe", opts...)
 }
 
 func (c *awsMlContainer) ApacheMxnetOnAws(opts ...attr.Attribute) *node.Node {
-	return node.New("apache-mxnet-on-aws", attr.AssetImage("assets/aws/ml/apache-mxnet-on-aws.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/apache-mxnet-on-aws.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apache-mxnet-on-aws", opts...)
 }
 
 func (c *awsMlContainer) Deeplens(opts ...attr.Attribute) *node.Node {
-	return node.New("deeplens", attr.AssetImage("assets/aws/ml/deeplens.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/deeplens.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("deeplens", opts...)
 }
 
 func (c *awsMlContainer) Polly(opts ...attr.Attribute) *node.Node {
-	return node.New("polly", attr.AssetImage("assets/aws/ml/polly.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/polly.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("polly", opts...)
 }
 
 func (c *awsMlContainer) SagemakerGroundTruth(opts ...attr.Attribute) *node.Node {
-	return node.New("sagemaker-ground-truth", attr.AssetImage("assets/aws/ml/sagemaker-ground-truth.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/sagemaker-ground-truth.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sagemaker-ground-truth", opts...)
 }
 
 func (c *awsMlContainer) Comprehend(opts ...attr.Attribute) *node.Node {
-	return node.New("comprehend", attr.AssetImage("assets/aws/ml/comprehend.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ml/comprehend.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("comprehend", opts...)
 }
 
 func init() {

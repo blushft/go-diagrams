@@ -13,15 +13,21 @@ type gcpStorageContainer struct {
 var GCPStorage = &gcpStorageContainer{path: "assets/gcp/storage"}
 
 func (c *gcpStorageContainer) Filestore(opts ...attr.Attribute) *node.Node {
-	return node.New("filestore", attr.AssetImage("assets/gcp/storage/filestore.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/storage/filestore.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("filestore", opts...)
 }
 
 func (c *gcpStorageContainer) PersistentDisk(opts ...attr.Attribute) *node.Node {
-	return node.New("persistent-disk", attr.AssetImage("assets/gcp/storage/persistent-disk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/storage/persistent-disk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("persistent-disk", opts...)
 }
 
 func (c *gcpStorageContainer) Storage(opts ...attr.Attribute) *node.Node {
-	return node.New("storage", attr.AssetImage("assets/gcp/storage/storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/storage/storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("storage", opts...)
 }
 
 

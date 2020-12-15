@@ -13,75 +13,111 @@ type alibabaSecurityContainer struct {
 var AlibabacloudSecurity =&alibabaSecurityContainer{path: "assets/alibabacloud/security"}
 
 func (c *alibabaSecurityContainer) CloudSecurityScanner(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud-security-scanner", attr.AssetImage("assets/alibabacloud/security/cloud-security-scanner.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/cloud-security-scanner.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud-security-scanner", opts...)
 }
 
 func (c *alibabaSecurityContainer) DataEncryptionService(opts ...attr.Attribute) *node.Node {
-	return node.New("data-encryption-service", attr.AssetImage("assets/alibabacloud/security/data-encryption-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/data-encryption-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-encryption-service", opts...)
 }
 
 func (c *alibabaSecurityContainer) IdVerification(opts ...attr.Attribute) *node.Node {
-	return node.New("id-verification", attr.AssetImage("assets/alibabacloud/security/id-verification.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/id-verification.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("id-verification", opts...)
 }
 
 func (c *alibabaSecurityContainer) SecurityCenter(opts ...attr.Attribute) *node.Node {
-	return node.New("security-center", attr.AssetImage("assets/alibabacloud/security/security-center.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/security-center.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("security-center", opts...)
 }
 
 func (c *alibabaSecurityContainer) SslCertificates(opts ...attr.Attribute) *node.Node {
-	return node.New("ssl-certificates", attr.AssetImage("assets/alibabacloud/security/ssl-certificates.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/ssl-certificates.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ssl-certificates", opts...)
 }
 
 func (c *alibabaSecurityContainer) AntiBotService(opts ...attr.Attribute) *node.Node {
-	return node.New("anti-bot-service", attr.AssetImage("assets/alibabacloud/security/anti-bot-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/anti-bot-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("anti-bot-service", opts...)
 }
 
 func (c *alibabaSecurityContainer) BastionHost(opts ...attr.Attribute) *node.Node {
-	return node.New("bastion-host", attr.AssetImage("assets/alibabacloud/security/bastion-host.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/bastion-host.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("bastion-host", opts...)
 }
 
 func (c *alibabaSecurityContainer) ManagedSecurityService(opts ...attr.Attribute) *node.Node {
-	return node.New("managed-security-service", attr.AssetImage("assets/alibabacloud/security/managed-security-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/managed-security-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("managed-security-service", opts...)
 }
 
 func (c *alibabaSecurityContainer) ServerGuard(opts ...attr.Attribute) *node.Node {
-	return node.New("server-guard", attr.AssetImage("assets/alibabacloud/security/server-guard.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/server-guard.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("server-guard", opts...)
 }
 
 func (c *alibabaSecurityContainer) AntiDdosBasic(opts ...attr.Attribute) *node.Node {
-	return node.New("anti-ddos-basic", attr.AssetImage("assets/alibabacloud/security/anti-ddos-basic.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/anti-ddos-basic.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("anti-ddos-basic", opts...)
 }
 
 func (c *alibabaSecurityContainer) AntiDdosPro(opts ...attr.Attribute) *node.Node {
-	return node.New("anti-ddos-pro", attr.AssetImage("assets/alibabacloud/security/anti-ddos-pro.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/anti-ddos-pro.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("anti-ddos-pro", opts...)
 }
 
 func (c *alibabaSecurityContainer) CrowdsourcedSecurityTesting(opts ...attr.Attribute) *node.Node {
-	return node.New("crowdsourced-security-testing", attr.AssetImage("assets/alibabacloud/security/crowdsourced-security-testing.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/crowdsourced-security-testing.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("crowdsourced-security-testing", opts...)
 }
 
 func (c *alibabaSecurityContainer) GameShield(opts ...attr.Attribute) *node.Node {
-	return node.New("game-shield", attr.AssetImage("assets/alibabacloud/security/game-shield.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/game-shield.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("game-shield", opts...)
 }
 
 func (c *alibabaSecurityContainer) WebApplicationFirewall(opts ...attr.Attribute) *node.Node {
-	return node.New("web-application-firewall", attr.AssetImage("assets/alibabacloud/security/web-application-firewall.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/web-application-firewall.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("web-application-firewall", opts...)
 }
 
 func (c *alibabaSecurityContainer) AntifraudService(opts ...attr.Attribute) *node.Node {
-	return node.New("antifraud-service", attr.AssetImage("assets/alibabacloud/security/antifraud-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/antifraud-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("antifraud-service", opts...)
 }
 
 func (c *alibabaSecurityContainer) CloudFirewall(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud-firewall", attr.AssetImage("assets/alibabacloud/security/cloud-firewall.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/cloud-firewall.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud-firewall", opts...)
 }
 
 func (c *alibabaSecurityContainer) ContentModeration(opts ...attr.Attribute) *node.Node {
-	return node.New("content-moderation", attr.AssetImage("assets/alibabacloud/security/content-moderation.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/content-moderation.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("content-moderation", opts...)
 }
 
 func (c *alibabaSecurityContainer) DbAudit(opts ...attr.Attribute) *node.Node {
-	return node.New("db-audit", attr.AssetImage("assets/alibabacloud/security/db-audit.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/security/db-audit.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("db-audit", opts...)
 }
 
 func init() {

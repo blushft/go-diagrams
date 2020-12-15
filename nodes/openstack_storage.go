@@ -13,15 +13,21 @@ type storageContainer struct {
 var OpenstackStorage =&storageContainer{path: "assets/openstack/storage"}
 
 func (c *storageContainer) Cinder(opts ...attr.Attribute) *node.Node {
-	return node.New("cinder", attr.AssetImage("assets/openstack/storage/cinder.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/storage/cinder.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cinder", opts...)
 }
 
 func (c *storageContainer) Manila(opts ...attr.Attribute) *node.Node {
-	return node.New("manila", attr.AssetImage("assets/openstack/storage/manila.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/storage/manila.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("manila", opts...)
 }
 
 func (c *storageContainer) Swift(opts ...attr.Attribute) *node.Node {
-	return node.New("swift", attr.AssetImage("assets/openstack/storage/swift.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/storage/swift.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("swift", opts...)
 }
 
 func init() {

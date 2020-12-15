@@ -13,7 +13,9 @@ type etlContainer struct {
 var Etl = &etlContainer{path: "assets/apps/etl"}
 
 func (c *etlContainer) Embulk(opts ...attr.Attribute) *node.Node {
-	return node.New("embulk", attr.AssetImage("assets/apps/etl/embulk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/etl/embulk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("embulk", opts...)
 }
 
 func init() {

@@ -13,5 +13,7 @@ type baseContainer struct {
 var Base = &baseContainer{path: "assets/firebase/base"}
 
 func (c *baseContainer) Firebase(opts ...attr.Attribute) *node.Node {
-	return node.New("firebase", attr.AssetImage("assets/firebase/base/firebase.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/firebase/base/firebase.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("firebase", opts...)
 }

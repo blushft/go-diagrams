@@ -13,7 +13,9 @@ type saasMediaContainer struct {
 var SaasMedia =&saasMediaContainer{path: "assets/saas/media"}
 
 func (c *saasMediaContainer) Cloudinary(opts ...attr.Attribute) *node.Node {
-	return node.New("cloudinary", attr.AssetImage("assets/saas/media/cloudinary.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/media/cloudinary.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloudinary", opts...)
 }
 
 func init() {

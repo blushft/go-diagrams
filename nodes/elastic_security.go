@@ -13,13 +13,19 @@ type elasticSecurityContainer struct {
 var ElasticSecurity = &elasticSecurityContainer{path: "assets/elastic/security"}
 
 func (c *elasticSecurityContainer) Endpoint(opts ...attr.Attribute) *node.Node {
-	return node.New("endpoint", attr.AssetImage("assets/elastic/security/endpoint.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/security/endpoint.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("endpoint", opts...)
 }
 
 func (c *elasticSecurityContainer) Security(opts ...attr.Attribute) *node.Node {
-	return node.New("security", attr.AssetImage("assets/elastic/security/security.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/security/security.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("security", opts...)
 }
 
 func (c *elasticSecurityContainer) Siem(opts ...attr.Attribute) *node.Node {
-	return node.New("siem", attr.AssetImage("assets/elastic/security/siem.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/security/siem.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("siem", opts...)
 }

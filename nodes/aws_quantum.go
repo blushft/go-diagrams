@@ -13,7 +13,9 @@ type quantumContainer struct {
 var Quantum = &quantumContainer{path: "assets/aws/quantum"}
 
 func (c *quantumContainer) Braket(opts ...attr.Attribute) *node.Node {
-	return node.New("braket", attr.AssetImage("assets/aws/quantum/braket.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/quantum/braket.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("braket", opts...)
 }
 
 func init() {

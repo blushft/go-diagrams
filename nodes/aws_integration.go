@@ -13,35 +13,51 @@ type integrationContainer struct {
 var Integration = &integrationContainer{path: "assets/aws/integration"}
 
 func (c *integrationContainer) ApplicationIntegration(opts ...attr.Attribute) *node.Node {
-	return node.New("application-integration", attr.AssetImage("assets/aws/integration/application-integration.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/application-integration.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("application-integration", opts...)
 }
 
 func (c *integrationContainer) Appsync(opts ...attr.Attribute) *node.Node {
-	return node.New("appsync", attr.AssetImage("assets/aws/integration/appsync.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/appsync.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("appsync", opts...)
 }
 
 func (c *integrationContainer) ConsoleMobileApplication(opts ...attr.Attribute) *node.Node {
-	return node.New("console-mobile-application", attr.AssetImage("assets/aws/integration/console-mobile-application.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/console-mobile-application.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("console-mobile-application", opts...)
 }
 
 func (c *integrationContainer) Eventbridge(opts ...attr.Attribute) *node.Node {
-	return node.New("eventbridge", attr.AssetImage("assets/aws/integration/eventbridge.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/eventbridge.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("eventbridge", opts...)
 }
 
 func (c *integrationContainer) Mq(opts ...attr.Attribute) *node.Node {
-	return node.New("mq", attr.AssetImage("assets/aws/integration/mq.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/mq.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mq", opts...)
 }
 
 func (c *integrationContainer) SimpleNotificationServiceSns(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-notification-service-sns", attr.AssetImage("assets/aws/integration/simple-notification-service-sns.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/simple-notification-service-sns.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-notification-service-sns", opts...)
 }
 
 func (c *integrationContainer) SimpleQueueServiceSqs(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-queue-service-sqs", attr.AssetImage("assets/aws/integration/simple-queue-service-sqs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/simple-queue-service-sqs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-queue-service-sqs", opts...)
 }
 
 func (c *integrationContainer) StepFunctions(opts ...attr.Attribute) *node.Node {
-	return node.New("step-functions", attr.AssetImage("assets/aws/integration/step-functions.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/integration/step-functions.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("step-functions", opts...)
 }
 
 func init() {

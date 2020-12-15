@@ -13,19 +13,27 @@ type inmemoryContainer struct {
 var Inmemory = &inmemoryContainer{path: "assets/apps/inmemory"}
 
 func (c *inmemoryContainer) Aerospike(opts ...attr.Attribute) *node.Node {
-	return node.New("aerospike", attr.AssetImage("assets/apps/inmemory/aerospike.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/inmemory/aerospike.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("aerospike", opts...)
 }
 
 func (c *inmemoryContainer) Hazelcast(opts ...attr.Attribute) *node.Node {
-	return node.New("hazelcast", attr.AssetImage("assets/apps/inmemory/hazelcast.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/inmemory/hazelcast.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hazelcast", opts...)
 }
 
 func (c *inmemoryContainer) Memcached(opts ...attr.Attribute) *node.Node {
-	return node.New("memcached", attr.AssetImage("assets/apps/inmemory/memcached.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/inmemory/memcached.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("memcached", opts...)
 }
 
 func (c *inmemoryContainer) Redis(opts ...attr.Attribute) *node.Node {
-	return node.New("redis", attr.AssetImage("assets/apps/inmemory/redis.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/inmemory/redis.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("redis", opts...)
 }
 
 func init() {

@@ -13,35 +13,51 @@ type alibabaCloudStorageContainer struct {
 var AlibabacloudStorage =&alibabaCloudStorageContainer{path: "assets/alibabacloud/storage"}
 
 func (c *alibabaCloudStorageContainer) ObjectStorageService(opts ...attr.Attribute) *node.Node {
-	return node.New("object-storage-service", attr.AssetImage("assets/alibabacloud/storage/object-storage-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/object-storage-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("object-storage-service", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) ObjectTableStore(opts ...attr.Attribute) *node.Node {
-	return node.New("object-table-store", attr.AssetImage("assets/alibabacloud/storage/object-table-store.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/object-table-store.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("object-table-store", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) CloudStorageGateway(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud-storage-gateway", attr.AssetImage("assets/alibabacloud/storage/cloud-storage-gateway.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/cloud-storage-gateway.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud-storage-gateway", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) FileStorageHdfs(opts ...attr.Attribute) *node.Node {
-	return node.New("file-storage-hdfs", attr.AssetImage("assets/alibabacloud/storage/file-storage-hdfs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/file-storage-hdfs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("file-storage-hdfs", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) FileStorageNas(opts ...attr.Attribute) *node.Node {
-	return node.New("file-storage-nas", attr.AssetImage("assets/alibabacloud/storage/file-storage-nas.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/file-storage-nas.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("file-storage-nas", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) HybridBackupRecovery(opts ...attr.Attribute) *node.Node {
-	return node.New("hybrid-backup-recovery", attr.AssetImage("assets/alibabacloud/storage/hybrid-backup-recovery.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/hybrid-backup-recovery.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hybrid-backup-recovery", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) HybridCloudDisasterRecovery(opts ...attr.Attribute) *node.Node {
-	return node.New("hybrid-cloud-disaster-recovery", attr.AssetImage("assets/alibabacloud/storage/hybrid-cloud-disaster-recovery.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/hybrid-cloud-disaster-recovery.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hybrid-cloud-disaster-recovery", opts...)
 }
 
 func (c *alibabaCloudStorageContainer) Imm(opts ...attr.Attribute) *node.Node {
-	return node.New("imm", attr.AssetImage("assets/alibabacloud/storage/imm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/storage/imm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("imm", opts...)
 }
 
 func init() {

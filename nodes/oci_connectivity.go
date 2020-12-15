@@ -13,75 +13,111 @@ type ociConnectivityContainer struct {
 var OciConnectivity = &ociConnectivityContainer{path: "assets/oci/connectivity"}
 
 func (c *ociConnectivityContainer) DnsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("dns-white", attr.AssetImage("assets/oci/connectivity/dns-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/dns-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dns-white", opts...)
 }
 
 func (c *ociConnectivityContainer) VpnWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("vpn-white", attr.AssetImage("assets/oci/connectivity/vpn-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/vpn-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vpn-white", opts...)
 }
 
 func (c *ociConnectivityContainer) BackboneWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("backbone-white", attr.AssetImage("assets/oci/connectivity/backbone-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/backbone-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("backbone-white", opts...)
 }
 
 func (c *ociConnectivityContainer) CustomerDatacenter(opts ...attr.Attribute) *node.Node {
-	return node.New("customer-datacenter", attr.AssetImage("assets/oci/connectivity/customer-datacenter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/customer-datacenter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("customer-datacenter", opts...)
 }
 
 func (c *ociConnectivityContainer) CustomerPremise(opts ...attr.Attribute) *node.Node {
-	return node.New("customer-premise", attr.AssetImage("assets/oci/connectivity/customer-premise.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/customer-premise.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("customer-premise", opts...)
 }
 
 func (c *ociConnectivityContainer) FastConnectWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("fast-connect-white", attr.AssetImage("assets/oci/connectivity/fast-connect-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/fast-connect-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fast-connect-white", opts...)
 }
 
 func (c *ociConnectivityContainer) FastConnect(opts ...attr.Attribute) *node.Node {
-	return node.New("fast-connect", attr.AssetImage("assets/oci/connectivity/fast-connect.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/fast-connect.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fast-connect", opts...)
 }
 
 func (c *ociConnectivityContainer) NatGatewayWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("nat-gateway-white", attr.AssetImage("assets/oci/connectivity/nat-gateway-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/nat-gateway-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nat-gateway-white", opts...)
 }
 
 func (c *ociConnectivityContainer) Backbone(opts ...attr.Attribute) *node.Node {
-	return node.New("backbone", attr.AssetImage("assets/oci/connectivity/backbone.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/backbone.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("backbone", opts...)
 }
 
 func (c *ociConnectivityContainer) CustomerPremiseWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("customer-premise-white", attr.AssetImage("assets/oci/connectivity/customer-premise-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/customer-premise-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("customer-premise-white", opts...)
 }
 
 func (c *ociConnectivityContainer) DisconnectedRegionsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("disconnected-regions-white", attr.AssetImage("assets/oci/connectivity/disconnected-regions-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/disconnected-regions-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("disconnected-regions-white", opts...)
 }
 
 func (c *ociConnectivityContainer) CdnWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("cdn-white", attr.AssetImage("assets/oci/connectivity/cdn-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/cdn-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cdn-white", opts...)
 }
 
 func (c *ociConnectivityContainer) Cdn(opts ...attr.Attribute) *node.Node {
-	return node.New("cdn", attr.AssetImage("assets/oci/connectivity/cdn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/cdn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cdn", opts...)
 }
 
 func (c *ociConnectivityContainer) Dns(opts ...attr.Attribute) *node.Node {
-	return node.New("dns", attr.AssetImage("assets/oci/connectivity/dns.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/dns.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dns", opts...)
 }
 
 func (c *ociConnectivityContainer) NatGateway(opts ...attr.Attribute) *node.Node {
-	return node.New("nat-gateway", attr.AssetImage("assets/oci/connectivity/nat-gateway.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/nat-gateway.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nat-gateway", opts...)
 }
 
 func (c *ociConnectivityContainer) Vpn(opts ...attr.Attribute) *node.Node {
-	return node.New("vpn", attr.AssetImage("assets/oci/connectivity/vpn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/vpn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vpn", opts...)
 }
 
 func (c *ociConnectivityContainer) CustomerDatacntrWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("customer-datacntr-white", attr.AssetImage("assets/oci/connectivity/customer-datacntr-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/customer-datacntr-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("customer-datacntr-white", opts...)
 }
 
 func (c *ociConnectivityContainer) DisconnectedRegions(opts ...attr.Attribute) *node.Node {
-	return node.New("disconnected-regions", attr.AssetImage("assets/oci/connectivity/disconnected-regions.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/connectivity/disconnected-regions.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("disconnected-regions", opts...)
 }
 
 func init() {

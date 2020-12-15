@@ -13,15 +13,21 @@ type computeContainer struct {
 var OpenstackCompute =&computeContainer{path: "assets/openstack/compute"}
 
 func (c *computeContainer) Nova(opts ...attr.Attribute) *node.Node {
-	return node.New("nova", attr.AssetImage("assets/openstack/compute/nova.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/compute/nova.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nova", opts...)
 }
 
 func (c *computeContainer) Qinling(opts ...attr.Attribute) *node.Node {
-	return node.New("qinling", attr.AssetImage("assets/openstack/compute/qinling.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/compute/qinling.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("qinling", opts...)
 }
 
 func (c *computeContainer) Zun(opts ...attr.Attribute) *node.Node {
-	return node.New("zun", attr.AssetImage("assets/openstack/compute/zun.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/compute/zun.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("zun", opts...)
 }
 
 func init() {

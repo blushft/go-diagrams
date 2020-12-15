@@ -13,19 +13,27 @@ type GenericNetworkContainer struct {
 var GenericNetwork = &GenericNetworkContainer{path: "assets/generic/network"}
 
 func (c *GenericNetworkContainer) Firewall(opts ...attr.Attribute) *node.Node {
-	return node.New("firewall", attr.AssetImage("assets/generic/network/firewall.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/network/firewall.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("firewall", opts...)
 }
 
 func (c *GenericNetworkContainer) Router(opts ...attr.Attribute) *node.Node {
-	return node.New("router", attr.AssetImage("assets/generic/network/router.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/network/router.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("router", opts...)
 }
 
 func (c *GenericNetworkContainer) Switch(opts ...attr.Attribute) *node.Node {
-	return node.New("switch", attr.AssetImage("assets/generic/network/switch.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/network/switch.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("switch", opts...)
 }
 
 func (c *GenericNetworkContainer) Vpn(opts ...attr.Attribute) *node.Node {
-	return node.New("vpn", attr.AssetImage("assets/generic/network/vpn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/network/vpn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vpn", opts...)
 }
 
 func init() {

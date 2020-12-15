@@ -13,31 +13,45 @@ type genericOSContainer struct {
 var GenericOS = &genericOSContainer{path: "assets/generic/os"}
 
 func (c *genericOSContainer) LinuxGeneral(opts ...attr.Attribute) *node.Node {
-	return node.New("linux-general", attr.AssetImage("assets/generic/os/linux-general.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/linux-general.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("linux-general", opts...)
 }
 
 func (c *genericOSContainer) Suse(opts ...attr.Attribute) *node.Node {
-	return node.New("suse", attr.AssetImage("assets/generic/os/suse.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/suse.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("suse", opts...)
 }
 
 func (c *genericOSContainer) Ubuntu(opts ...attr.Attribute) *node.Node {
-	return node.New("ubuntu", attr.AssetImage("assets/generic/os/ubuntu.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/ubuntu.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ubuntu", opts...)
 }
 
 func (c *genericOSContainer) Windows(opts ...attr.Attribute) *node.Node {
-	return node.New("windows", attr.AssetImage("assets/generic/os/windows.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/windows.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("windows", opts...)
 }
 
 func (c *genericOSContainer) Android(opts ...attr.Attribute) *node.Node {
-	return node.New("android", attr.AssetImage("assets/generic/os/android.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/android.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("android", opts...)
 }
 
 func (c *genericOSContainer) Centos(opts ...attr.Attribute) *node.Node {
-	return node.New("centos", attr.AssetImage("assets/generic/os/centos.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/centos.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("centos", opts...)
 }
 
 func (c *genericOSContainer) Ios(opts ...attr.Attribute) *node.Node {
-	return node.New("ios", attr.AssetImage("assets/generic/os/ios.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/os/ios.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ios", opts...)
 }
 
 func init() {

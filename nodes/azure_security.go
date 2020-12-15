@@ -13,15 +13,21 @@ type azuresecurityContainer struct {
 var azureSecurity = &azuresecurityContainer{path: "assets/azure/security"}
 
 func (c *azuresecurityContainer) KeyVaults(opts ...attr.Attribute) *node.Node {
-	return node.New("key-vaults", attr.AssetImage("assets/azure/security/key-vaults.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/security/key-vaults.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("key-vaults", opts...)
 }
 
 func (c *azuresecurityContainer) SecurityCenter(opts ...attr.Attribute) *node.Node {
-	return node.New("security-center", attr.AssetImage("assets/azure/security/security-center.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/security/security-center.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("security-center", opts...)
 }
 
 func (c *azuresecurityContainer) Sentinel(opts ...attr.Attribute) *node.Node {
-	return node.New("sentinel", attr.AssetImage("assets/azure/security/sentinel.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/security/sentinel.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sentinel", opts...)
 }
 
 func init() {

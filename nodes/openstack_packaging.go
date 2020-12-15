@@ -13,15 +13,21 @@ type openstackPackagingContainer struct {
 var OpenstackPackaging =&openstackPackagingContainer{path: "assets/openstack/packaging"}
 
 func (c *openstackPackagingContainer) Loci(opts ...attr.Attribute) *node.Node {
-	return node.New("loci", attr.AssetImage("assets/openstack/packaging/loci.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/packaging/loci.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("loci", opts...)
 }
 
 func (c *openstackPackagingContainer) Puppet(opts ...attr.Attribute) *node.Node {
-	return node.New("puppet", attr.AssetImage("assets/openstack/packaging/puppet.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/packaging/puppet.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("puppet", opts...)
 }
 
 func (c *openstackPackagingContainer) Rpm(opts ...attr.Attribute) *node.Node {
-	return node.New("rpm", attr.AssetImage("assets/openstack/packaging/rpm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/packaging/rpm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rpm", opts...)
 }
 
 func init() {

@@ -13,27 +13,39 @@ type outscaleNetworkContainer struct {
 var OutscaleNetwork =&outscaleNetworkContainer{path: "assets/outscale/network"}
 
 func (c *outscaleNetworkContainer) LoadBalancer(opts ...attr.Attribute) *node.Node {
-	return node.New("load-balancer", attr.AssetImage("assets/outscale/network/load-balancer.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/load-balancer.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("load-balancer", opts...)
 }
 
 func (c *outscaleNetworkContainer) NatService(opts ...attr.Attribute) *node.Node {
-	return node.New("nat-service", attr.AssetImage("assets/outscale/network/nat-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/nat-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nat-service", opts...)
 }
 
 func (c *outscaleNetworkContainer) Net(opts ...attr.Attribute) *node.Node {
-	return node.New("net", attr.AssetImage("assets/outscale/network/net.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/net.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("net", opts...)
 }
 
 func (c *outscaleNetworkContainer) SiteToSiteVpng(opts ...attr.Attribute) *node.Node {
-	return node.New("site-to-site-vpng", attr.AssetImage("assets/outscale/network/site-to-site-vpng.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/site-to-site-vpng.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("site-to-site-vpng", opts...)
 }
 
 func (c *outscaleNetworkContainer) ClientVpn(opts ...attr.Attribute) *node.Node {
-	return node.New("client-vpn", attr.AssetImage("assets/outscale/network/client-vpn.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/client-vpn.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("client-vpn", opts...)
 }
 
 func (c *outscaleNetworkContainer) InternetService(opts ...attr.Attribute) *node.Node {
-	return node.New("internet-service", attr.AssetImage("assets/outscale/network/internet-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/network/internet-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("internet-service", opts...)
 }
 
 func init() {

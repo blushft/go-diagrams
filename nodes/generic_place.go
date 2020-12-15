@@ -13,7 +13,9 @@ type placeContainer struct {
 var Place = &placeContainer{path: "assets/generic/place"}
 
 func (c *placeContainer) Datacenter(opts ...attr.Attribute) *node.Node {
-	return node.New("datacenter", attr.AssetImage("assets/generic/place/datacenter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/place/datacenter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("datacenter", opts...)
 }
 
 func init() {

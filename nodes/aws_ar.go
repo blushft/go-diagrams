@@ -13,7 +13,9 @@ type awsArContainer struct {
 var AWSAr = &awsArContainer{path: "assets/aws/ar"}
 
 func (c *awsArContainer) Sumerian(opts ...attr.Attribute) *node.Node {
-	return node.New("sumerian", attr.AssetImage("assets/aws/ar/sumerian.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/ar/sumerian.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sumerian", opts...)
 }
 
 func init() {

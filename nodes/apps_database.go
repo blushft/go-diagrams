@@ -13,75 +13,111 @@ type appsDatabaseContainer struct {
 var AppsDatabase = &appsDatabaseContainer{path: "assets/apps/database"}
 
 func (c *appsDatabaseContainer) Influxdb(opts ...attr.Attribute) *node.Node {
-	return node.New("influxdb", attr.AssetImage("assets/apps/database/influxdb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/influxdb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("influxdb", opts...)
 }
 
 func (c *appsDatabaseContainer) Mariadb(opts ...attr.Attribute) *node.Node {
-	return node.New("mariadb", attr.AssetImage("assets/apps/database/mariadb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/mariadb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mariadb", opts...)
 }
 
 func (c *appsDatabaseContainer) Postgresql(opts ...attr.Attribute) *node.Node {
-	return node.New("postgresql", attr.AssetImage("assets/apps/database/postgresql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/postgresql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("postgresql", opts...)
 }
 
 func (c *appsDatabaseContainer) Mysql(opts ...attr.Attribute) *node.Node {
-	return node.New("mysql", attr.AssetImage("assets/apps/database/mysql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/mysql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mysql", opts...)
 }
 
 func (c *appsDatabaseContainer) Oracle(opts ...attr.Attribute) *node.Node {
-	return node.New("oracle", attr.AssetImage("assets/apps/database/oracle.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/oracle.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("oracle", opts...)
 }
 
 func (c *appsDatabaseContainer) Scylla(opts ...attr.Attribute) *node.Node {
-	return node.New("scylla", attr.AssetImage("assets/apps/database/scylla.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/scylla.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("scylla", opts...)
 }
 
 func (c *appsDatabaseContainer) Couchbase(opts ...attr.Attribute) *node.Node {
-	return node.New("couchbase", attr.AssetImage("assets/apps/database/couchbase.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/couchbase.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("couchbase", opts...)
 }
 
 func (c *appsDatabaseContainer) Couchdb(opts ...attr.Attribute) *node.Node {
-	return node.New("couchdb", attr.AssetImage("assets/apps/database/couchdb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/couchdb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("couchdb", opts...)
 }
 
 func (c *appsDatabaseContainer) Hbase(opts ...attr.Attribute) *node.Node {
-	return node.New("hbase", attr.AssetImage("assets/apps/database/hbase.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/hbase.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hbase", opts...)
 }
 
 func (c *appsDatabaseContainer) Janusgraph(opts ...attr.Attribute) *node.Node {
-	return node.New("janusgraph", attr.AssetImage("assets/apps/database/janusgraph.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/janusgraph.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("janusgraph", opts...)
 }
 
 func (c *appsDatabaseContainer) Cassandra(opts ...attr.Attribute) *node.Node {
-	return node.New("cassandra", attr.AssetImage("assets/apps/database/cassandra.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/cassandra.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cassandra", opts...)
 }
 
 func (c *appsDatabaseContainer) Clickhouse(opts ...attr.Attribute) *node.Node {
-	return node.New("clickhouse", attr.AssetImage("assets/apps/database/clickhouse.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/clickhouse.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("clickhouse", opts...)
 }
 
 func (c *appsDatabaseContainer) Cockroachdb(opts ...attr.Attribute) *node.Node {
-	return node.New("cockroachdb", attr.AssetImage("assets/apps/database/cockroachdb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/cockroachdb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cockroachdb", opts...)
 }
 
 func (c *appsDatabaseContainer) Dgraph(opts ...attr.Attribute) *node.Node {
-	return node.New("dgraph", attr.AssetImage("assets/apps/database/dgraph.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/dgraph.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dgraph", opts...)
 }
 
 func (c *appsDatabaseContainer) Druid(opts ...attr.Attribute) *node.Node {
-	return node.New("druid", attr.AssetImage("assets/apps/database/druid.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/druid.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("druid", opts...)
 }
 
 func (c *appsDatabaseContainer) Mongodb(opts ...attr.Attribute) *node.Node {
-	return node.New("mongodb", attr.AssetImage("assets/apps/database/mongodb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/mongodb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mongodb", opts...)
 }
 
 func (c *appsDatabaseContainer) Mssql(opts ...attr.Attribute) *node.Node {
-	return node.New("mssql", attr.AssetImage("assets/apps/database/mssql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/mssql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mssql", opts...)
 }
 
 func (c *appsDatabaseContainer) Neo4J(opts ...attr.Attribute) *node.Node {
-	return node.New("neo4j", attr.AssetImage("assets/apps/database/neo4j.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/database/neo4j.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("neo4j", opts...)
 }
 
 func init() {

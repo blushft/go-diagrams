@@ -13,5 +13,7 @@ type extentionsContainer struct {
 var Extentions = &extentionsContainer{path: "assets/firebase/extentions"}
 
 func (c *extentionsContainer) Extensions(opts ...attr.Attribute) *node.Node {
-	return node.New("extensions", attr.AssetImage("assets/firebase/extentions/extensions.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/firebase/extentions/extensions.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("extensions", opts...)
 }

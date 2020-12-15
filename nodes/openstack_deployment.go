@@ -13,27 +13,39 @@ type deploymentContainer struct {
 var OpenstackDeployment =&deploymentContainer{path: "assets/openstack/deployment"}
 
 func (c *deploymentContainer) Tripleo(opts ...attr.Attribute) *node.Node {
-	return node.New("tripleo", attr.AssetImage("assets/openstack/deployment/tripleo.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/tripleo.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tripleo", opts...)
 }
 
 func (c *deploymentContainer) Ansible(opts ...attr.Attribute) *node.Node {
-	return node.New("ansible", attr.AssetImage("assets/openstack/deployment/ansible.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/ansible.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ansible", opts...)
 }
 
 func (c *deploymentContainer) Charms(opts ...attr.Attribute) *node.Node {
-	return node.New("charms", attr.AssetImage("assets/openstack/deployment/charms.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/charms.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("charms", opts...)
 }
 
 func (c *deploymentContainer) Chef(opts ...attr.Attribute) *node.Node {
-	return node.New("chef", attr.AssetImage("assets/openstack/deployment/chef.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/chef.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("chef", opts...)
 }
 
 func (c *deploymentContainer) Helm(opts ...attr.Attribute) *node.Node {
-	return node.New("helm", attr.AssetImage("assets/openstack/deployment/helm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/helm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("helm", opts...)
 }
 
 func (c *deploymentContainer) Kolla(opts ...attr.Attribute) *node.Node {
-	return node.New("kolla", attr.AssetImage("assets/openstack/deployment/kolla.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/deployment/kolla.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("kolla", opts...)
 }
 
 func init() {

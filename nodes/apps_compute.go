@@ -13,11 +13,15 @@ type appsComputeContainer struct {
 var AppsCompute = &appsComputeContainer{path: "assets/apps/compute"}
 
 func (c *appsComputeContainer) Nomad(opts ...attr.Attribute) *node.Node {
-	return node.New("nomad", attr.AssetImage("assets/apps/compute/nomad.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/compute/nomad.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nomad", opts...)
 }
 
 func (c *appsComputeContainer) Server(opts ...attr.Attribute) *node.Node {
-	return node.New("server", attr.AssetImage("assets/apps/compute/server.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/compute/server.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("server", opts...)
 }
 
 func init() {

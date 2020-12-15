@@ -13,9 +13,13 @@ type saasContainer struct {
 var Saas = &saasContainer{path: "assets/elastic/saas"}
 
 func (c *saasContainer) Cloud(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud", attr.AssetImage("assets/elastic/saas/cloud.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/saas/cloud.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud", opts...)
 }
 
 func (c *saasContainer) Elastic(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic", attr.AssetImage("assets/elastic/saas/elastic.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/saas/elastic.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic", opts...)
 }

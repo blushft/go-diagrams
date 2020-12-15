@@ -13,17 +13,25 @@ type enterprisesearchContainer struct {
 var Enterprisesearch = &enterprisesearchContainer{path: "assets/elastic/enterprisesearch"}
 
 func (c *enterprisesearchContainer) AppSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("app-search", attr.AssetImage("assets/elastic/enterprisesearch/app-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/enterprisesearch/app-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("app-search", opts...)
 }
 
 func (c *enterprisesearchContainer) EnterpriseSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("enterprise-search", attr.AssetImage("assets/elastic/enterprisesearch/enterprise-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/enterprisesearch/enterprise-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("enterprise-search", opts...)
 }
 
 func (c *enterprisesearchContainer) SiteSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("site-search", attr.AssetImage("assets/elastic/enterprisesearch/site-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/enterprisesearch/site-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("site-search", opts...)
 }
 
 func (c *enterprisesearchContainer) WorkplaceSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("workplace-search", attr.AssetImage("assets/elastic/enterprisesearch/workplace-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/elastic/enterprisesearch/workplace-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("workplace-search", opts...)
 }

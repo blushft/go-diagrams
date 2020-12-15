@@ -13,171 +13,255 @@ type awsComputeContainer struct {
 var AWSCompute = &awsComputeContainer{path: "assets/aws/compute"}
 
 func (c *awsComputeContainer) Lambda(opts ...attr.Attribute) *node.Node {
-	return node.New("lambda", attr.AssetImage("assets/aws/compute/lambda.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/lambda.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("lambda", opts...)
 }
 
 func (c *awsComputeContainer) Ec2ContainerRegistry(opts ...attr.Attribute) *node.Node {
-	return node.New("ec2-container-registry", attr.AssetImage("assets/aws/compute/ec2-container-registry.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/ec2-container-registry.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ec2-container-registry", opts...)
 }
 
 func (c *awsComputeContainer) ElasticContainerService(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-container-service", attr.AssetImage("assets/aws/compute/elastic-container-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-container-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-container-service", opts...)
 }
 
 func (c *awsComputeContainer) LightsailRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("lightsail-rounded", attr.AssetImage("assets/aws/compute/lightsail-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/lightsail-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("lightsail-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxDeadline(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-deadline", attr.AssetImage("assets/aws/compute/thinkbox-deadline.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-deadline.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-deadline", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxDraft(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-draft", attr.AssetImage("assets/aws/compute/thinkbox-draft.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-draft.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-draft", opts...)
 }
 
 func (c *awsComputeContainer) ApplicationAutoScaling(opts ...attr.Attribute) *node.Node {
-	return node.New("application-auto-scaling", attr.AssetImage("assets/aws/compute/application-auto-scaling.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/application-auto-scaling.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("application-auto-scaling", opts...)
 }
 
 func (c *awsComputeContainer) Batch(opts ...attr.Attribute) *node.Node {
-	return node.New("batch", attr.AssetImage("assets/aws/compute/batch.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/batch.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("batch", opts...)
 }
 
 func (c *awsComputeContainer) OutpostsRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("outposts-rounded", attr.AssetImage("assets/aws/compute/outposts-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/outposts-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("outposts-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxSequoia(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-sequoia", attr.AssetImage("assets/aws/compute/thinkbox-sequoia.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-sequoia.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-sequoia", opts...)
 }
 
 func (c *awsComputeContainer) ElasticBeanstalk(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-beanstalk", attr.AssetImage("assets/aws/compute/elastic-beanstalk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-beanstalk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-beanstalk", opts...)
 }
 
 func (c *awsComputeContainer) Fargate(opts ...attr.Attribute) *node.Node {
-	return node.New("fargate", attr.AssetImage("assets/aws/compute/fargate.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/fargate.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fargate", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxStokeRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-stoke-rounded", attr.AssetImage("assets/aws/compute/thinkbox-stoke-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-stoke-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-stoke-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxXmesh(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-xmesh", attr.AssetImage("assets/aws/compute/thinkbox-xmesh.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-xmesh.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-xmesh", opts...)
 }
 
 func (c *awsComputeContainer) ServerlessApplicationRepository(opts ...attr.Attribute) *node.Node {
-	return node.New("serverless-application-repository", attr.AssetImage("assets/aws/compute/serverless-application-repository.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/serverless-application-repository.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("serverless-application-repository", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxFrost(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-frost", attr.AssetImage("assets/aws/compute/thinkbox-frost.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-frost.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-frost", opts...)
 }
 
 func (c *awsComputeContainer) ElasticContainerServiceRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-container-service-rounded", attr.AssetImage("assets/aws/compute/elastic-container-service-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-container-service-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-container-service-rounded", opts...)
 }
 
 func (c *awsComputeContainer) FargateRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("fargate-rounded", attr.AssetImage("assets/aws/compute/fargate-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/fargate-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("fargate-rounded", opts...)
 }
 
 func (c *awsComputeContainer) Lightsail(opts ...attr.Attribute) *node.Node {
-	return node.New("lightsail", attr.AssetImage("assets/aws/compute/lightsail.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/lightsail.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("lightsail", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxDeadlineRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-deadline-rounded", attr.AssetImage("assets/aws/compute/thinkbox-deadline-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-deadline-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-deadline-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxKrakatoa(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-krakatoa", attr.AssetImage("assets/aws/compute/thinkbox-krakatoa.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-krakatoa.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-krakatoa", opts...)
 }
 
 func (c *awsComputeContainer) Ec2Rounded(opts ...attr.Attribute) *node.Node {
-	return node.New("ec2-rounded", attr.AssetImage("assets/aws/compute/ec2-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/ec2-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ec2-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ElasticBeanstalkRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-beanstalk-rounded", attr.AssetImage("assets/aws/compute/elastic-beanstalk-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-beanstalk-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-beanstalk-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ElasticKubernetesServiceRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-kubernetes-service-rounded", attr.AssetImage("assets/aws/compute/elastic-kubernetes-service-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-kubernetes-service-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-kubernetes-service-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ElasticKubernetesService(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-kubernetes-service", attr.AssetImage("assets/aws/compute/elastic-kubernetes-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/elastic-kubernetes-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-kubernetes-service", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxSequoiaRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-sequoia-rounded", attr.AssetImage("assets/aws/compute/thinkbox-sequoia-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-sequoia-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-sequoia-rounded", opts...)
 }
 
 func (c *awsComputeContainer) VmwareCloudOnAws(opts ...attr.Attribute) *node.Node {
-	return node.New("vmware-cloud-on-aws", attr.AssetImage("assets/aws/compute/vmware-cloud-on-aws.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/vmware-cloud-on-aws.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vmware-cloud-on-aws", opts...)
 }
 
 func (c *awsComputeContainer) BatchRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("batch-rounded", attr.AssetImage("assets/aws/compute/batch-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/batch-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("batch-rounded", opts...)
 }
 
 func (c *awsComputeContainer) Ec2ContainerRegistryRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("ec2-container-registry-rounded", attr.AssetImage("assets/aws/compute/ec2-container-registry-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/ec2-container-registry-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ec2-container-registry-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxFrostRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-frost-rounded", attr.AssetImage("assets/aws/compute/thinkbox-frost-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-frost-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-frost-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxXmeshRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-xmesh-rounded", attr.AssetImage("assets/aws/compute/thinkbox-xmesh-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-xmesh-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-xmesh-rounded", opts...)
 }
 
 func (c *awsComputeContainer) VmwareCloudOnAwsRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("vmware-cloud-on-aws-rounded", attr.AssetImage("assets/aws/compute/vmware-cloud-on-aws-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/vmware-cloud-on-aws-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vmware-cloud-on-aws-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ComputeRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("compute-rounded", attr.AssetImage("assets/aws/compute/compute-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/compute-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("compute-rounded", opts...)
 }
 
 func (c *awsComputeContainer) Compute(opts ...attr.Attribute) *node.Node {
-	return node.New("compute", attr.AssetImage("assets/aws/compute/compute.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/compute.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("compute", opts...)
 }
 
 func (c *awsComputeContainer) LambdaRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("lambda-rounded", attr.AssetImage("assets/aws/compute/lambda-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/lambda-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("lambda-rounded", opts...)
 }
 
 func (c *awsComputeContainer) Outposts(opts ...attr.Attribute) *node.Node {
-	return node.New("outposts", attr.AssetImage("assets/aws/compute/outposts.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/outposts.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("outposts", opts...)
 }
 
 func (c *awsComputeContainer) ServerlessApplicationRepositoryRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("serverless-application-repository-rounded", attr.AssetImage("assets/aws/compute/serverless-application-repository-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/serverless-application-repository-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("serverless-application-repository-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxDraftRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-draft-rounded", attr.AssetImage("assets/aws/compute/thinkbox-draft-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-draft-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-draft-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxKrakatoaRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-krakatoa-rounded", attr.AssetImage("assets/aws/compute/thinkbox-krakatoa-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-krakatoa-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-krakatoa-rounded", opts...)
 }
 
 func (c *awsComputeContainer) ThinkboxStoke(opts ...attr.Attribute) *node.Node {
-	return node.New("thinkbox-stoke", attr.AssetImage("assets/aws/compute/thinkbox-stoke.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/thinkbox-stoke.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("thinkbox-stoke", opts...)
 }
 
 func (c *awsComputeContainer) ApplicationAutoScalingRounded(opts ...attr.Attribute) *node.Node {
-	return node.New("application-auto-scaling-rounded", attr.AssetImage("assets/aws/compute/application-auto-scaling-rounded.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/application-auto-scaling-rounded.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("application-auto-scaling-rounded", opts...)
 }
 
 func (c *awsComputeContainer) Ec2(opts ...attr.Attribute) *node.Node {
-	return node.New("ec2", attr.AssetImage("assets/aws/compute/ec2.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/compute/ec2.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ec2", opts...)
 }
 
 func init() {

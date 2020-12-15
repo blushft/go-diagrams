@@ -13,15 +13,21 @@ type workloadprovisioningContainer struct {
 var OpenstackWorkloadprovisioning =&workloadprovisioningContainer{path: "assets/openstack/workloadprovisioning"}
 
 func (c *workloadprovisioningContainer) Sahara(opts ...attr.Attribute) *node.Node {
-	return node.New("sahara", attr.AssetImage("assets/openstack/workloadprovisioning/sahara.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/workloadprovisioning/sahara.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sahara", opts...)
 }
 
 func (c *workloadprovisioningContainer) Trove(opts ...attr.Attribute) *node.Node {
-	return node.New("trove", attr.AssetImage("assets/openstack/workloadprovisioning/trove.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/workloadprovisioning/trove.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("trove", opts...)
 }
 
 func (c *workloadprovisioningContainer) Magnum(opts ...attr.Attribute) *node.Node {
-	return node.New("magnum", attr.AssetImage("assets/openstack/workloadprovisioning/magnum.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/workloadprovisioning/magnum.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("magnum", opts...)
 }
 
 func init() {

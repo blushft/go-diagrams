@@ -13,7 +13,9 @@ type billingContainer struct {
 var OpenstackBilling =&billingContainer{path: "assets/openstack/billing"}
 
 func (c *billingContainer) Cloudkitty(opts ...attr.Attribute) *node.Node {
-	return node.New("cloudkitty", attr.AssetImage("assets/openstack/billing/cloudkitty.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/billing/cloudkitty.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloudkitty", opts...)
 }
 
 func init() {

@@ -13,11 +13,15 @@ type K8sOthersContainer struct {
 var K8sOthers = &K8sOthersContainer{path: "assets/k8s/others"}
 
 func (c *K8sOthersContainer) Psp(opts ...attr.Attribute) *node.Node {
-	return node.New("psp", attr.AssetImage("assets/k8s/others/psp.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/others/psp.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("psp", opts...)
 }
 
 func (c *K8sOthersContainer) Crd(opts ...attr.Attribute) *node.Node {
-	return node.New("crd", attr.AssetImage("assets/k8s/others/crd.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/others/crd.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("crd", opts...)
 }
 
 func init() {

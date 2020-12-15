@@ -13,7 +13,9 @@ type saasCdnContainer struct {
 var SaasCdn =&saasCdnContainer{path: "assets/saas/cdn"}
 
 func (c *saasCdnContainer) Cloudflare(opts ...attr.Attribute) *node.Node {
-	return node.New("cloudflare", attr.AssetImage("assets/saas/cdn/cloudflare.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/cdn/cloudflare.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloudflare", opts...)
 }
 
 func init() {

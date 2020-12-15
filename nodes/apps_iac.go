@@ -13,19 +13,27 @@ type iacContainer struct {
 var Iac = &iacContainer{path: "assets/apps/iac"}
 
 func (c *iacContainer) Ansible(opts ...attr.Attribute) *node.Node {
-	return node.New("ansible", attr.AssetImage("assets/apps/iac/ansible.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/iac/ansible.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ansible", opts...)
 }
 
 func (c *iacContainer) Atlantis(opts ...attr.Attribute) *node.Node {
-	return node.New("atlantis", attr.AssetImage("assets/apps/iac/atlantis.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/iac/atlantis.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("atlantis", opts...)
 }
 
 func (c *iacContainer) Awx(opts ...attr.Attribute) *node.Node {
-	return node.New("awx", attr.AssetImage("assets/apps/iac/awx.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/iac/awx.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("awx", opts...)
 }
 
 func (c *iacContainer) Terraform(opts ...attr.Attribute) *node.Node {
-	return node.New("terraform", attr.AssetImage("assets/apps/iac/terraform.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/iac/terraform.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("terraform", opts...)
 }
 
 func init() {

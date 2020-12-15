@@ -13,71 +13,105 @@ type alibabaCloudDatabase struct {
 var AlibabaCloudDatabase = &alibabaCloudDatabase{path: "assets/alibabacloud/database"}
 
 func (c *alibabaCloudDatabase) ApsaradbMongodb(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-mongodb", attr.AssetImage("assets/alibabacloud/database/apsaradb-mongodb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-mongodb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-mongodb", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbOceanbase(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-oceanbase", attr.AssetImage("assets/alibabacloud/database/apsaradb-oceanbase.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-oceanbase.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-oceanbase", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbPostgresql(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-postgresql", attr.AssetImage("assets/alibabacloud/database/apsaradb-postgresql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-postgresql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-postgresql", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbPpas(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-ppas", attr.AssetImage("assets/alibabacloud/database/apsaradb-ppas.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-ppas.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-ppas", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbMemcache(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-memcache", attr.AssetImage("assets/alibabacloud/database/apsaradb-memcache.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-memcache.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-memcache", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbPolardb(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-polardb", attr.AssetImage("assets/alibabacloud/database/apsaradb-polardb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-polardb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-polardb", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbRedis(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-redis", attr.AssetImage("assets/alibabacloud/database/apsaradb-redis.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-redis.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-redis", opts...)
 }
 
 func (c *alibabaCloudDatabase) DatabaseBackupService(opts ...attr.Attribute) *node.Node {
-	return node.New("database-backup-service", attr.AssetImage("assets/alibabacloud/database/database-backup-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/database-backup-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("database-backup-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) RelationalDatabaseService(opts ...attr.Attribute) *node.Node {
-	return node.New("relational-database-service", attr.AssetImage("assets/alibabacloud/database/relational-database-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/relational-database-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("relational-database-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbCassandra(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-cassandra", attr.AssetImage("assets/alibabacloud/database/apsaradb-cassandra.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-cassandra.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-cassandra", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbHbase(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-hbase", attr.AssetImage("assets/alibabacloud/database/apsaradb-hbase.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-hbase.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-hbase", opts...)
 }
 
 func (c *alibabaCloudDatabase) ApsaradbSqlserver(opts ...attr.Attribute) *node.Node {
-	return node.New("apsaradb-sqlserver", attr.AssetImage("assets/alibabacloud/database/apsaradb-sqlserver.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/apsaradb-sqlserver.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("apsaradb-sqlserver", opts...)
 }
 
 func (c *alibabaCloudDatabase) DataManagementService(opts ...attr.Attribute) *node.Node {
-	return node.New("data-management-service", attr.AssetImage("assets/alibabacloud/database/data-management-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/data-management-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-management-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) GraphDatabaseService(opts ...attr.Attribute) *node.Node {
-	return node.New("graph-database-service", attr.AssetImage("assets/alibabacloud/database/graph-database-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/graph-database-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("graph-database-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) DataTransmissionService(opts ...attr.Attribute) *node.Node {
-	return node.New("data-transmission-service", attr.AssetImage("assets/alibabacloud/database/data-transmission-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/data-transmission-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-transmission-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) DisributeRelationalDatabaseService(opts ...attr.Attribute) *node.Node {
-	return node.New("disribute-relational-database-service", attr.AssetImage("assets/alibabacloud/database/disribute-relational-database-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/disribute-relational-database-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("disribute-relational-database-service", opts...)
 }
 
 func (c *alibabaCloudDatabase) HybriddbForMysql(opts ...attr.Attribute) *node.Node {
-	return node.New("hybriddb-for-mysql", attr.AssetImage("assets/alibabacloud/database/hybriddb-for-mysql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/database/hybriddb-for-mysql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hybriddb-for-mysql", opts...)
 }
 
 func init(){

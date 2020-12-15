@@ -13,11 +13,15 @@ type saasChatContainer struct {
 var SaasChat =&saasChatContainer{path: "assets/saas/chat"}
 
 func (c *saasChatContainer) Slack(opts ...attr.Attribute) *node.Node {
-	return node.New("slack", attr.AssetImage("assets/saas/chat/slack.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/chat/slack.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("slack", opts...)
 }
 
 func (c *saasChatContainer) Telegram(opts ...attr.Attribute) *node.Node {
-	return node.New("telegram", attr.AssetImage("assets/saas/chat/telegram.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/chat/telegram.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("telegram", opts...)
 }
 
 func init() {

@@ -13,15 +13,21 @@ type gitopsContainer struct {
 var Gitops = &gitopsContainer{path: "assets/apps/gitops"}
 
 func (c *gitopsContainer) Argocd(opts ...attr.Attribute) *node.Node {
-	return node.New("argocd", attr.AssetImage("assets/apps/gitops/argocd.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/gitops/argocd.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("argocd", opts...)
 }
 
 func (c *gitopsContainer) Flagger(opts ...attr.Attribute) *node.Node {
-	return node.New("flagger", attr.AssetImage("assets/apps/gitops/flagger.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/gitops/flagger.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("flagger", opts...)
 }
 
 func (c *gitopsContainer) Flux(opts ...attr.Attribute) *node.Node {
-	return node.New("flux", attr.AssetImage("assets/apps/gitops/flux.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/gitops/flux.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("flux", opts...)
 }
 
 func init() {

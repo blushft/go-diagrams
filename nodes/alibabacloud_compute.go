@@ -13,63 +13,93 @@ type alibabaCloudComputeContainer struct {
 var AlibabaCloudCompute = &alibabaCloudComputeContainer{path: "assets/alibabacloud/compute"}
 
 func (c *alibabaCloudComputeContainer) OperationOrchestrationService(opts ...attr.Attribute) *node.Node {
-	return node.New("operation-orchestration-service", attr.AssetImage("assets/alibabacloud/compute/operation-orchestration-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/operation-orchestration-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("operation-orchestration-service", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) WebAppService(opts ...attr.Attribute) *node.Node {
-	return node.New("web-app-service", attr.AssetImage("assets/alibabacloud/compute/web-app-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/web-app-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("web-app-service", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ContainerService(opts ...attr.Attribute) *node.Node {
-	return node.New("container-service", attr.AssetImage("assets/alibabacloud/compute/container-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/container-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("container-service", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ServerlessAppEngine(opts ...attr.Attribute) *node.Node {
-	return node.New("serverless-app-engine", attr.AssetImage("assets/alibabacloud/compute/serverless-app-engine.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/serverless-app-engine.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("serverless-app-engine", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) AutoScaling(opts ...attr.Attribute) *node.Node {
-	return node.New("auto-scaling", attr.AssetImage("assets/alibabacloud/compute/auto-scaling.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/auto-scaling.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("auto-scaling", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) BatchCompute(opts ...attr.Attribute) *node.Node {
-	return node.New("batch-compute", attr.AssetImage("assets/alibabacloud/compute/batch-compute.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/batch-compute.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("batch-compute", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) FunctionCompute(opts ...attr.Attribute) *node.Node {
-	return node.New("function-compute", attr.AssetImage("assets/alibabacloud/compute/function-compute.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/function-compute.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("function-compute", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ResourceOrchestrationService(opts ...attr.Attribute) *node.Node {
-	return node.New("resource-orchestration-service", attr.AssetImage("assets/alibabacloud/compute/resource-orchestration-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/resource-orchestration-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resource-orchestration-service", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ContainerRegistry(opts ...attr.Attribute) *node.Node {
-	return node.New("container-registry", attr.AssetImage("assets/alibabacloud/compute/container-registry.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/container-registry.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("container-registry", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ElasticComputeService(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-compute-service", attr.AssetImage("assets/alibabacloud/compute/elastic-compute-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/elastic-compute-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-compute-service", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ElasticContainerInstance(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-container-instance", attr.AssetImage("assets/alibabacloud/compute/elastic-container-instance.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/elastic-container-instance.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-container-instance", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ElasticHighPerformanceComputing(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-high-performance-computing", attr.AssetImage("assets/alibabacloud/compute/elastic-high-performance-computing.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/elastic-high-performance-computing.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-high-performance-computing", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ElasticSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-search", attr.AssetImage("assets/alibabacloud/compute/elastic-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/elastic-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-search", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) ServerLoadBalancer(opts ...attr.Attribute) *node.Node {
-	return node.New("server-load-balancer", attr.AssetImage("assets/alibabacloud/compute/server-load-balancer.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/server-load-balancer.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("server-load-balancer", opts...)
 }
 
 func (c *alibabaCloudComputeContainer) SimpleApplicationServer(opts ...attr.Attribute) *node.Node {
-	return node.New("simple-application-server", attr.AssetImage("assets/alibabacloud/compute/simple-application-server.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/compute/simple-application-server.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("simple-application-server", opts...)
 }
 
 func init() {

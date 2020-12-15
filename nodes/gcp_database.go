@@ -13,27 +13,39 @@ type gcpDatabaseContainer struct {
 var GcpDatabase = &gcpDatabaseContainer{path: "assets/gcp/database"}
 
 func (c *gcpDatabaseContainer) Bigtable(opts ...attr.Attribute) *node.Node {
-	return node.New("bigtable", attr.AssetImage("assets/gcp/database/bigtable.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/bigtable.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("bigtable", opts...)
 }
 
 func (c *gcpDatabaseContainer) Datastore(opts ...attr.Attribute) *node.Node {
-	return node.New("datastore", attr.AssetImage("assets/gcp/database/datastore.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/datastore.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("datastore", opts...)
 }
 
 func (c *gcpDatabaseContainer) Firestore(opts ...attr.Attribute) *node.Node {
-	return node.New("firestore", attr.AssetImage("assets/gcp/database/firestore.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/firestore.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("firestore", opts...)
 }
 
 func (c *gcpDatabaseContainer) Memorystore(opts ...attr.Attribute) *node.Node {
-	return node.New("memorystore", attr.AssetImage("assets/gcp/database/memorystore.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/memorystore.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("memorystore", opts...)
 }
 
 func (c *gcpDatabaseContainer) Spanner(opts ...attr.Attribute) *node.Node {
-	return node.New("spanner", attr.AssetImage("assets/gcp/database/spanner.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/spanner.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("spanner", opts...)
 }
 
 func (c *gcpDatabaseContainer) Sql(opts ...attr.Attribute) *node.Node {
-	return node.New("sql", attr.AssetImage("assets/gcp/database/sql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/database/sql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql", opts...)
 }
 
 func init(){

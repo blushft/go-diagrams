@@ -13,15 +13,21 @@ type k8sClusterConfigContainer struct {
 var K8sClusterConfig = &k8sClusterConfigContainer{path: "assets/k8s/clusterconfig"}
 
 func (c *k8sClusterConfigContainer) Hpa(opts ...attr.Attribute) *node.Node {
-	return node.New("hpa", attr.AssetImage("assets/k8s/clusterconfig/hpa.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/clusterconfig/hpa.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("hpa", opts...)
 }
 
 func (c *k8sClusterConfigContainer) Limits(opts ...attr.Attribute) *node.Node {
-	return node.New("limits", attr.AssetImage("assets/k8s/clusterconfig/limits.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/clusterconfig/limits.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("limits", opts...)
 }
 
 func (c *k8sClusterConfigContainer) Quota(opts ...attr.Attribute) *node.Node {
-	return node.New("quota", attr.AssetImage("assets/k8s/clusterconfig/quota.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/clusterconfig/quota.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("quota", opts...)
 }
 
 func init() {

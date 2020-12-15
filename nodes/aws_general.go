@@ -13,47 +13,69 @@ type generalContainer struct {
 var General = &generalContainer{path: "assets/aws/general"}
 
 func (c *generalContainer) Marketplace(opts ...attr.Attribute) *node.Node {
-	return node.New("marketplace", attr.AssetImage("assets/aws/general/marketplace.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/marketplace.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("marketplace", opts...)
 }
 
 func (c *generalContainer) TradicionalServer(opts ...attr.Attribute) *node.Node {
-	return node.New("tradicional-server", attr.AssetImage("assets/aws/general/tradicional-server.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/tradicional-server.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tradicional-server", opts...)
 }
 
 func (c *generalContainer) GenericDatabase(opts ...attr.Attribute) *node.Node {
-	return node.New("generic-database", attr.AssetImage("assets/aws/general/generic-database.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/generic-database.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("generic-database", opts...)
 }
 
 func (c *generalContainer) GenericFirewall(opts ...attr.Attribute) *node.Node {
-	return node.New("generic-firewall", attr.AssetImage("assets/aws/general/generic-firewall.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/generic-firewall.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("generic-firewall", opts...)
 }
 
 func (c *generalContainer) GenericOfficeBuilding(opts ...attr.Attribute) *node.Node {
-	return node.New("generic-office-building", attr.AssetImage("assets/aws/general/generic-office-building.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/generic-office-building.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("generic-office-building", opts...)
 }
 
 func (c *generalContainer) GenericSamlToken(opts ...attr.Attribute) *node.Node {
-	return node.New("generic-saml-token", attr.AssetImage("assets/aws/general/generic-saml-token.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/generic-saml-token.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("generic-saml-token", opts...)
 }
 
 func (c *generalContainer) GenericSdk(opts ...attr.Attribute) *node.Node {
-	return node.New("generic-sdk", attr.AssetImage("assets/aws/general/generic-sdk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/generic-sdk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("generic-sdk", opts...)
 }
 
 func (c *generalContainer) User(opts ...attr.Attribute) *node.Node {
-	return node.New("user", attr.AssetImage("assets/aws/general/user.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/user.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("user", opts...)
 }
 
 func (c *generalContainer) Disk(opts ...attr.Attribute) *node.Node {
-	return node.New("disk", attr.AssetImage("assets/aws/general/disk.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/disk.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("disk", opts...)
 }
 
 func (c *generalContainer) General(opts ...attr.Attribute) *node.Node {
-	return node.New("general", attr.AssetImage("assets/aws/general/general.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/general.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("general", opts...)
 }
 
 func (c *generalContainer) Users(opts ...attr.Attribute) *node.Node {
-	return node.New("users", attr.AssetImage("assets/aws/general/users.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/general/users.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("users", opts...)
 }
 
 func init() {

@@ -13,7 +13,9 @@ type genericDatabaseContainer struct {
 var GenericDatabase = &genericDatabaseContainer{path: "assets/generic/database"}
 
 func (c *genericDatabaseContainer) Sql(opts ...attr.Attribute) *node.Node {
-	return node.New("sql", attr.AssetImage("assets/generic/database/sql.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/database/sql.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql", opts...)
 }
 
 func init() {

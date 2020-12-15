@@ -13,71 +13,105 @@ type azuredatabaseContainer struct {
 var azureDatabase = &azuredatabaseContainer{path: "assets/azure/database"}
 
 func (c *azuredatabaseContainer) DatabaseForMysqlServers(opts ...attr.Attribute) *node.Node {
-	return node.New("database-for-mysql-servers", attr.AssetImage("assets/azure/database/database-for-mysql-servers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/database-for-mysql-servers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("database-for-mysql-servers", opts...)
 }
 
 func (c *azuredatabaseContainer) DatabaseForPostgresqlServers(opts ...attr.Attribute) *node.Node {
-	return node.New("database-for-postgresql-servers", attr.AssetImage("assets/azure/database/database-for-postgresql-servers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/database-for-postgresql-servers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("database-for-postgresql-servers", opts...)
 }
 
 func (c *azuredatabaseContainer) ElasticDatabasePools(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-database-pools", attr.AssetImage("assets/azure/database/elastic-database-pools.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/elastic-database-pools.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-database-pools", opts...)
 }
 
 func (c *azuredatabaseContainer) SqlDatawarehouse(opts ...attr.Attribute) *node.Node {
-	return node.New("sql-datawarehouse", attr.AssetImage("assets/azure/database/sql-datawarehouse.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/sql-datawarehouse.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql-datawarehouse", opts...)
 }
 
 func (c *azuredatabaseContainer) VirtualClusters(opts ...attr.Attribute) *node.Node {
-	return node.New("virtual-clusters", attr.AssetImage("assets/azure/database/virtual-clusters.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/virtual-clusters.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("virtual-clusters", opts...)
 }
 
 func (c *azuredatabaseContainer) CacheForRedis(opts ...attr.Attribute) *node.Node {
-	return node.New("cache-for-redis", attr.AssetImage("assets/azure/database/cache-for-redis.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/cache-for-redis.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cache-for-redis", opts...)
 }
 
 func (c *azuredatabaseContainer) DataLake(opts ...attr.Attribute) *node.Node {
-	return node.New("data-lake", attr.AssetImage("assets/azure/database/data-lake.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/data-lake.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-lake", opts...)
 }
 
 func (c *azuredatabaseContainer) DatabaseForMariadbServers(opts ...attr.Attribute) *node.Node {
-	return node.New("database-for-mariadb-servers", attr.AssetImage("assets/azure/database/database-for-mariadb-servers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/database-for-mariadb-servers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("database-for-mariadb-servers", opts...)
 }
 
 func (c *azuredatabaseContainer) ManagedDatabases(opts ...attr.Attribute) *node.Node {
-	return node.New("managed-databases", attr.AssetImage("assets/azure/database/managed-databases.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/managed-databases.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("managed-databases", opts...)
 }
 
 func (c *azuredatabaseContainer) SqlDatabases(opts ...attr.Attribute) *node.Node {
-	return node.New("sql-databases", attr.AssetImage("assets/azure/database/sql-databases.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/sql-databases.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql-databases", opts...)
 }
 
 func (c *azuredatabaseContainer) SqlManagedInstances(opts ...attr.Attribute) *node.Node {
-	return node.New("sql-managed-instances", attr.AssetImage("assets/azure/database/sql-managed-instances.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/sql-managed-instances.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql-managed-instances", opts...)
 }
 
 func (c *azuredatabaseContainer) SqlServerStretchDatabases(opts ...attr.Attribute) *node.Node {
-	return node.New("sql-server-stretch-databases", attr.AssetImage("assets/azure/database/sql-server-stretch-databases.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/sql-server-stretch-databases.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql-server-stretch-databases", opts...)
 }
 
 func (c *azuredatabaseContainer) SqlServers(opts ...attr.Attribute) *node.Node {
-	return node.New("sql-servers", attr.AssetImage("assets/azure/database/sql-servers.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/sql-servers.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sql-servers", opts...)
 }
 
 func (c *azuredatabaseContainer) BlobStorage(opts ...attr.Attribute) *node.Node {
-	return node.New("blob-storage", attr.AssetImage("assets/azure/database/blob-storage.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/blob-storage.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("blob-storage", opts...)
 }
 
 func (c *azuredatabaseContainer) ElasticJobAgents(opts ...attr.Attribute) *node.Node {
-	return node.New("elastic-job-agents", attr.AssetImage("assets/azure/database/elastic-job-agents.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/elastic-job-agents.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elastic-job-agents", opts...)
 }
 
 func (c *azuredatabaseContainer) VirtualDatacenter(opts ...attr.Attribute) *node.Node {
-	return node.New("virtual-datacenter", attr.AssetImage("assets/azure/database/virtual-datacenter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/virtual-datacenter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("virtual-datacenter", opts...)
 }
 
 func (c *azuredatabaseContainer) CosmosDb(opts ...attr.Attribute) *node.Node {
-	return node.New("cosmos-db", attr.AssetImage("assets/azure/database/cosmos-db.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/database/cosmos-db.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cosmos-db", opts...)
 }
 
 func init() {

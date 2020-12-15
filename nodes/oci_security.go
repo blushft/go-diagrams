@@ -13,67 +13,99 @@ type ociSecurityContainer struct {
 var OciSecurity = &ociSecurityContainer{path: "assets/oci/security"}
 
 func (c *ociSecurityContainer) DdosWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("ddos-white", attr.AssetImage("assets/oci/security/ddos-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/ddos-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ddos-white", opts...)
 }
 
 func (c *ociSecurityContainer) Waf(opts ...attr.Attribute) *node.Node {
-	return node.New("waf", attr.AssetImage("assets/oci/security/waf.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/waf.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("waf", opts...)
 }
 
 func (c *ociSecurityContainer) MaxSecurityZoneWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("max-security-zone-white", attr.AssetImage("assets/oci/security/max-security-zone-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/max-security-zone-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("max-security-zone-white", opts...)
 }
 
 func (c *ociSecurityContainer) MaxSecurityZone(opts ...attr.Attribute) *node.Node {
-	return node.New("max-security-zone", attr.AssetImage("assets/oci/security/max-security-zone.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/max-security-zone.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("max-security-zone", opts...)
 }
 
 func (c *ociSecurityContainer) VaultWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("vault-white", attr.AssetImage("assets/oci/security/vault-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/vault-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vault-white", opts...)
 }
 
 func (c *ociSecurityContainer) WafWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("waf-white", attr.AssetImage("assets/oci/security/waf-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/waf-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("waf-white", opts...)
 }
 
 func (c *ociSecurityContainer) CloudGuard(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud-guard", attr.AssetImage("assets/oci/security/cloud-guard.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/cloud-guard.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud-guard", opts...)
 }
 
 func (c *ociSecurityContainer) IdAccessWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("id-access-white", attr.AssetImage("assets/oci/security/id-access-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/id-access-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("id-access-white", opts...)
 }
 
 func (c *ociSecurityContainer) KeyManagement(opts ...attr.Attribute) *node.Node {
-	return node.New("key-management", attr.AssetImage("assets/oci/security/key-management.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/key-management.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("key-management", opts...)
 }
 
 func (c *ociSecurityContainer) KeyManagementWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("key-management-white", attr.AssetImage("assets/oci/security/key-management-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/key-management-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("key-management-white", opts...)
 }
 
 func (c *ociSecurityContainer) Ddos(opts ...attr.Attribute) *node.Node {
-	return node.New("ddos", attr.AssetImage("assets/oci/security/ddos.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/ddos.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ddos", opts...)
 }
 
 func (c *ociSecurityContainer) EncryptionWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("encryption-white", attr.AssetImage("assets/oci/security/encryption-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/encryption-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("encryption-white", opts...)
 }
 
 func (c *ociSecurityContainer) Encryption(opts ...attr.Attribute) *node.Node {
-	return node.New("encryption", attr.AssetImage("assets/oci/security/encryption.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/encryption.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("encryption", opts...)
 }
 
 func (c *ociSecurityContainer) CloudGuardWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("cloud-guard-white", attr.AssetImage("assets/oci/security/cloud-guard-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/cloud-guard-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("cloud-guard-white", opts...)
 }
 
 func (c *ociSecurityContainer) IdAccess(opts ...attr.Attribute) *node.Node {
-	return node.New("id-access", attr.AssetImage("assets/oci/security/id-access.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/id-access.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("id-access", opts...)
 }
 
 func (c *ociSecurityContainer) Vault(opts ...attr.Attribute) *node.Node {
-	return node.New("vault", attr.AssetImage("assets/oci/security/vault.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/security/vault.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vault", opts...)
 }
 
 func init() {

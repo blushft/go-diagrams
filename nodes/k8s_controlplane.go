@@ -13,27 +13,39 @@ type k8sContorlPlaneContainer struct {
 var K8sContorlPlane = &k8sContorlPlaneContainer{path: "assets/k8s/controlplane"}
 
 func (c *k8sContorlPlaneContainer) KProxy(opts ...attr.Attribute) *node.Node {
-	return node.New("k-proxy", attr.AssetImage("assets/k8s/controlplane/k-proxy.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/k-proxy.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("k-proxy", opts...)
 }
 
 func (c *k8sContorlPlaneContainer) Kubelet(opts ...attr.Attribute) *node.Node {
-	return node.New("kubelet", attr.AssetImage("assets/k8s/controlplane/kubelet.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/kubelet.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("kubelet", opts...)
 }
 
 func (c *k8sContorlPlaneContainer) Sched(opts ...attr.Attribute) *node.Node {
-	return node.New("sched", attr.AssetImage("assets/k8s/controlplane/sched.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/sched.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("sched", opts...)
 }
 
 func (c *k8sContorlPlaneContainer) Api(opts ...attr.Attribute) *node.Node {
-	return node.New("api", attr.AssetImage("assets/k8s/controlplane/api.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/api.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("api", opts...)
 }
 
 func (c *k8sContorlPlaneContainer) CCM(opts ...attr.Attribute) *node.Node {
-	return node.New("c-c-m", attr.AssetImage("assets/k8s/controlplane/c-c-m.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/c-c-m.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("c-c-m", opts...)
 }
 
 func (c *k8sContorlPlaneContainer) CM(opts ...attr.Attribute) *node.Node {
-	return node.New("c-m", attr.AssetImage("assets/k8s/controlplane/c-m.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/controlplane/c-m.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("c-m", opts...)
 }
 
 func init() {

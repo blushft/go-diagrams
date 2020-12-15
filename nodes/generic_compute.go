@@ -13,7 +13,9 @@ type genericComputeContainer struct {
 var GenericCompute = &genericComputeContainer{path: "assets/generic/compute"}
 
 func (c *genericComputeContainer) Rack(opts ...attr.Attribute) *node.Node {
-	return node.New("rack", attr.AssetImage("assets/generic/compute/rack.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/compute/rack.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("rack", opts...)
 }
 
 func init() {

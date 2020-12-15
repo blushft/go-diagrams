@@ -13,67 +13,99 @@ type ociComputeContainer struct {
 var OciCompute = &ociComputeContainer{path: "assets/oci/compute"}
 
 func (c *ociComputeContainer) AutoscaleWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("autoscale-white", attr.AssetImage("assets/oci/compute/autoscale-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/autoscale-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("autoscale-white", opts...)
 }
 
 func (c *ociComputeContainer) FunctionsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("functions-white", attr.AssetImage("assets/oci/compute/functions-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/functions-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("functions-white", opts...)
 }
 
 func (c *ociComputeContainer) Oke(opts ...attr.Attribute) *node.Node {
-	return node.New("oke", attr.AssetImage("assets/oci/compute/oke.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/oke.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("oke", opts...)
 }
 
 func (c *ociComputeContainer) Vm(opts ...attr.Attribute) *node.Node {
-	return node.New("vm", attr.AssetImage("assets/oci/compute/vm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/vm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vm", opts...)
 }
 
 func (c *ociComputeContainer) Autoscale(opts ...attr.Attribute) *node.Node {
-	return node.New("autoscale", attr.AssetImage("assets/oci/compute/autoscale.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/autoscale.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("autoscale", opts...)
 }
 
 func (c *ociComputeContainer) InstancePools(opts ...attr.Attribute) *node.Node {
-	return node.New("instance-pools", attr.AssetImage("assets/oci/compute/instance-pools.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/instance-pools.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("instance-pools", opts...)
 }
 
 func (c *ociComputeContainer) Ocir(opts ...attr.Attribute) *node.Node {
-	return node.New("ocir", attr.AssetImage("assets/oci/compute/ocir.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/ocir.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ocir", opts...)
 }
 
 func (c *ociComputeContainer) OkeWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("oke-white", attr.AssetImage("assets/oci/compute/oke-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/oke-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("oke-white", opts...)
 }
 
 func (c *ociComputeContainer) BmWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("bm-white", attr.AssetImage("assets/oci/compute/bm-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/bm-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("bm-white", opts...)
 }
 
 func (c *ociComputeContainer) Bm(opts ...attr.Attribute) *node.Node {
-	return node.New("bm", attr.AssetImage("assets/oci/compute/bm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/bm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("bm", opts...)
 }
 
 func (c *ociComputeContainer) Container(opts ...attr.Attribute) *node.Node {
-	return node.New("container", attr.AssetImage("assets/oci/compute/container.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/container.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("container", opts...)
 }
 
 func (c *ociComputeContainer) ContainerWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("container-white", attr.AssetImage("assets/oci/compute/container-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/container-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("container-white", opts...)
 }
 
 func (c *ociComputeContainer) Functions(opts ...attr.Attribute) *node.Node {
-	return node.New("functions", attr.AssetImage("assets/oci/compute/functions.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/functions.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("functions", opts...)
 }
 
 func (c *ociComputeContainer) InstancePoolsWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("instance-pools-white", attr.AssetImage("assets/oci/compute/instance-pools-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/instance-pools-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("instance-pools-white", opts...)
 }
 
 func (c *ociComputeContainer) OcirWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("ocir-white", attr.AssetImage("assets/oci/compute/ocir-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/ocir-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ocir-white", opts...)
 }
 
 func (c *ociComputeContainer) VmWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("vm-white", attr.AssetImage("assets/oci/compute/vm-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/compute/vm-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("vm-white", opts...)
 }
 
 func init() {

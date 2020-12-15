@@ -13,7 +13,9 @@ type saasReccomendationConatiner struct {
 var SaasRecommendation =&saasReccomendationConatiner{path: "assets/saas/recommendation"}
 
 func (c *saasReccomendationConatiner) Recombee(opts ...attr.Attribute) *node.Node {
-	return node.New("recombee", attr.AssetImage("assets/saas/recommendation/recombee.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/saas/recommendation/recombee.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("recombee", opts...)
 }
 
 func init() {

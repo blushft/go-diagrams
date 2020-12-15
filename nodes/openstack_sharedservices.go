@@ -13,23 +13,33 @@ type sharedservicesContainer struct {
 var OpenstackSharedservices =&sharedservicesContainer{path: "assets/openstack/sharedservices"}
 
 func (c *sharedservicesContainer) Barbican(opts ...attr.Attribute) *node.Node {
-	return node.New("barbican", attr.AssetImage("assets/openstack/sharedservices/barbican.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/sharedservices/barbican.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("barbican", opts...)
 }
 
 func (c *sharedservicesContainer) Glance(opts ...attr.Attribute) *node.Node {
-	return node.New("glance", attr.AssetImage("assets/openstack/sharedservices/glance.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/sharedservices/glance.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("glance", opts...)
 }
 
 func (c *sharedservicesContainer) Karbor(opts ...attr.Attribute) *node.Node {
-	return node.New("karbor", attr.AssetImage("assets/openstack/sharedservices/karbor.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/sharedservices/karbor.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("karbor", opts...)
 }
 
 func (c *sharedservicesContainer) Keystone(opts ...attr.Attribute) *node.Node {
-	return node.New("keystone", attr.AssetImage("assets/openstack/sharedservices/keystone.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/sharedservices/keystone.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("keystone", opts...)
 }
 
 func (c *sharedservicesContainer) Searchlight(opts ...attr.Attribute) *node.Node {
-	return node.New("searchlight", attr.AssetImage("assets/openstack/sharedservices/searchlight.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/sharedservices/searchlight.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("searchlight", opts...)
 }
 
 func init() {

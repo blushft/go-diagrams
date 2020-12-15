@@ -13,19 +13,27 @@ type enduserContainer struct {
 var Enduser = &enduserContainer{path: "assets/aws/enduser"}
 
 func (c *enduserContainer) Appstream20(opts ...attr.Attribute) *node.Node {
-	return node.New("appstream-2-0", attr.AssetImage("assets/aws/enduser/appstream-2-0.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enduser/appstream-2-0.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("appstream-2-0", opts...)
 }
 
 func (c *enduserContainer) Workdocs(opts ...attr.Attribute) *node.Node {
-	return node.New("workdocs", attr.AssetImage("assets/aws/enduser/workdocs.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enduser/workdocs.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("workdocs", opts...)
 }
 
 func (c *enduserContainer) Worklink(opts ...attr.Attribute) *node.Node {
-	return node.New("worklink", attr.AssetImage("assets/aws/enduser/worklink.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enduser/worklink.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("worklink", opts...)
 }
 
 func (c *enduserContainer) Workspaces(opts ...attr.Attribute) *node.Node {
-	return node.New("workspaces", attr.AssetImage("assets/aws/enduser/workspaces.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/enduser/workspaces.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("workspaces", opts...)
 }
 
 func init() {

@@ -13,7 +13,9 @@ type userContainer struct {
 var OpenstackUser =&userContainer{path: "assets/openstack/user"}
 
 func (c *userContainer) Openstackclient(opts ...attr.Attribute) *node.Node {
-	return node.New("openstackclient", attr.AssetImage("assets/openstack/user/openstackclient.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/user/openstackclient.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("openstackclient", opts...)
 }
 
 func init() {

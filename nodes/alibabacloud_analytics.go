@@ -13,23 +13,33 @@ type alibabaCloudAnalyticsContainer struct {
 var AlibabaCloudAnalytics =&alibabaCloudAnalyticsContainer{path: "assets/alibabacloud/analytics"}
 
 func (c *alibabaCloudAnalyticsContainer) DataLakeAnalytics(opts ...attr.Attribute) *node.Node {
-	return node.New("data-lake-analytics", attr.AssetImage("assets/alibabacloud/analytics/data-lake-analytics.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/analytics/data-lake-analytics.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("data-lake-analytics", opts...)
 }
 
 func (c *alibabaCloudAnalyticsContainer) ElaticMapReduce(opts ...attr.Attribute) *node.Node {
-	return node.New("elatic-map-reduce", attr.AssetImage("assets/alibabacloud/analytics/elatic-map-reduce.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/analytics/elatic-map-reduce.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("elatic-map-reduce", opts...)
 }
 
 func (c *alibabaCloudAnalyticsContainer) OpenSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("open-search", attr.AssetImage("assets/alibabacloud/analytics/open-search.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/analytics/open-search.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("open-search", opts...)
 }
 
 func (c *alibabaCloudAnalyticsContainer) AnalyticDb(opts ...attr.Attribute) *node.Node {
-	return node.New("analytic-db", attr.AssetImage("assets/alibabacloud/analytics/analytic-db.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/analytics/analytic-db.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("analytic-db", opts...)
 }
 
 func (c *alibabaCloudAnalyticsContainer) ClickHouse(opts ...attr.Attribute) *node.Node {
-	return node.New("click-house", attr.AssetImage("assets/alibabacloud/analytics/click-house.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/analytics/click-house.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("click-house", opts...)
 }
 func init() {
   const namespace = "alibabacloud.analytics"

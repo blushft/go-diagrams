@@ -13,27 +13,39 @@ type ociDevopsContainer struct {
 var OciDevops = &ociDevopsContainer{path: "assets/oci/devops"}
 
 func (c *ociDevopsContainer) ApiService(opts ...attr.Attribute) *node.Node {
-	return node.New("api-service", attr.AssetImage("assets/oci/devops/api-service.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/api-service.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("api-service", opts...)
 }
 
 func (c *ociDevopsContainer) ResourceMgmtWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("resource-mgmt-white", attr.AssetImage("assets/oci/devops/resource-mgmt-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/resource-mgmt-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resource-mgmt-white", opts...)
 }
 
 func (c *ociDevopsContainer) ResourceMgmt(opts ...attr.Attribute) *node.Node {
-	return node.New("resource-mgmt", attr.AssetImage("assets/oci/devops/resource-mgmt.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/resource-mgmt.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resource-mgmt", opts...)
 }
 
 func (c *ociDevopsContainer) ApiGatewayWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("api-gateway-white", attr.AssetImage("assets/oci/devops/api-gateway-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/api-gateway-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("api-gateway-white", opts...)
 }
 
 func (c *ociDevopsContainer) ApiGateway(opts ...attr.Attribute) *node.Node {
-	return node.New("api-gateway", attr.AssetImage("assets/oci/devops/api-gateway.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/api-gateway.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("api-gateway", opts...)
 }
 
 func (c *ociDevopsContainer) ApiServiceWhite(opts ...attr.Attribute) *node.Node {
-	return node.New("api-service-white", attr.AssetImage("assets/oci/devops/api-service-white.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/oci/devops/api-service-white.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("api-service-white", opts...)
 }
 
 func init() {

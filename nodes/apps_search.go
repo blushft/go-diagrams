@@ -13,7 +13,9 @@ type searchContainer struct {
 var Search = &searchContainer{path: "assets/apps/search"}
 
 func (c *searchContainer) Solr(opts ...attr.Attribute) *node.Node {
-	return node.New("solr", attr.AssetImage("assets/apps/search/solr.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/search/solr.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("solr", opts...)
 }
 
 func init() {

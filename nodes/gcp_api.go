@@ -13,7 +13,9 @@ type apiContainer struct {
 var Api = &apiContainer{path: "assets/gcp/api"}
 
 func (c *apiContainer) Endpoints(opts ...attr.Attribute) *node.Node {
-	return node.New("endpoints", attr.AssetImage("assets/gcp/api/endpoints.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/gcp/api/endpoints.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("endpoints", opts...)
 }
 
 func init(){

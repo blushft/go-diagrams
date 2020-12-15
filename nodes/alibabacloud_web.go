@@ -13,11 +13,15 @@ type webContainer struct {
 var AlibabacloudWeb =&webContainer{path: "assets/alibabacloud/web"}
 
 func (c *webContainer) Dns(opts ...attr.Attribute) *node.Node {
-	return node.New("dns", attr.AssetImage("assets/alibabacloud/web/dns.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/web/dns.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("dns", opts...)
 }
 
 func (c *webContainer) Domain(opts ...attr.Attribute) *node.Node {
-	return node.New("domain", attr.AssetImage("assets/alibabacloud/web/domain.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/alibabacloud/web/domain.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("domain", opts...)
 }
 
 func init() {

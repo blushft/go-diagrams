@@ -13,7 +13,9 @@ type gameContainer struct {
 var Game = &gameContainer{path: "assets/aws/game"}
 
 func (c *gameContainer) Gamelift(opts ...attr.Attribute) *node.Node {
-	return node.New("gamelift", attr.AssetImage("assets/aws/game/gamelift.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/game/gamelift.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("gamelift", opts...)
 }
 
 func init() {

@@ -13,7 +13,9 @@ type blankContainer struct {
 var Blank = &blankContainer{path: "assets/generic/blank"}
 
 func (c *blankContainer) Blank(opts ...attr.Attribute) *node.Node {
-	return node.New("blank", attr.AssetImage("assets/generic/blank/blank.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/blank/blank.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("blank", opts...)
 }
 
 func init() {

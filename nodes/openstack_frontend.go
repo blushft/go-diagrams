@@ -13,7 +13,9 @@ type frontendContainer struct {
 var OpenstackFrontend =&frontendContainer{path: "assets/openstack/frontend"}
 
 func (c *frontendContainer) Horizon(opts ...attr.Attribute) *node.Node {
-	return node.New("horizon", attr.AssetImage("assets/openstack/frontend/horizon.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/frontend/horizon.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("horizon", opts...)
 }
 
 func init() {

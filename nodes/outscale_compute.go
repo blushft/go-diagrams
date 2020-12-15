@@ -13,11 +13,15 @@ type outscaleComputeContainer struct {
 var OutscaleCompute =&outscaleComputeContainer{path: "assets/outscale/compute"}
 
 func (c *outscaleComputeContainer) Compute(opts ...attr.Attribute) *node.Node {
-	return node.New("compute", attr.AssetImage("assets/outscale/compute/compute.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/compute/compute.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("compute", opts...)
 }
 
 func (c *outscaleComputeContainer) DirectConnect(opts ...attr.Attribute) *node.Node {
-	return node.New("direct-connect", attr.AssetImage("assets/outscale/compute/direct-connect.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/outscale/compute/direct-connect.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("direct-connect", opts...)
 }
 
 func init() {

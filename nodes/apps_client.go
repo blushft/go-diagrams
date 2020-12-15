@@ -13,15 +13,21 @@ type appsClientcontainer struct {
 var Client = &appsClientcontainer{path: "assets/apps/client"}
 
 func (c *appsClientcontainer) Client(opts ...attr.Attribute) *node.Node {
-	return node.New("client", attr.AssetImage("assets/apps/client/client.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/client/client.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("client", opts...)
 }
 
 func (c *appsClientcontainer) User(opts ...attr.Attribute) *node.Node {
-	return node.New("user", attr.AssetImage("assets/apps/client/user.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/client/user.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("user", opts...)
 }
 
 func (c *appsClientcontainer) Users(opts ...attr.Attribute) *node.Node {
-	return node.New("users", attr.AssetImage("assets/apps/client/users.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/client/users.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("users", opts...)
 }
 
 func init() {

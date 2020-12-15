@@ -13,11 +13,15 @@ type awsBlockchainContainer struct {
 var AWSBlockchain = &awsBlockchainContainer{path: "assets/aws/blockchain"}
 
 func (c *awsBlockchainContainer) ManagedBlockchain(opts ...attr.Attribute) *node.Node {
-	return node.New("managed-blockchain", attr.AssetImage("assets/aws/blockchain/managed-blockchain.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/blockchain/managed-blockchain.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("managed-blockchain", opts...)
 }
 
 func (c *awsBlockchainContainer) QuantumLedgerDatabaseQldb(opts ...attr.Attribute) *node.Node {
-	return node.New("quantum-ledger-database-qldb", attr.AssetImage("assets/aws/blockchain/quantum-ledger-database-qldb.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/blockchain/quantum-ledger-database-qldb.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("quantum-ledger-database-qldb", opts...)
 }
 
 func init() {

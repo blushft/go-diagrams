@@ -13,7 +13,9 @@ type satelliteContainer struct {
 var Satellite = &satelliteContainer{path: "assets/aws/satellite"}
 
 func (c *satelliteContainer) GroundStation(opts ...attr.Attribute) *node.Node {
-	return node.New("ground-station", attr.AssetImage("assets/aws/satellite/ground-station.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/aws/satellite/ground-station.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("ground-station", opts...)
 }
 
 func init() {

@@ -13,7 +13,9 @@ type nfvContainer struct {
 var OpenstackNfv =&nfvContainer{path: "assets/openstack/nfv"}
 
 func (c *nfvContainer) Tacker(opts ...attr.Attribute) *node.Node {
-	return node.New("tacker", attr.AssetImage("assets/openstack/nfv/tacker.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/nfv/tacker.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tacker", opts...)
 }
 
 func init() {

@@ -13,19 +13,27 @@ type appsWorkflowContainer struct {
 var AppsWorkflow = &appsWorkflowContainer{path: "assets/apps/workflow"}
 
 func (c *appsWorkflowContainer) Airflow(opts ...attr.Attribute) *node.Node {
-	return node.New("airflow", attr.AssetImage("assets/apps/workflow/airflow.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/workflow/airflow.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("airflow", opts...)
 }
 
 func (c *appsWorkflowContainer) Digdag(opts ...attr.Attribute) *node.Node {
-	return node.New("digdag", attr.AssetImage("assets/apps/workflow/digdag.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/workflow/digdag.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("digdag", opts...)
 }
 
 func (c *appsWorkflowContainer) Kubeflow(opts ...attr.Attribute) *node.Node {
-	return node.New("kubeflow", attr.AssetImage("assets/apps/workflow/kubeflow.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/workflow/kubeflow.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("kubeflow", opts...)
 }
 
 func (c *appsWorkflowContainer) Nifi(opts ...attr.Attribute) *node.Node {
-	return node.New("nifi", attr.AssetImage("assets/apps/workflow/nifi.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/apps/workflow/nifi.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("nifi", opts...)
 }
 
 func init() {

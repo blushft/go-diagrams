@@ -13,15 +13,21 @@ type k8sEcosystemContainer struct {
 var K8sEcosystem = &k8sEcosystemContainer{path: "assets/k8s/ecosystem"}
 
 func (c *k8sEcosystemContainer) Helm(opts ...attr.Attribute) *node.Node {
-	return node.New("helm", attr.AssetImage("assets/k8s/ecosystem/helm.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/ecosystem/helm.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("helm", opts...)
 }
 
 func (c *k8sEcosystemContainer) Krew(opts ...attr.Attribute) *node.Node {
-	return node.New("krew", attr.AssetImage("assets/k8s/ecosystem/krew.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/ecosystem/krew.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("krew", opts...)
 }
 
 func (c *k8sEcosystemContainer) Kustomize(opts ...attr.Attribute) *node.Node {
-	return node.New("kustomize", attr.AssetImage("assets/k8s/ecosystem/kustomize.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/k8s/ecosystem/kustomize.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("kustomize", opts...)
 }
 
 func init() {

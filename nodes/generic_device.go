@@ -13,11 +13,15 @@ type genericDeviceContainer struct {
 var GenericDevice = &genericDeviceContainer{path: "assets/generic/device"}
 
 func (c *genericDeviceContainer) Tablet(opts ...attr.Attribute) *node.Node {
-	return node.New("tablet", attr.AssetImage("assets/generic/device/tablet.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/device/tablet.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tablet", opts...)
 }
 
 func (c *genericDeviceContainer) Mobile(opts ...attr.Attribute) *node.Node {
-	return node.New("mobile", attr.AssetImage("assets/generic/device/mobile.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/generic/device/mobile.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("mobile", opts...)
 }
 
 func init() {

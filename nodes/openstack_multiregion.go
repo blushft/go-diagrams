@@ -13,7 +13,9 @@ type multiregionContainer struct {
 var OpenstackMultiregion =&multiregionContainer{path: "assets/openstack/multiregion"}
 
 func (c *multiregionContainer) Tricircle(opts ...attr.Attribute) *node.Node {
-	return node.New("tricircle", attr.AssetImage("assets/openstack/multiregion/tricircle.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/multiregion/tricircle.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tricircle", opts...)
 }
 
 func init() {

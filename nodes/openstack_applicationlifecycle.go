@@ -13,19 +13,27 @@ type applicationlifecycleContainer struct {
 var OpenstackApplicationlifecycle =&applicationlifecycleContainer{path: "assets/openstack/applicationlifecycle"}
 
 func (c *applicationlifecycleContainer) Murano(opts ...attr.Attribute) *node.Node {
-	return node.New("murano", attr.AssetImage("assets/openstack/applicationlifecycle/murano.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/applicationlifecycle/murano.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("murano", opts...)
 }
 
 func (c *applicationlifecycleContainer) Solum(opts ...attr.Attribute) *node.Node {
-	return node.New("solum", attr.AssetImage("assets/openstack/applicationlifecycle/solum.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/applicationlifecycle/solum.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("solum", opts...)
 }
 
 func (c *applicationlifecycleContainer) Freezer(opts ...attr.Attribute) *node.Node {
-	return node.New("freezer", attr.AssetImage("assets/openstack/applicationlifecycle/freezer.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/applicationlifecycle/freezer.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("freezer", opts...)
 }
 
 func (c *applicationlifecycleContainer) Masakari(opts ...attr.Attribute) *node.Node {
-	return node.New("masakari", attr.AssetImage("assets/openstack/applicationlifecycle/masakari.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/openstack/applicationlifecycle/masakari.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("masakari", opts...)
 }
 
 func init() {

@@ -13,107 +13,159 @@ type azuregeneralContainer struct {
 var azureGeneral = &azuregeneralContainer{path: "assets/azure/general"}
 
 func (c *azuregeneralContainer) Allresources(opts ...attr.Attribute) *node.Node {
-	return node.New("allresources", attr.AssetImage("assets/azure/general/allresources.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/allresources.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("allresources", opts...)
 }
 
 func (c *azuregeneralContainer) Shareddashboard(opts ...attr.Attribute) *node.Node {
-	return node.New("shareddashboard", attr.AssetImage("assets/azure/general/shareddashboard.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/shareddashboard.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("shareddashboard", opts...)
 }
 
 func (c *azuregeneralContainer) Support(opts ...attr.Attribute) *node.Node {
-	return node.New("support", attr.AssetImage("assets/azure/general/support.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/support.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("support", opts...)
 }
 
 func (c *azuregeneralContainer) Twousericon(opts ...attr.Attribute) *node.Node {
-	return node.New("twousericon", attr.AssetImage("assets/azure/general/twousericon.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/twousericon.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("twousericon", opts...)
 }
 
 func (c *azuregeneralContainer) Whatsnew(opts ...attr.Attribute) *node.Node {
-	return node.New("whatsnew", attr.AssetImage("assets/azure/general/whatsnew.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/whatsnew.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("whatsnew", opts...)
 }
 
 func (c *azuregeneralContainer) Helpsupport(opts ...attr.Attribute) *node.Node {
-	return node.New("helpsupport", attr.AssetImage("assets/azure/general/helpsupport.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/helpsupport.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("helpsupport", opts...)
 }
 
 func (c *azuregeneralContainer) Information(opts ...attr.Attribute) *node.Node {
-	return node.New("information", attr.AssetImage("assets/azure/general/information.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/information.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("information", opts...)
 }
 
 func (c *azuregeneralContainer) Quickstartcenter(opts ...attr.Attribute) *node.Node {
-	return node.New("quickstartcenter", attr.AssetImage("assets/azure/general/quickstartcenter.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/quickstartcenter.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("quickstartcenter", opts...)
 }
 
 func (c *azuregeneralContainer) Servicehealth(opts ...attr.Attribute) *node.Node {
-	return node.New("servicehealth", attr.AssetImage("assets/azure/general/servicehealth.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/servicehealth.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("servicehealth", opts...)
 }
 
 func (c *azuregeneralContainer) Templates(opts ...attr.Attribute) *node.Node {
-	return node.New("templates", attr.AssetImage("assets/azure/general/templates.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/templates.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("templates", opts...)
 }
 
 func (c *azuregeneralContainer) Userhealthicon(opts ...attr.Attribute) *node.Node {
-	return node.New("userhealthicon", attr.AssetImage("assets/azure/general/userhealthicon.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/userhealthicon.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("userhealthicon", opts...)
 }
 
 func (c *azuregeneralContainer) Usericon(opts ...attr.Attribute) *node.Node {
-	return node.New("usericon", attr.AssetImage("assets/azure/general/usericon.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/usericon.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("usericon", opts...)
 }
 
 func (c *azuregeneralContainer) Userprivacy(opts ...attr.Attribute) *node.Node {
-	return node.New("userprivacy", attr.AssetImage("assets/azure/general/userprivacy.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/userprivacy.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("userprivacy", opts...)
 }
 
 func (c *azuregeneralContainer) Developertools(opts ...attr.Attribute) *node.Node {
-	return node.New("developertools", attr.AssetImage("assets/azure/general/developertools.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/developertools.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("developertools", opts...)
 }
 
 func (c *azuregeneralContainer) Managementgroups(opts ...attr.Attribute) *node.Node {
-	return node.New("managementgroups", attr.AssetImage("assets/azure/general/managementgroups.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/managementgroups.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("managementgroups", opts...)
 }
 
 func (c *azuregeneralContainer) Marketplace(opts ...attr.Attribute) *node.Node {
-	return node.New("marketplace", attr.AssetImage("assets/azure/general/marketplace.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/marketplace.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("marketplace", opts...)
 }
 
 func (c *azuregeneralContainer) Recent(opts ...attr.Attribute) *node.Node {
-	return node.New("recent", attr.AssetImage("assets/azure/general/recent.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/recent.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("recent", opts...)
 }
 
 func (c *azuregeneralContainer) Subscriptions(opts ...attr.Attribute) *node.Node {
-	return node.New("subscriptions", attr.AssetImage("assets/azure/general/subscriptions.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/subscriptions.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("subscriptions", opts...)
 }
 
 func (c *azuregeneralContainer) Supportrequests(opts ...attr.Attribute) *node.Node {
-	return node.New("supportrequests", attr.AssetImage("assets/azure/general/supportrequests.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/supportrequests.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("supportrequests", opts...)
 }
 
 func (c *azuregeneralContainer) Tag(opts ...attr.Attribute) *node.Node {
-	return node.New("tag", attr.AssetImage("assets/azure/general/tag.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/tag.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tag", opts...)
 }
 
 func (c *azuregeneralContainer) Tags(opts ...attr.Attribute) *node.Node {
-	return node.New("tags", attr.AssetImage("assets/azure/general/tags.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/tags.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("tags", opts...)
 }
 
 func (c *azuregeneralContainer) Azurehome(opts ...attr.Attribute) *node.Node {
-	return node.New("azurehome", attr.AssetImage("assets/azure/general/azurehome.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/azurehome.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("azurehome", opts...)
 }
 
 func (c *azuregeneralContainer) Reservations(opts ...attr.Attribute) *node.Node {
-	return node.New("reservations", attr.AssetImage("assets/azure/general/reservations.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/reservations.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("reservations", opts...)
 }
 
 func (c *azuregeneralContainer) Resource(opts ...attr.Attribute) *node.Node {
-	return node.New("resource", attr.AssetImage("assets/azure/general/resource.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/resource.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resource", opts...)
 }
 
 func (c *azuregeneralContainer) Resourcegroups(opts ...attr.Attribute) *node.Node {
-	return node.New("resourcegroups", attr.AssetImage("assets/azure/general/resourcegroups.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/resourcegroups.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("resourcegroups", opts...)
 }
 
 func (c *azuregeneralContainer) Userresource(opts ...attr.Attribute) *node.Node {
-	return node.New("userresource", attr.AssetImage("assets/azure/general/userresource.png"), attr.Shape(attr.None))
+	opts = append(opts, attr.AssetImage("assets/azure/general/userresource.png"))
+	opts = append(opts, attr.Shape(attr.None))
+	return node.New("userresource", opts...)
 }
 
 func init() {
