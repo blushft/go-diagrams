@@ -223,17 +223,6 @@ func (g *Group) parseGroup(v GroupData) Group {
 	for _, child := range v.Nodes {
 		parsedNode := g.parseNode(child)
 		group.AddNode(parsedNode)
-		for _, ct := range child.ConnectTo {
-			nodeId, label := connectionLabel(ct)
-			dest := g.findByID(nodeId)
-			if dest != nil {
-				if label != "" {
-					g.ConnectWithAttrs(parsedNode, dest, attr.Label(label))
-				} else {
-					g.Connect(parsedNode, dest);
-				}
-			}
-		}
 	}
 	
 	for _, groupData := range v.Group {
