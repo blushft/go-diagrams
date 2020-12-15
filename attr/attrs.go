@@ -1,6 +1,9 @@
 package attr
 
-import "github.com/blushft/go-diagrams/attr/color"
+import (
+	graphviz "github.com/awalterschulze/gographviz"
+	"github.com/blushft/go-diagrams/attr/color"
+)
 
 func WithAttributes(attrs ...Attribute) Attribute {
 	return newAttrSet(attrs...)
@@ -42,7 +45,7 @@ func BoundingBox(r Rect) Attribute {
 	return newAttr("bb", r, Graph)
 }
 
-func BGColor(c color.Color) Attribute {
+func BGColor(c string) Attribute {
 	return newAttr("bgcolor", c, Graph, Clusters)
 }
 
@@ -104,6 +107,10 @@ func Dimen(i int) Attribute {
 
 func Direction(d EdgeDirection) Attribute {
 	return newAttr("dir", d, Edges)
+}
+
+func Directed(d bool) Attribute {
+	return newAttr("dir", d, Graph)
 }
 
 func DirEdgeConstraints(b bool) Attribute {
@@ -232,7 +239,7 @@ func Image(s string) Attribute {
 }
 
 func AssetImage(s string) Attribute {
-	return newAttr("assetimage", s, Nodes)
+	return newAttr(graphviz.Image, s, Nodes)
 }
 
 func ImagePath(s string) Attribute {
@@ -243,8 +250,8 @@ func ImagePosition(p Position) Attribute {
 	return newAttr("imagepos", p, Nodes)
 }
 
-func ImageScale(b bool) Attribute {
-	return newAttr("imagescale", b, Nodes)
+func ImageScale(s string) Attribute {
+	return newAttr("imagescale", s, Nodes)
 }
 
 func InputScale(f float64) Attribute {
@@ -513,8 +520,12 @@ func RankSeparation(f float64) Attribute {
 	return newAttr("ranksep", f, Graph)
 }
 
-func Ratio(f float64) Attribute {
+func Ration(f float64) Attribute {
 	return newAttr("ration", f, Graph)
+}
+
+func Ratio(s string) Attribute {
+	return newAttr("ratio", s, Graph)
 }
 
 func Rects(r Rect) Attribute {

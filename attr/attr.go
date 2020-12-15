@@ -1,5 +1,7 @@
 package attr
 
+import graphviz "github.com/awalterschulze/gographviz"
+
 type AttributableElement int
 
 func (ae AttributableElement) String() string {
@@ -71,12 +73,12 @@ func (a Attributes) Set(attrs ...Attribute) {
 }
 
 type attribute struct {
-	name    string
+	name    graphviz.Attr
 	value   *Value
 	applyTo []AttributableElement
 }
 
-func newAttr(n string, v interface{}, applyTo ...AttributableElement) *attribute {
+func newAttr(n graphviz.Attr, v interface{}, applyTo ...AttributableElement) *attribute {
 	return &attribute{
 		name:    n,
 		value:   NewValue(v),
@@ -86,7 +88,8 @@ func newAttr(n string, v interface{}, applyTo ...AttributableElement) *attribute
 }
 
 func (a *attribute) Name() string {
-	return a.name
+	var name = (*string)(&a.name)
+	return *name
 }
 
 func (a *attribute) Value() *Value {
@@ -94,7 +97,7 @@ func (a *attribute) Value() *Value {
 }
 
 func (a *attribute) Render(m map[string]string) error {
-	m[a.name] = a.value.String()
+	m[a.Name()] = a.value.String()
 	return nil
 }
 
@@ -109,7 +112,7 @@ func (a *attribute) ApplyTo(ae AttributableElement) bool {
 }
 
 func (a *attribute) Apply(m Attributes) {
-	m[a.name] = a
+	m[a.Name()] = a
 }
 
 type attributeSet struct {

@@ -1,1 +1,3 @@
 *.dot
+.idea/
+go-diagrams/
