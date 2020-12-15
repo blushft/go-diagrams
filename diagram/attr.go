@@ -10,8 +10,8 @@ func defaultRootAttrs(attrs ...attr.Attribute) attr.Attributes {
 		attr.Pad(2.0),
 		attr.Splines(attr.SplineOrtho),
 		attr.RankDir(attr.LeftToRight),
-		attr.NodeSeparation(0.60),
-		attr.RankSeparation(0.75),
+		attr.NodeSeparation(1.7),
+		attr.RankSeparation(0.8),
 		attr.FontName("Sans Serif"),
 		attr.FontColor(color.Gray53()),
 		attr.FontSize(16),
@@ -47,7 +47,10 @@ func defaultClusterAttrs(attrs ...attr.Attribute) attr.Attributes {
 func defaultEdgeAttrs(attrs ...attr.Attribute) attr.Attributes {
 	return attr.NewAttributes(
 		attr.FontName("Sans Serif"),
-		attr.FontSize(13),
+		attr.FontSize(12),
+		attr.LabelDistance(4.0),
+		attr.LabelJustify(attr.JustifyCenter),
+		attr.LabelHeight(5.0),
 		attr.Direction(attr.EdgeNone),
 		attr.WithAttributes(attrs...),
 	)

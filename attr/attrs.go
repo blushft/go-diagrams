@@ -250,8 +250,8 @@ func ImagePosition(p Position) Attribute {
 	return newAttr("imagepos", p, Nodes)
 }
 
-func ImageScale(b bool) Attribute {
-	return newAttr("imagescale", b, Nodes)
+func ImageScale(s string) Attribute {
+	return newAttr("imagescale", s, Nodes)
 }
 
 func InputScale(f float64) Attribute {
@@ -520,8 +520,12 @@ func RankSeparation(f float64) Attribute {
 	return newAttr("ranksep", f, Graph)
 }
 
-func Ratio(f float64) Attribute {
+func Ration(f float64) Attribute {
 	return newAttr("ration", f, Graph)
+}
+
+func Ratio(s string) Attribute {
+	return newAttr("ratio", s, Graph)
 }
 
 func Rects(r Rect) Attribute {

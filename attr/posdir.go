@@ -75,9 +75,9 @@ func (j Justify) String() string {
 }
 
 var (
-	JustifyLeft   = "l"
-	JustifyCenter = "c"
-	JustifyRight  = "r"
+	JustifyLeft   Justify = "l"
+	JustifyCenter Justify = "c"
+	JustifyRight  Justify = "r"
 )
 
 type Location string

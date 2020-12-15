@@ -14,7 +14,7 @@ type Edge struct {
 var _ IEdge = &Edge{}
 
 func NewEdge(id string, start, end INode, attrs ...attr.Attribute) IEdge {
-	a := attr.NewAttributes(attrs...)
+	a := defaultEdgeAttrs(attrs...)
 
 	return &Edge{
 		id:    id,

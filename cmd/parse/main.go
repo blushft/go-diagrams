@@ -31,7 +31,11 @@ func main(){
 		logrus.Fatalf("unable to open input file: %v", err)
 	}
 
-	d := diagram.New("diag", attr.Label("my-diagram"), attr.OutputOrder(attr.NodesFirst))
+	d := diagram.New("diag", attr.Label("my-diagram"),
+		attr.OutputOrder(attr.NodesFirst),
+		attr.LabelLocation(attr.Bottom),
+		attr.Ratio("compress"),
+	)
 
 	err = d.Parse(file)
 	if err != nil {

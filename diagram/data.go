@@ -3,14 +3,15 @@ package diagram
 import "github.com/blushft/go-diagrams/attr"
 
 type Meta struct {
-	Name            string   `yaml:"name"`
-	Label           string   `yaml:"label"`
-	Type            string   `yaml:"type"`
-	ConnectTo       []string `yaml:"connectTo"`
-	ConnectFrom     []string `yaml:"connectFrom"`
-	ConnectAllTo    []string `yaml:"connectAllTo"`
-	ConnectAllFrom  []string `yaml:"connectAllFrom"`
-	BackgroundColor string   `yaml:"backgroundColor"`
+	Name            string        `yaml:"name"`
+	Label           string        `yaml:"label"`
+	Type            string        `yaml:"type"`
+	ConnectTo       []string      `yaml:"connectTo"`
+	ConnectFrom     []string      `yaml:"connectFrom"`
+	ConnectAllTo    []string      `yaml:"connectAllTo"`
+	ConnectAllFrom  []string      `yaml:"connectAllFrom"`
+	BackgroundColor string        `yaml:"backgroundColor"`
+	LabelLoc        attr.Location `yaml:"labelLoc" default:"b"`
 }
 
 type EdgeData struct {

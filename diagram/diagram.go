@@ -4,6 +4,7 @@ import (
 	"github.com/blushft/go-diagrams/nodes"
 	"github.com/sirupsen/logrus"
 	"os"
+	"regexp"
 	"strings"
 
 	"github.com/blushft/go-diagrams/attr"
@@ -110,12 +111,19 @@ func (g *Group) AddNodes(ns ...INode) *Group {
 }
 
 func (g *Group) Connect(start, end INode) *Group {
+	return g.ConnectWithAttrs(start, end)
+}
+
+func (g *Group) ConnectWithAttrs(start, end INode, attributes ...attr.Attribute) *Group {
 	g.AddNodes(start, end)
+	attributes = append(attributes, attr.Arrowhead(attr.Normal))
+	attributes = append(attributes, attr.Direction(attr.Forward))
 	eid := strings.SplitAfter(strings.Replace(uuid.New().String(), "-", "", 1), "-")[0]
-	g.edges[eid] = NewEdge(eid, start, end)
+	g.edges[eid] = NewEdge(eid, start, end, attributes...)
 
 	return g
 }
+
 
 func (g *Group) Parse(file *os.File) error {
 	return g.parse(file)
@@ -179,8 +187,28 @@ func parseAttributes(v Meta) []attr.Attribute {
 	if v.BackgroundColor != "" {
 		attrs = append(attrs, attr.BGColor(v.BackgroundColor))
 	}
+	
+	if v.LabelLoc != "" {
+		attrs = append(attrs, attr.LabelLocation(v.LabelLoc))
+	} else {
+		attrs = append(attrs, attr.LabelLocation(attr.Bottom))
+	}
+	
+	attrs = append(attrs, attr.ImageScale("true"))
+	attrs = append(attrs, attr.NoJustify(true))
 
-	return attrs
+	return node.DefaultAttributes(attrs...)
+}
+
+func connectionLabel(s string) (string, string) {
+	re := regexp.MustCompile(`(.*)\[(.*?)]`)
+	if !re.MatchString(s){
+		return s, ""
+	}
+	
+	matches := re.FindStringSubmatch(s)
+	
+	return matches[1], matches[2]
 }
 
 func (g *Group) parseGroup(v GroupData) Group {
@@ -196,9 +224,14 @@ func (g *Group) parseGroup(v GroupData) Group {
 		parsedNode := g.parseNode(child)
 		group.AddNode(parsedNode)
 		for _, ct := range child.ConnectTo {
-			dest := g.findByID(ct)
+			nodeId, label := connectionLabel(ct)
+			dest := g.findByID(nodeId)
 			if dest != nil {
-				g.Connect(parsedNode, dest)
+				if label != "" {
+					g.ConnectWithAttrs(parsedNode, dest, attr.Label(label))
+				} else {
+					g.Connect(parsedNode, dest);
+				}
 			}
 		}
 	}
@@ -233,16 +266,28 @@ func (g *Group) parseGroupConnection(v GroupData) {
 			continue
 		}
 		for _, dest := range v.ConnectAllTo {
-			destRef := g.findByID(dest)
+			nodeId, label := connectionLabel(dest)
+			destRef := g.findByID(nodeId)
 			if destRef != nil {
-				g.Connect(srcRef, destRef)
+				if label != "" {
+					g.ConnectWithAttrs(srcRef, destRef, attr.Label(label),
+						attr.HeadLabel(label))
+				} else {
+					g.Connect(srcRef, destRef)
+				}
 			}
 		}
 
 		for _, dest := range srcNode.ConnectTo {
-			destRef := g.findByID(dest)
+			nodeId, label := connectionLabel(dest)
+			destRef := g.findByID(nodeId)
 			if destRef != nil {
-				g.Connect(srcRef, destRef)
+				if label != "" {
+					g.ConnectWithAttrs(srcRef, destRef,
+						attr.HeadLabel(label))
+				} else {
+					g.Connect(srcRef, destRef)
+				}
 			}
 		}
 	}

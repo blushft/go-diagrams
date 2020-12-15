@@ -7,7 +7,7 @@ groups:
   - name: load-balancer
     type: gcp.Network.LoadBalancing
     connectTo:
-      - server-1
+      - server-1[443/TCP]
       - server-2
       - server-3
   - name: dns
