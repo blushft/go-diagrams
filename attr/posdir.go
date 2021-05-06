@@ -9,10 +9,10 @@ func (d EdgeDirection) String() string {
 }
 
 var (
-	Forward  EdgeDirection = "forward"
-	Back     EdgeDirection = "back"
-	Both     EdgeDirection = "both"
-	EdgeNone EdgeDirection = "none"
+	DirForward  EdgeDirection = "forward"
+	DirBack     EdgeDirection = "back"
+	DirBoth     EdgeDirection = "both"
+	DirEdgeNone EdgeDirection = "none"
 )
 
 type PageDirection string

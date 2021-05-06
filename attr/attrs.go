@@ -106,6 +106,10 @@ func Direction(d EdgeDirection) Attribute {
 	return newAttr("dir", d, Edges)
 }
 
+func Forward() Attribute {
+	return Direction(DirForward)
+}
+
 func DirEdgeConstraints(b bool) Attribute {
 	return newAttr("diredgeconstraints", b, Graph)
 }

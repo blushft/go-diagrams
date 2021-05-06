@@ -26,8 +26,8 @@ func (n *Node) ID() string {
 	return n.id
 }
 
-func (n *Node) Attributes() (map[string]string, error) {
-	return n.attrs.Render()
+func (n *Node) Attributes() attr.Attributes {
+	return n.attrs
 }
 
 func (n *Node) WithAttribute(attr attr.Attribute) *Node {

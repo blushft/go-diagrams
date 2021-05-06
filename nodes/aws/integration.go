@@ -12,14 +12,6 @@ type integrationContainer struct {
 
 var Integration = &integrationContainer{path: "assets/aws/integration"}
 
-func (c *integrationContainer) ApplicationIntegration(opts ...attr.Attribute) *node.Node {
-	return node.New("application-integration", attr.AssetImage("assets/aws/integration/application-integration.png"), attr.Shape(attr.None))
-}
-
-func (c *integrationContainer) Appsync(opts ...attr.Attribute) *node.Node {
-	return node.New("appsync", attr.AssetImage("assets/aws/integration/appsync.png"), attr.Shape(attr.None))
-}
-
 func (c *integrationContainer) ConsoleMobileApplication(opts ...attr.Attribute) *node.Node {
 	return node.New("console-mobile-application", attr.AssetImage("assets/aws/integration/console-mobile-application.png"), attr.Shape(attr.None))
 }
@@ -42,4 +34,12 @@ func (c *integrationContainer) SimpleQueueServiceSqs(opts ...attr.Attribute) *no
 
 func (c *integrationContainer) StepFunctions(opts ...attr.Attribute) *node.Node {
 	return node.New("step-functions", attr.AssetImage("assets/aws/integration/step-functions.png"), attr.Shape(attr.None))
+}
+
+func (c *integrationContainer) ApplicationIntegration(opts ...attr.Attribute) *node.Node {
+	return node.New("application-integration", attr.AssetImage("assets/aws/integration/application-integration.png"), attr.Shape(attr.None))
+}
+
+func (c *integrationContainer) Appsync(opts ...attr.Attribute) *node.Node {
+	return node.New("appsync", attr.AssetImage("assets/aws/integration/appsync.png"), attr.Shape(attr.None))
 }

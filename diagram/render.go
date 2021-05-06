@@ -7,7 +7,7 @@ import (
 	"path/filepath"
 	"strconv"
 
-	"github.com/blushft/go-diagrams/assets"
+	"github.com/blushft/go-diagrams/attr"
 
 	graphviz "github.com/awalterschulze/gographviz"
 )
@@ -16,20 +16,36 @@ type RenderOptions struct {
 	Format     string
 	Filename   string
 	OutputPath string
+	Hooks      []RenderHookFunc
+
+	hooks []attr.RenderHook
 }
 
 type RenderOption func(*RenderOptions)
+type RenderHookFunc func(RenderOptions) attr.RenderHook
 
 func defaultRenderOptions(opts ...RenderOption) RenderOptions {
 	options := RenderOptions{
 		Format:     "dot",
 		Filename:   "go-diagrams",
 		OutputPath: "go-diagrams",
+		Hooks: []RenderHookFunc{
+			func(o RenderOptions) attr.RenderHook {
+				return attr.AssetLoader(o.OutputPath)
+			},
+		},
 	}
 
 	for _, o := range opts {
 		o(&options)
 	}
+
+	var hooks []attr.RenderHook
+	for _, h := range options.Hooks {
+		hooks = append(hooks, h(options))
+	}
+
+	options.hooks = hooks
 
 	return options
 }
@@ -40,32 +56,16 @@ func Format(f string) RenderOption {
 	}
 }
 
-type Identifiable interface {
-	ID() string
+func OutputPath(dir string) RenderOption {
+	return func(o *RenderOptions) {
+		o.OutputPath = dir
+	}
 }
 
-type Attributed interface {
-	Attributes() (map[string]string, error)
-}
-
-type Diagram interface {
-	Identifiable
-	Attributed
-	Nodes() []Node
-	Edges() []Edge
-	Children() []Diagram
-}
-
-type Node interface {
-	Identifiable
-	Attributed
-}
-
-type Edge interface {
-	Identifiable
-	Attributed
-	Start() string
-	End() string
+func RegisterHook(fn RenderHookFunc) RenderOption {
+	return func(o *RenderOptions) {
+		o.Hooks = append(o.Hooks, fn)
+	}
 }
 
 func Render(d Diagram, opts ...RenderOption) error {
@@ -76,7 +76,7 @@ func Render(d Diagram, opts ...RenderOption) error {
 		return err
 	}
 
-	gattr, err := d.Attributes()
+	gattr, err := d.Attributes().Render(ro.hooks...)
 	if err != nil {
 		return err
 	}
@@ -100,16 +100,16 @@ func Render(d Diagram, opts ...RenderOption) error {
 		}
 	}
 
-	if err := renderGroups(g, d); err != nil {
+	if err := renderGroups(g, d, ro); err != nil {
 		return err
 	}
 
 	return renderOutput(g, ro)
 }
 
-func renderGroups(g *graphviz.Escape, d Diagram) error {
+func renderGroups(g *graphviz.Escape, d Diagram, ro RenderOptions) error {
 	for _, n := range d.Nodes() {
-		attr, err := n.Attributes()
+		attr, err := n.Attributes().Render(ro.hooks...)
 		if err != nil {
 			return err
 		}
@@ -120,7 +120,7 @@ func renderGroups(g *graphviz.Escape, d Diagram) error {
 	}
 
 	for _, e := range d.Edges() {
-		attr, err := e.Attributes()
+		attr, err := e.Attributes().Render(ro.hooks...)
 		if err != nil {
 			return err
 		}
@@ -131,7 +131,7 @@ func renderGroups(g *graphviz.Escape, d Diagram) error {
 	}
 
 	for _, child := range d.Children() {
-		attr, err := d.Attributes()
+		attr, err := d.Attributes().Render(ro.hooks...)
 		if err != nil {
 			return err
 		}
@@ -140,7 +140,7 @@ func renderGroups(g *graphviz.Escape, d Diagram) error {
 			return err
 		}
 
-		if err := renderGroups(g, child); err != nil {
+		if err := renderGroups(g, child, ro); err != nil {
 			return err
 		}
 	}
@@ -158,25 +158,6 @@ func renderOutput(g *graphviz.Escape, ro RenderOptions) error {
 		return err
 	}
 
-	for _, n := range g.Nodes.Nodes {
-		if img, ok := n.Attrs["image"]; ok {
-			iData, err := assets.ReadFile(img)
-			if err != nil {
-				return err
-			}
-
-			iPath := filepath.Join(outPath, filepath.Dir(img))
-			if err := os.MkdirAll(iPath, os.ModePerm); err != nil {
-				return err
-			}
-
-			iFile := filepath.Join(iPath, filepath.Base(img))
-			if err := ioutil.WriteFile(iFile, iData, os.ModePerm); err != nil {
-				return err
-			}
-		}
-	}
-
 	switch ro.Format {
 	case "dot":
 		return renderDot(g, ro.Filename, outPath)
@@ -187,5 +168,6 @@ func renderOutput(g *graphviz.Escape, ro RenderOptions) error {
 
 func renderDot(g *graphviz.Escape, fname, outPath string) error {
 	outFile := filepath.Join(outPath, fname+".dot")
+
 	return ioutil.WriteFile(outFile, []byte(g.String()), os.ModePerm)
 }

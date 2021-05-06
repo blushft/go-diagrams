@@ -12,10 +12,6 @@ type rbacContainer struct {
 
 var Rbac = &rbacContainer{path: "assets/k8s/rbac"}
 
-func (c *rbacContainer) Role(opts ...attr.Attribute) *node.Node {
-	return node.New("role", attr.AssetImage("assets/k8s/rbac/role.png"), attr.Shape(attr.None))
-}
-
 func (c *rbacContainer) Sa(opts ...attr.Attribute) *node.Node {
 	return node.New("sa", attr.AssetImage("assets/k8s/rbac/sa.png"), attr.Shape(attr.None))
 }
@@ -38,4 +34,8 @@ func (c *rbacContainer) Group(opts ...attr.Attribute) *node.Node {
 
 func (c *rbacContainer) Rb(opts ...attr.Attribute) *node.Node {
 	return node.New("rb", attr.AssetImage("assets/k8s/rbac/rb.png"), attr.Shape(attr.None))
+}
+
+func (c *rbacContainer) Role(opts ...attr.Attribute) *node.Node {
+	return node.New("role", attr.AssetImage("assets/k8s/rbac/role.png"), attr.Shape(attr.None))
 }

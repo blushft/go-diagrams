@@ -12,6 +12,10 @@ type monitoringContainer struct {
 
 var Monitoring = &monitoringContainer{path: "assets/apps/monitoring"}
 
+func (c *monitoringContainer) Grafana(opts ...attr.Attribute) *node.Node {
+	return node.New("grafana", attr.AssetImage("assets/apps/monitoring/grafana.png"), attr.Shape(attr.None))
+}
+
 func (c *monitoringContainer) PrometheusOperator(opts ...attr.Attribute) *node.Node {
 	return node.New("prometheus-operator", attr.AssetImage("assets/apps/monitoring/prometheus-operator.png"), attr.Shape(attr.None))
 }
@@ -34,8 +38,4 @@ func (c *monitoringContainer) Thanos(opts ...attr.Attribute) *node.Node {
 
 func (c *monitoringContainer) Datadog(opts ...attr.Attribute) *node.Node {
 	return node.New("datadog", attr.AssetImage("assets/apps/monitoring/datadog.png"), attr.Shape(attr.None))
-}
-
-func (c *monitoringContainer) Grafana(opts ...attr.Attribute) *node.Node {
-	return node.New("grafana", attr.AssetImage("assets/apps/monitoring/grafana.png"), attr.Shape(attr.None))
 }

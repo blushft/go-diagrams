@@ -12,6 +12,10 @@ type storageContainer struct {
 
 var Storage = &storageContainer{path: "assets/k8s/storage"}
 
+func (c *storageContainer) Vol(opts ...attr.Attribute) *node.Node {
+	return node.New("vol", attr.AssetImage("assets/k8s/storage/vol.png"), attr.Shape(attr.None))
+}
+
 func (c *storageContainer) Pv(opts ...attr.Attribute) *node.Node {
 	return node.New("pv", attr.AssetImage("assets/k8s/storage/pv.png"), attr.Shape(attr.None))
 }
@@ -22,8 +26,4 @@ func (c *storageContainer) Pvc(opts ...attr.Attribute) *node.Node {
 
 func (c *storageContainer) Sc(opts ...attr.Attribute) *node.Node {
 	return node.New("sc", attr.AssetImage("assets/k8s/storage/sc.png"), attr.Shape(attr.None))
-}
-
-func (c *storageContainer) Vol(opts ...attr.Attribute) *node.Node {
-	return node.New("vol", attr.AssetImage("assets/k8s/storage/vol.png"), attr.Shape(attr.None))
 }

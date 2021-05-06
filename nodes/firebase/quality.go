@@ -12,10 +12,6 @@ type qualityContainer struct {
 
 var Quality = &qualityContainer{path: "assets/firebase/quality"}
 
-func (c *qualityContainer) Crashlytics(opts ...attr.Attribute) *node.Node {
-	return node.New("crashlytics", attr.AssetImage("assets/firebase/quality/crashlytics.png"), attr.Shape(attr.None))
-}
-
 func (c *qualityContainer) PerformanceMonitoring(opts ...attr.Attribute) *node.Node {
 	return node.New("performance-monitoring", attr.AssetImage("assets/firebase/quality/performance-monitoring.png"), attr.Shape(attr.None))
 }
@@ -30,4 +26,8 @@ func (c *qualityContainer) AppDistribution(opts ...attr.Attribute) *node.Node {
 
 func (c *qualityContainer) CrashReporting(opts ...attr.Attribute) *node.Node {
 	return node.New("crash-reporting", attr.AssetImage("assets/firebase/quality/crash-reporting.png"), attr.Shape(attr.None))
+}
+
+func (c *qualityContainer) Crashlytics(opts ...attr.Attribute) *node.Node {
+	return node.New("crashlytics", attr.AssetImage("assets/firebase/quality/crashlytics.png"), attr.Shape(attr.None))
 }

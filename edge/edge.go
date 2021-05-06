@@ -13,7 +13,7 @@ type Edge struct {
 }
 
 func New(id string, start, end *node.Node, attrs ...attr.Attribute) *Edge {
-	a := attr.NewAttributes(attrs...)
+	a := defaultAttributes(attrs...)
 
 	return &Edge{
 		id:    id,
@@ -35,6 +35,6 @@ func (e *Edge) End() string {
 	return e.end
 }
 
-func (e *Edge) Attributes() (map[string]string, error) {
-	return e.attrs.Render()
+func (e *Edge) Attributes() attr.Attributes {
+	return e.attrs
 }

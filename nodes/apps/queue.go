@@ -12,6 +12,14 @@ type queueContainer struct {
 
 var Queue = &queueContainer{path: "assets/apps/queue"}
 
+func (c *queueContainer) Rabbitmq(opts ...attr.Attribute) *node.Node {
+	return node.New("rabbitmq", attr.AssetImage("assets/apps/queue/rabbitmq.png"), attr.Shape(attr.None))
+}
+
+func (c *queueContainer) Zeromq(opts ...attr.Attribute) *node.Node {
+	return node.New("zeromq", attr.AssetImage("assets/apps/queue/zeromq.png"), attr.Shape(attr.None))
+}
+
 func (c *queueContainer) Activemq(opts ...attr.Attribute) *node.Node {
 	return node.New("activemq", attr.AssetImage("assets/apps/queue/activemq.png"), attr.Shape(attr.None))
 }
@@ -22,12 +30,4 @@ func (c *queueContainer) Celery(opts ...attr.Attribute) *node.Node {
 
 func (c *queueContainer) Kafka(opts ...attr.Attribute) *node.Node {
 	return node.New("kafka", attr.AssetImage("assets/apps/queue/kafka.png"), attr.Shape(attr.None))
-}
-
-func (c *queueContainer) Rabbitmq(opts ...attr.Attribute) *node.Node {
-	return node.New("rabbitmq", attr.AssetImage("assets/apps/queue/rabbitmq.png"), attr.Shape(attr.None))
-}
-
-func (c *queueContainer) Zeromq(opts ...attr.Attribute) *node.Node {
-	return node.New("zeromq", attr.AssetImage("assets/apps/queue/zeromq.png"), attr.Shape(attr.None))
 }

@@ -12,10 +12,6 @@ type enterprisesearchContainer struct {
 
 var Enterprisesearch = &enterprisesearchContainer{path: "assets/elastic/enterprisesearch"}
 
-func (c *enterprisesearchContainer) AppSearch(opts ...attr.Attribute) *node.Node {
-	return node.New("app-search", attr.AssetImage("assets/elastic/enterprisesearch/app-search.png"), attr.Shape(attr.None))
-}
-
 func (c *enterprisesearchContainer) EnterpriseSearch(opts ...attr.Attribute) *node.Node {
 	return node.New("enterprise-search", attr.AssetImage("assets/elastic/enterprisesearch/enterprise-search.png"), attr.Shape(attr.None))
 }
@@ -26,4 +22,8 @@ func (c *enterprisesearchContainer) SiteSearch(opts ...attr.Attribute) *node.Nod
 
 func (c *enterprisesearchContainer) WorkplaceSearch(opts ...attr.Attribute) *node.Node {
 	return node.New("workplace-search", attr.AssetImage("assets/elastic/enterprisesearch/workplace-search.png"), attr.Shape(attr.None))
+}
+
+func (c *enterprisesearchContainer) AppSearch(opts ...attr.Attribute) *node.Node {
+	return node.New("app-search", attr.AssetImage("assets/elastic/enterprisesearch/app-search.png"), attr.Shape(attr.None))
 }

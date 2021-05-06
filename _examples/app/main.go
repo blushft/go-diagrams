@@ -3,37 +3,35 @@ package main
 import (
 	"log"
 
+	"github.com/blushft/go-diagrams/attr"
 	"github.com/blushft/go-diagrams/diagram"
 	"github.com/blushft/go-diagrams/nodes/gcp"
 )
 
 func main() {
-	d, err := diagram.New(diagram.Filename("app"), diagram.Label("App"), diagram.Direction("LR"))
-	if err != nil {
-		log.Fatal(err)
-	}
+	d := diagram.New("app", attr.Label("App"), attr.Forward())
 
-	dns := gcp.Network.Dns(diagram.NodeLabel("DNS"))
-	lb := gcp.Network.LoadBalancing(diagram.NodeLabel("NLB"))
-	cache := gcp.Database.Memorystore(diagram.NodeLabel("Cache"))
-	db := gcp.Database.Sql(diagram.NodeLabel("Database"))
+	dns := gcp.Network.Dns(attr.Label("DNS"))
+	lb := gcp.Network.LoadBalancing(attr.Label("NLB"))
+	cache := gcp.Database.Memorystore(attr.Label("Cache"))
+	db := gcp.Database.Sql(attr.Label("Database"))
 
 	dc := diagram.NewGroup("GCP")
-	dc.NewGroup("services").
+	dc.Group("services").
 		Label("Service Layer").
-		Add(
-			gcp.Compute.ComputeEngine(diagram.NodeLabel("Server 1")),
-			gcp.Compute.ComputeEngine(diagram.NodeLabel("Server 2")),
-			gcp.Compute.ComputeEngine(diagram.NodeLabel("Server 3")),
+		AddNodes(
+			gcp.Compute.ComputeEngine(attr.Label("Server 1")),
+			gcp.Compute.ComputeEngine(attr.Label("Server 2")),
+			gcp.Compute.ComputeEngine(attr.Label("Server 3")),
 		).
-		ConnectAllFrom(lb.ID(), diagram.Forward()).
-		ConnectAllTo(cache.ID(), diagram.Forward())
+		ConnectAllFrom(lb, attr.Forward()).
+		ConnectAllTo(cache, attr.Forward())
 
-	dc.NewGroup("data").Label("Data Layer").Add(cache, db).Connect(cache, db)
+	dc.Group("data").Label("Data Layer").AddNodes(cache, db).Connect(cache, db)
 
-	d.Connect(dns, lb, diagram.Forward()).Group(dc)
+	d.Connect(dns, lb, attr.Forward())
 
-	if err := d.Render(); err != nil {
+	if err := diagram.Render(d); err != nil {
 		log.Fatal(err)
 	}
 }

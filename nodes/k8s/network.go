@@ -12,6 +12,10 @@ type networkContainer struct {
 
 var Network = &networkContainer{path: "assets/k8s/network"}
 
+func (c *networkContainer) Svc(opts ...attr.Attribute) *node.Node {
+	return node.New("svc", attr.AssetImage("assets/k8s/network/svc.png"), attr.Shape(attr.None))
+}
+
 func (c *networkContainer) Ep(opts ...attr.Attribute) *node.Node {
 	return node.New("ep", attr.AssetImage("assets/k8s/network/ep.png"), attr.Shape(attr.None))
 }
@@ -22,8 +26,4 @@ func (c *networkContainer) Ing(opts ...attr.Attribute) *node.Node {
 
 func (c *networkContainer) Netpol(opts ...attr.Attribute) *node.Node {
 	return node.New("netpol", attr.AssetImage("assets/k8s/network/netpol.png"), attr.Shape(attr.None))
-}
-
-func (c *networkContainer) Svc(opts ...attr.Attribute) *node.Node {
-	return node.New("svc", attr.AssetImage("assets/k8s/network/svc.png"), attr.Shape(attr.None))
 }

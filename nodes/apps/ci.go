@@ -12,6 +12,18 @@ type ciContainer struct {
 
 var Ci = &ciContainer{path: "assets/apps/ci"}
 
+func (c *ciContainer) Gitlabci(opts ...attr.Attribute) *node.Node {
+	return node.New("gitlabci", attr.AssetImage("assets/apps/ci/gitlabci.png"), attr.Shape(attr.None))
+}
+
+func (c *ciContainer) Jenkins(opts ...attr.Attribute) *node.Node {
+	return node.New("jenkins", attr.AssetImage("assets/apps/ci/jenkins.png"), attr.Shape(attr.None))
+}
+
+func (c *ciContainer) Teamcity(opts ...attr.Attribute) *node.Node {
+	return node.New("teamcity", attr.AssetImage("assets/apps/ci/teamcity.png"), attr.Shape(attr.None))
+}
+
 func (c *ciContainer) Travisci(opts ...attr.Attribute) *node.Node {
 	return node.New("travisci", attr.AssetImage("assets/apps/ci/travisci.png"), attr.Shape(attr.None))
 }
@@ -30,16 +42,4 @@ func (c *ciContainer) Concourseci(opts ...attr.Attribute) *node.Node {
 
 func (c *ciContainer) Droneci(opts ...attr.Attribute) *node.Node {
 	return node.New("droneci", attr.AssetImage("assets/apps/ci/droneci.png"), attr.Shape(attr.None))
-}
-
-func (c *ciContainer) Gitlabci(opts ...attr.Attribute) *node.Node {
-	return node.New("gitlabci", attr.AssetImage("assets/apps/ci/gitlabci.png"), attr.Shape(attr.None))
-}
-
-func (c *ciContainer) Jenkins(opts ...attr.Attribute) *node.Node {
-	return node.New("jenkins", attr.AssetImage("assets/apps/ci/jenkins.png"), attr.Shape(attr.None))
-}
-
-func (c *ciContainer) Teamcity(opts ...attr.Attribute) *node.Node {
-	return node.New("teamcity", attr.AssetImage("assets/apps/ci/teamcity.png"), attr.Shape(attr.None))
 }

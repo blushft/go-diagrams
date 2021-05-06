@@ -12,10 +12,6 @@ type storageContainer struct {
 
 var Storage = &storageContainer{path: "assets/alibabacloud/storage"}
 
-func (c *storageContainer) ObjectStorageService(opts ...attr.Attribute) *node.Node {
-	return node.New("object-storage-service", attr.AssetImage("assets/alibabacloud/storage/object-storage-service.png"), attr.Shape(attr.None))
-}
-
 func (c *storageContainer) ObjectTableStore(opts ...attr.Attribute) *node.Node {
 	return node.New("object-table-store", attr.AssetImage("assets/alibabacloud/storage/object-table-store.png"), attr.Shape(attr.None))
 }
@@ -42,4 +38,8 @@ func (c *storageContainer) HybridCloudDisasterRecovery(opts ...attr.Attribute) *
 
 func (c *storageContainer) Imm(opts ...attr.Attribute) *node.Node {
 	return node.New("imm", attr.AssetImage("assets/alibabacloud/storage/imm.png"), attr.Shape(attr.None))
+}
+
+func (c *storageContainer) ObjectStorageService(opts ...attr.Attribute) *node.Node {
+	return node.New("object-storage-service", attr.AssetImage("assets/alibabacloud/storage/object-storage-service.png"), attr.Shape(attr.None))
 }

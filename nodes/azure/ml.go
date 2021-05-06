@@ -12,6 +12,10 @@ type mlContainer struct {
 
 var Ml = &mlContainer{path: "assets/azure/ml"}
 
+func (c *mlContainer) BotServices(opts ...attr.Attribute) *node.Node {
+	return node.New("bot-services", attr.AssetImage("assets/azure/ml/bot-services.png"), attr.Shape(attr.None))
+}
+
 func (c *mlContainer) CognitiveServices(opts ...attr.Attribute) *node.Node {
 	return node.New("cognitive-services", attr.AssetImage("assets/azure/ml/cognitive-services.png"), attr.Shape(attr.None))
 }
@@ -38,8 +42,4 @@ func (c *mlContainer) MachineLearningStudioWorkspaces(opts ...attr.Attribute) *n
 
 func (c *mlContainer) BatchAi(opts ...attr.Attribute) *node.Node {
 	return node.New("batch-ai", attr.AssetImage("assets/azure/ml/batch-ai.png"), attr.Shape(attr.None))
-}
-
-func (c *mlContainer) BotServices(opts ...attr.Attribute) *node.Node {
-	return node.New("bot-services", attr.AssetImage("assets/azure/ml/bot-services.png"), attr.Shape(attr.None))
 }

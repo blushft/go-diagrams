@@ -8,7 +8,7 @@ func defaultAttributes(attrs ...attr.Attribute) attr.Attributes {
 	return attr.NewAttributes(
 		attr.FontName("Sans Serif"),
 		attr.FontSize(13),
-		attr.Direction(attr.EdgeNone),
+		attr.Direction(attr.DirEdgeNone),
 		attr.WithAttributes(attrs...),
 	)
 }
