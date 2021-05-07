@@ -16,7 +16,8 @@ func main() {
 	cache := gcp.Database.Memorystore(attr.Label("Cache"))
 	db := gcp.Database.Sql(attr.Label("Database"))
 
-	dc := diagram.NewGroup("GCP")
+	dc := d.Group("GCP")
+	dc.AddNodes(dns, lb, cache, db)
 	dc.Group("services").
 		Label("Service Layer").
 		AddNodes(
@@ -31,7 +32,7 @@ func main() {
 
 	d.Connect(dns, lb, attr.Forward())
 
-	if err := diagram.Render(d); err != nil {
+	if err := diagram.Render(d, diagram.OutputPath("./tmp")); err != nil {
 		log.Fatal(err)
 	}
 }
