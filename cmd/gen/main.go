@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"log"
 	"os"
 	"path/filepath"
@@ -107,7 +108,7 @@ func main() {
 
 func genProvider(outroot string, p *provider) error {
 	rootPath := filepath.Join(outroot, p.name)
-	if err := os.MkdirAll(rootPath, os.ModePerm); err != nil {
+	if err := os.MkdirAll(rootPath, os.ModePerm); err != nil && !errors.Is(err, os.ErrExist) {
 		return err
 	}
 
@@ -164,5 +165,9 @@ func genContainer(root, pName, pPath, name string, imgs map[string]string) error
 			).Line()
 	}
 
-	return f.Save(croot + ".go")
+	if err := f.Save(croot + ".go"); err != nil && !errors.Is(err, os.ErrExist) {
+		return err
+	}
+
+	return nil
 }
