@@ -2,7 +2,6 @@ package diagram
 
 import (
 	"errors"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -127,5 +126,5 @@ func (d *Diagram) renderOutput() error {
 func (d *Diagram) saveDot() error {
 	fname := filepath.Join(d.options.Name, d.options.FileName+".dot")
 
-	return ioutil.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
+	return os.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
 }
