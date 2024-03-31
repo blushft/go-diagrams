@@ -2,7 +2,6 @@ package diagram
 
 import (
 	"errors"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strconv"
@@ -61,7 +60,7 @@ func (n *Node) render(parent string, path string, graph *graphviz.Escape) error 
 		}
 
 		outFile := filepath.Join(outDir, filepath.Base(n.Options.Image))
-		if err := ioutil.WriteFile(outFile, img, os.ModePerm); err != nil {
+		if err := os.WriteFile(outFile, img, os.ModePerm); err != nil {
 			return err
 		}
 	}
