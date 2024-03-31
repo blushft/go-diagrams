@@ -12,6 +12,21 @@ var Compute = &computeContainer{
 	path: "assets/k8s/compute",
 }
 
+func (c *computeContainer) Pod(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/pod.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *computeContainer) Rs(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/rs.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *computeContainer) Sts(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/sts.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *computeContainer) Cronjob(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/cronjob.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -29,20 +44,5 @@ func (c *computeContainer) Ds(opts ...diagram.NodeOption) *diagram.Node {
 
 func (c *computeContainer) Job(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/job.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) Pod(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/pod.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) Rs(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/rs.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) Sts(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/compute/sts.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

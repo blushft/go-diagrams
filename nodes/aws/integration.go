@@ -12,6 +12,16 @@ var Integration = &integrationContainer{
 	path: "assets/aws/integration",
 }
 
+func (c *integrationContainer) StepFunctions(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/step-functions.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *integrationContainer) ApplicationIntegration(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/application-integration.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *integrationContainer) Appsync(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/appsync.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -39,15 +49,5 @@ func (c *integrationContainer) SimpleNotificationServiceSns(opts ...diagram.Node
 
 func (c *integrationContainer) SimpleQueueServiceSqs(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/simple-queue-service-sqs.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *integrationContainer) StepFunctions(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/step-functions.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *integrationContainer) ApplicationIntegration(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/integration/application-integration.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

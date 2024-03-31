@@ -12,16 +12,6 @@ var Logging = &loggingContainer{
 	path: "assets/apps/logging",
 }
 
-func (c *loggingContainer) Graylog(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/graylog.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *loggingContainer) Loki(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/loki.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *loggingContainer) Rsyslog(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/rsyslog.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -39,5 +29,15 @@ func (c *loggingContainer) Fluentbit(opts ...diagram.NodeOption) *diagram.Node {
 
 func (c *loggingContainer) Fluentd(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/fluentd.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *loggingContainer) Graylog(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/graylog.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *loggingContainer) Loki(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/logging/loki.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

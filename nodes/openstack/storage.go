@@ -12,6 +12,11 @@ var Storage = &storageContainer{
 	path: "assets/openstack/storage",
 }
 
+func (c *storageContainer) Swift(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/storage/swift.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *storageContainer) Cinder(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/storage/cinder.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -19,10 +24,5 @@ func (c *storageContainer) Cinder(opts ...diagram.NodeOption) *diagram.Node {
 
 func (c *storageContainer) Manila(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/storage/manila.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *storageContainer) Swift(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/storage/swift.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

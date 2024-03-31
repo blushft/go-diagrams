@@ -12,12 +12,12 @@ var Compute = &computeContainer{
 	path: "assets/apps/compute",
 }
 
-func (c *computeContainer) Nomad(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/nomad.png")}, c.opts, opts)
+func (c *computeContainer) Server(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/server.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
-func (c *computeContainer) Server(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/server.png")}, c.opts, opts)
+func (c *computeContainer) Nomad(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/compute/nomad.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

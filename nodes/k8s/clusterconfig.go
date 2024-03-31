@@ -12,11 +12,6 @@ var Clusterconfig = &clusterconfigContainer{
 	path: "assets/k8s/clusterconfig",
 }
 
-func (c *clusterconfigContainer) Hpa(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/hpa.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *clusterconfigContainer) Limits(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/limits.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -24,5 +19,10 @@ func (c *clusterconfigContainer) Limits(opts ...diagram.NodeOption) *diagram.Nod
 
 func (c *clusterconfigContainer) Quota(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/quota.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *clusterconfigContainer) Hpa(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/clusterconfig/hpa.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

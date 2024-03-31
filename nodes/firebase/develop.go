@@ -12,11 +12,6 @@ var Develop = &developContainer{
 	path: "assets/firebase/develop",
 }
 
-func (c *developContainer) Authentication(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/firebase/develop/authentication.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *developContainer) Firestore(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/firebase/develop/firestore.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -44,5 +39,10 @@ func (c *developContainer) RealtimeDatabase(opts ...diagram.NodeOption) *diagram
 
 func (c *developContainer) Storage(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/firebase/develop/storage.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *developContainer) Authentication(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/firebase/develop/authentication.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

@@ -12,6 +12,11 @@ var Compute = &computeContainer{
 	path: "assets/openstack/compute",
 }
 
+func (c *computeContainer) Nova(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/compute/nova.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *computeContainer) Qinling(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/compute/qinling.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -19,10 +24,5 @@ func (c *computeContainer) Qinling(opts ...diagram.NodeOption) *diagram.Node {
 
 func (c *computeContainer) Zun(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/compute/zun.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *computeContainer) Nova(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/compute/nova.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

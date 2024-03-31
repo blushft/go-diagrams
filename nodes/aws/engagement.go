@@ -12,11 +12,6 @@ var Engagement = &engagementContainer{
 	path: "assets/aws/engagement",
 }
 
-func (c *engagementContainer) Connect(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/engagement/connect.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *engagementContainer) Pinpoint(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/engagement/pinpoint.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -24,5 +19,10 @@ func (c *engagementContainer) Pinpoint(opts ...diagram.NodeOption) *diagram.Node
 
 func (c *engagementContainer) SimpleEmailServiceSes(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/engagement/simple-email-service-ses.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *engagementContainer) Connect(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/aws/engagement/connect.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

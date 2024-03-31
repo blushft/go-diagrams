@@ -12,6 +12,21 @@ var Ml = &mlContainer{
 	path: "assets/azure/ml",
 }
 
+func (c *mlContainer) MachineLearningServiceWorkspaces(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-service-workspaces.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *mlContainer) MachineLearningStudioWebServicePlans(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-service-plans.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *mlContainer) MachineLearningStudioWebServices(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-services.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *mlContainer) MachineLearningStudioWorkspaces(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-workspaces.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -34,20 +49,5 @@ func (c *mlContainer) CognitiveServices(opts ...diagram.NodeOption) *diagram.Nod
 
 func (c *mlContainer) GenomicsAccounts(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/genomics-accounts.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mlContainer) MachineLearningServiceWorkspaces(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-service-workspaces.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mlContainer) MachineLearningStudioWebServicePlans(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-service-plans.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *mlContainer) MachineLearningStudioWebServices(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/azure/ml/machine-learning-studio-web-services.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

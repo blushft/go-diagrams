@@ -12,12 +12,12 @@ var Podconfig = &podconfigContainer{
 	path: "assets/k8s/podconfig",
 }
 
-func (c *podconfigContainer) Secret(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/secret.png")}, c.opts, opts)
+func (c *podconfigContainer) Cm(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/cm.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
-func (c *podconfigContainer) Cm(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/cm.png")}, c.opts, opts)
+func (c *podconfigContainer) Secret(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/k8s/podconfig/secret.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

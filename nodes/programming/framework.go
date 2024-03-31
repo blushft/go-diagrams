@@ -12,11 +12,6 @@ var Framework = &frameworkContainer{
 	path: "assets/programming/framework",
 }
 
-func (c *frameworkContainer) Backbone(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/backbone.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *frameworkContainer) Django(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/django.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -27,8 +22,18 @@ func (c *frameworkContainer) Flutter(opts ...diagram.NodeOption) *diagram.Node {
 	return diagram.NewNode(nopts...)
 }
 
+func (c *frameworkContainer) React(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/react.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
 func (c *frameworkContainer) Laravel(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/laravel.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *frameworkContainer) Rails(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/rails.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
@@ -47,22 +52,17 @@ func (c *frameworkContainer) Angular(opts ...diagram.NodeOption) *diagram.Node {
 	return diagram.NewNode(nopts...)
 }
 
-func (c *frameworkContainer) Flask(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/flask.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *frameworkContainer) Rails(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/rails.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *frameworkContainer) React(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/react.png")}, c.opts, opts)
+func (c *frameworkContainer) Backbone(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/backbone.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
 func (c *frameworkContainer) Ember(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/ember.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *frameworkContainer) Flask(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/programming/framework/flask.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

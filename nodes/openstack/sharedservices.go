@@ -12,11 +12,6 @@ var Sharedservices = &sharedservicesContainer{
 	path: "assets/openstack/sharedservices",
 }
 
-func (c *sharedservicesContainer) Barbican(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/barbican.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *sharedservicesContainer) Glance(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/glance.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -34,5 +29,10 @@ func (c *sharedservicesContainer) Keystone(opts ...diagram.NodeOption) *diagram.
 
 func (c *sharedservicesContainer) Searchlight(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/searchlight.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *sharedservicesContainer) Barbican(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/openstack/sharedservices/barbican.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }

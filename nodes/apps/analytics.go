@@ -12,8 +12,8 @@ var Analytics = &analyticsContainer{
 	path: "assets/apps/analytics",
 }
 
-func (c *analyticsContainer) Dbt(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/dbt.png")}, c.opts, opts)
+func (c *analyticsContainer) Flink(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/flink.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
@@ -22,23 +22,8 @@ func (c *analyticsContainer) Hadoop(opts ...diagram.NodeOption) *diagram.Node {
 	return diagram.NewNode(nopts...)
 }
 
-func (c *analyticsContainer) Hive(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/hive.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *analyticsContainer) Metabase(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/metabase.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *analyticsContainer) Tableau(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/tableau.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
-func (c *analyticsContainer) Spark(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/spark.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
 
@@ -57,11 +42,6 @@ func (c *analyticsContainer) Databricks(opts ...diagram.NodeOption) *diagram.Nod
 	return diagram.NewNode(nopts...)
 }
 
-func (c *analyticsContainer) Flink(opts ...diagram.NodeOption) *diagram.Node {
-	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/flink.png")}, c.opts, opts)
-	return diagram.NewNode(nopts...)
-}
-
 func (c *analyticsContainer) Norikra(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/norikra.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
@@ -69,5 +49,25 @@ func (c *analyticsContainer) Norikra(opts ...diagram.NodeOption) *diagram.Node {
 
 func (c *analyticsContainer) Singer(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/singer.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *analyticsContainer) Spark(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/spark.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *analyticsContainer) Tableau(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/tableau.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *analyticsContainer) Dbt(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/dbt.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
+
+func (c *analyticsContainer) Hive(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/analytics/hive.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
