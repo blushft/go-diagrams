@@ -1,6 +1,7 @@
 package diagram
 
 import (
+	"errors"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -49,7 +50,13 @@ func (n *Node) render(parent string, path string, graph *graphviz.Escape) error 
 		}
 
 		outDir := filepath.Join(path, filepath.Dir(n.Options.Image))
-		if err := os.MkdirAll(outDir, os.ModePerm); err != nil {
+
+		err = os.MkdirAll(outDir, os.ModePerm)
+		if errors.Is(err, os.ErrExist) {
+			return nil
+		}
+
+		if err != nil {
 			return err
 		}
 
