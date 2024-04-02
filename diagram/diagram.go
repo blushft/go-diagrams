@@ -33,10 +33,10 @@ func New(opts ...Option) (*Diagram, error) {
 		}
 	}
 
-	return new(g, options), nil
+	return newDiagram(g, options), nil
 }
 
-func new(g *graphviz.Escape, options Options) *Diagram {
+func newDiagram(g *graphviz.Escape, options Options) *Diagram {
 	return &Diagram{
 		g:       g,
 		options: options,
@@ -58,11 +58,13 @@ func (d *Diagram) Groups() []*Group {
 
 func (d *Diagram) Add(ns ...*Node) *Diagram {
 	d.root.Add(ns...)
+
 	return d
 }
 
 func (d *Diagram) Connect(start, end *Node, opts ...EdgeOption) *Diagram {
 	d.Add(start, end)
+
 	return d.ConnectByID(start.ID(), end.ID(), opts...)
 }
 
@@ -87,7 +89,8 @@ func (d *Diagram) Render() error {
 
 func (d *Diagram) render() error {
 	outdir := d.options.Name
-	if err := os.Mkdir(outdir, os.ModePerm); err != nil && !errors.Is(err, os.ErrExist) {
+
+	if err := os.MkdirAll(outdir, os.ModePerm); err != nil && !errors.Is(err, os.ErrExist) {
 		return err
 	}
 
@@ -124,7 +127,9 @@ func (d *Diagram) renderOutput() error {
 }
 
 func (d *Diagram) saveDot() error {
-	fname := filepath.Join(d.options.Name, d.options.FileName+".dot")
-
-	return os.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
+	return os.WriteFile(
+		filepath.Join(d.options.Name, d.options.FileName+".dot"),
+		[]byte(d.g.String()),
+		os.ModePerm,
+	)
 }

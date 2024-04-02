@@ -66,6 +66,12 @@ func DefaultOptions(opts ...Option) Options {
 	return options
 }
 
+func BaseDir(dir string) Option {
+	return func(o *Options) {
+		o.Name = dir
+	}
+}
+
 func Filename(f string) Option {
 	return func(o *Options) {
 		o.FileName = f
