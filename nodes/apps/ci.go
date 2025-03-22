@@ -56,3 +56,8 @@ func (c *ciContainer) Screwdrivercd(opts ...diagram.NodeOption) *diagram.Node {
 	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/screwdrivercd.png")}, c.opts, opts)
 	return diagram.NewNode(nopts...)
 }
+
+func (c *ciContainer) Bitbucket(opts ...diagram.NodeOption) *diagram.Node {
+	nopts := diagram.MergeOptionSets(diagram.OptionSet{diagram.Icon("assets/apps/ci/bitbucket.png")}, c.opts, opts)
+	return diagram.NewNode(nopts...)
+}
