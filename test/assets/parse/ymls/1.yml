@@ -1,0 +1,38 @@
+label: App
+direction: LTR
+nodes:
+- name: GCP
+  type: Group
+  nodes:
+  - name: dns
+    label: DNS
+    type: gcp.Network.DNS
+    connectTo: 
+    - load-balancer
+
+  - name: services
+    label: Service Layer
+    type: Group
+    nodes:
+    - label: "Server 1"
+    - label: "Server 2"
+    - label: "Server 3"
+    connectAllFrom:
+    - load-balancer
+    connectAllTo:
+    - cache
+
+  - name: data
+    label: Data Layer
+    nodes:
+    - name: cache
+      label: "Cache"
+      type: gcp.Database.Memorystore
+      connectTo:
+      - db
+
+    - name: db
+      label: "Database"
+      type: gcp.Database.Sql
+
+

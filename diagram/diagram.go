@@ -2,11 +2,10 @@ package diagram
 
 import (
 	"errors"
+	graphviz "github.com/awalterschulze/gographviz"
 	"io/ioutil"
 	"os"
 	"path/filepath"
-
-	graphviz "github.com/awalterschulze/gographviz"
 )
 
 type Connector interface {
@@ -16,9 +15,7 @@ type Connector interface {
 
 type Diagram struct {
 	options Options
-
 	g *graphviz.Escape
-
 	root *Group
 }
 
@@ -82,6 +79,10 @@ func (d *Diagram) Close() error {
 	return nil
 }
 
+func (d *Diagram) Parse(file *os.File) error {
+	return d.parse(file)
+}
+
 func (d *Diagram) Render() error {
 	return d.render()
 }
@@ -126,6 +127,63 @@ func (d *Diagram) renderOutput() error {
 
 func (d *Diagram) saveDot() error {
 	fname := filepath.Join(d.options.Name, d.options.FileName+".dot")
+	return ioutil.WriteFile(fname, []byte(d.g.String()), 0644)
+}
 
-	return ioutil.WriteFile(fname, []byte(d.g.String()), os.ModePerm)
+func (d *Diagram) interpretYML(yml *DiagramData) error {
+	if yml.Label != "" {
+		d.options.Label = yml.Label
+	}
+
+	if yml.Direction != "" {
+		d.options.Direction = yml.Direction
+	}
+
+	for _, v := range yml.Nodes {
+		parsedNode := d.parseNode(v)
+		switch parsedNode.(type) {
+		case *Node:
+			d.Add(parsedNode.(*Node))
+		case *Group:
+			d.Group(parsedNode.(*Group))
+		}
+	}
+
+	return nil
+}
+
+func (d *Diagram) parseNode(v NodeData) interface{} {
+	switch v.Type {
+	case "Group":
+		groupNode := NewGroup(v.Name)
+		if v.Label != "" {
+			groupNode.Label(v.Label)
+		}
+
+		if v.BackgroundColor != "" {
+			groupNode.BackgroundColor(v.BackgroundColor)
+		}
+
+		for _, child := range v.Nodes {
+			parsedNode := d.parseNode(child)
+			switch parsedNode.(type) {
+			case *Node:
+				groupNode.Add(parsedNode.(*Node))
+			case *Group:
+				groupNode.Group(parsedNode.(*Group))
+			}
+		}
+		return groupNode
+	/*case "gcp.Network.DNS":
+		// TODO: find a better way to do the mapping
+		node := gcp.Network.Dns()
+		if v.Label != "" {
+			node.Label(v.Label)
+		}
+		return node*/
+	default:
+		panic("unimplemented " + v.Type)
+	}
+
+	return nil
 }
